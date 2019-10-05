@@ -1,0 +1,2143 @@
+INFO:root:OPENING FILE...
+DEBUG:matplotlib:$HOME=C:\Users\Robert
+DEBUG:matplotlib:matplotlib data path C:\Users\Robert\Anaconda3\lib\site-packages\matplotlib\mpl-data
+DEBUG:matplotlib:loaded rc file C:\Users\Robert\Anaconda3\lib\site-packages\matplotlib\mpl-data\matplotlibrc
+DEBUG:matplotlib:matplotlib version 2.2.3
+DEBUG:matplotlib:interactive is False
+DEBUG:matplotlib:platform is win32
+DEBUG:matplotlib:loaded modules: ['sys', 'builtins', '_frozen_importlib', '_imp', '_thread', '_warnings', '_weakref', 'zipimport', '_frozen_importlib_external', '_io', 'marshal', 'nt', 'winreg', 'encodings', 'codecs', '_codecs', 'encodings.aliases', 'encodings.utf_8', '_signal', '__main__', 'encodings.latin_1', 'io', 'abc', '_abc', 'site', 'os', 'stat', '_stat', 'ntpath', 'genericpath', 'os.path', '_collections_abc', '_sitebuiltins', '_bootlocale', '_locale', 'encodings.cp1252', 'types', 'importlib', 'importlib._bootstrap', 'importlib._bootstrap_external', 'warnings', 'importlib.util', 'importlib.abc', 'importlib.machinery', 'contextlib', 'collections', 'operator', '_operator', 'keyword', 'heapq', '_heapq', 'itertools', 'reprlib', '_collections', 'functools', '_functools', 'mpl_toolkits', 'google', 'sphinxcontrib', 'zope', 'logging', 'time', 'traceback', 'linecache', 'tokenize', 're', 'enum', 'sre_compile', '_sre', 'sre_parse', 'sre_constants', 'copyreg', 'token', 'weakref', '_weakrefset', 'collections.abc', 'string', '_string', 'threading', 'atexit', 'pandas', 'numpy', '__future__', 'numpy._globals', 'numpy.__config__', 'numpy.version', 'numpy._distributor_init', 'ctypes', '_ctypes', 'struct', '_struct', 'ctypes._endian', 'glob', 'fnmatch', 'posixpath', 'numpy.core', 'numpy.core.info', 'numpy.core.multiarray', 'numpy.core.overrides', 'textwrap', 'datetime', 'math', '_datetime', 'numpy.core._multiarray_umath', 'numpy.compat', 'numpy.compat._inspect', 'numpy.compat.py3k', 'pathlib', 'errno', 'urllib', 'urllib.parse', 'pickle', '_compat_pickle', '_pickle', 'numpy.core.umath', 'numpy.core.numerictypes', 'numbers', 'numpy.core._string_helpers', 'numpy.core._type_aliases', 'numpy.core._dtype', 'numpy.core.numeric', 'numpy.core._exceptions', 'numpy.core._asarray', 'numpy.core._ufunc_config', 'numpy.core.fromnumeric', 'numpy.core._methods', 'numpy.core.arrayprint', 'numpy.core.defchararray', 'numpy.core.records', 'numpy.core.memmap', 'numpy.core.function_base', 'numpy.core.machar', 'numpy.core.getlimits', 'numpy.core.shape_base', 'numpy.core.einsumfunc', 'numpy.core._add_newdocs', 'numpy.core._multiarray_tests', 'numpy.core._dtype_ctypes', 'numpy.core._internal', 'platform', 'subprocess', 'signal', 'msvcrt', '_winapi', 'numpy._pytesttester', 'numpy.lib', 'numpy.lib.info', 'numpy.lib.type_check', 'numpy.lib.ufunclike', 'numpy.lib.index_tricks', 'numpy.matrixlib', 'numpy.matrixlib.defmatrix', 'ast', '_ast', 'numpy.linalg', 'numpy.linalg.info', 'numpy.linalg.linalg', 'numpy.lib.twodim_base', 'numpy.linalg.lapack_lite', 'numpy.linalg._umath_linalg', 'numpy.lib.function_base', 'numpy.lib.histograms', 'numpy.lib.stride_tricks', 'numpy.lib.mixins', 'numpy.lib.nanfunctions', 'numpy.lib.shape_base', 'numpy.lib.scimath', 'numpy.lib.polynomial', 'numpy.lib.utils', 'numpy.lib.arraysetops', 'numpy.lib.npyio', 'numpy.lib.format', 'numpy.lib._datasource', 'shutil', 'zlib', 'bz2', '_compression', '_bz2', 'lzma', '_lzma', 'numpy.lib._iotools', 'numpy.lib.financial', 'decimal', '_decimal', 'numpy.lib.arrayterator', 'numpy.lib.arraypad', 'numpy.lib._version', 'numpy.fft', 'numpy.fft.info', 'numpy.fft.pocketfft', 'numpy.fft.pocketfft_internal', 'numpy.fft.helper', 'numpy.polynomial', 'numpy.polynomial.polynomial', 'numpy.polynomial.polyutils', 'numpy.polynomial._polybase', 'numpy.polynomial.chebyshev', 'numpy.polynomial.legendre', 'numpy.polynomial.hermite', 'numpy.polynomial.hermite_e', 'numpy.polynomial.laguerre', 'numpy.random', 'numpy.random.mtrand', 'cython_runtime', 'numpy.random.common', 'numpy.random.bounded_integers', 'numpy.random.mt19937', 'numpy.random.bit_generator', '_cython_0_29_13', 'secrets', 'base64', 'binascii', 'hmac', '_hashlib', 'hashlib', '_blake2', '_sha3', 'random', 'bisect', '_bisect', '_random', 'numpy.random.entropy', 'numpy.random.generator', 'numpy.random.pcg64', 'numpy.random.philox', 'numpy.random.sfc64', 'numpy.ctypeslib', 'numpy.ma', 'numpy.ma.core', 'numpy.ma.extras', 'numpy.testing', 'unittest', 'unittest.result', 'unittest.util', 'unittest.case', 'difflib', 'pprint', 'unittest.suite', 'unittest.loader', 'unittest.main', 'argparse', 'gettext', 'locale', 'unittest.runner', 'unittest.signals', 'numpy.testing._private', 'numpy.testing._private.utils', 'gc', 'tempfile', 'numpy.testing._private.decorators', 'numpy.testing._private.nosetester', 'pytz', 'pytz.exceptions', 'pytz.lazy', 'pytz.tzinfo', 'pytz.tzfile', 'dateutil', 'dateutil._version', 'pandas.compat', 'pandas.compat.numpy', 'distutils', 'distutils.version', 'pandas._libs', 'pandas._libs.tslibs', 'pandas._libs.tslibs.conversion', 'pandas._libs.tslibs.c_timestamp', 'pandas._libs.tslibs.nattype', '_cython_0_29_12', 'pandas._libs.tslibs.np_datetime', 'pandas._libs.tslibs.timezones', 'dateutil.tz', 'dateutil.tz.tz', 'six', 'six.moves', 'dateutil.tz._common', 'dateutil.tz._factories', 'dateutil.tz.win', 'ctypes.wintypes', 'pandas._libs.tslibs.tzconversion', 'pandas._libs.tslibs.timedeltas', 'pandas._libs.tslibs.offsets', 'pandas._libs.tslibs.ccalendar', 'pandas._config', 'pandas._config.config', 'typing', 'typing.io', 'typing.re', 'pandas._config.dates', 'pandas._config.display', 'pandas._config.localization', 'pandas._libs.tslibs.strptime', 'calendar', 'dateutil.relativedelta', 'dateutil._common', 'pandas._libs.tslibs.fields', 'pandas._libs.tslibs.parsing', 'dateutil.parser', 'dateutil.parser._parser', 'dateutil.parser.isoparser', 'pandas._libs.tslibs.period', 'pandas._libs.tslibs.frequencies', 'pandas._libs.tslibs.timestamps', 'pandas._libs.tslibs.resolution', 'pandas._libs.hashtable', 'pandas._libs.missing', 'pandas._libs.lib', 'fractions', 'pandas._libs.tslib', 'pandas.core', 'pandas.core.config_init', 'pandas.core.api', 'pandas.core.arrays', 'pandas.core.arrays.array_', 'pandas.core.dtypes', 'pandas.core.dtypes.common', 'pandas._libs.algos', 'pandas.core.dtypes.dtypes', 'pandas._libs.interval', 'pandas.core.dtypes.generic', 'pandas.core.dtypes.base', 'pandas.errors', 'pandas.core.dtypes.inference', 'pandas._typing', 'pandas.core.arrays.base', 'pandas.compat.numpy.function', 'pandas.util', 'pandas.util._decorators', 'inspect', 'dis', 'opcode', '_opcode', 'pandas._libs.properties', 'pandas.core.util', 'pandas.core.util.hashing', 'pandas._libs.hashing', 'pandas.core.dtypes.cast', 'pandas.core.dtypes.missing', 'pandas.util._validators', 'pandas.core.ops', 'pandas._libs.ops', 'pandas.core.common', 'pandas.core.ops.missing', 'pandas.core.ops.roperator', 'pandas.core.ops.docstrings', 'pandas.core.sorting', 'pandas.core.algorithms', 'pandas.core.indexers', 'pandas.core.arrays.categorical', 'pandas.core.accessor', 'pandas.core.base', 'pandas.core.nanops', 'pandas.compat._optional', 'bottleneck', 'bottleneck.reduce', 'bottleneck.nonreduce', 'bottleneck.nonreduce_axis', 'bottleneck.move', 'bottleneck.slow', 'bottleneck.slow.reduce', 'bottleneck.slow.nonreduce', 'bottleneck.slow.nonreduce_axis', 'bottleneck.slow.move', 'bottleneck.version', 'bottleneck.benchmark', 'bottleneck.benchmark.bench', 'bottleneck.benchmark.autotimeit', 'timeit', 'bottleneck.benchmark.bench_detailed', 'bottleneck.tests', 'bottleneck.tests.util', 'pandas.core.missing', 'pandas.io', 'pandas.io.formats', 'pandas.io.formats.console', 'pandas.core.arrays.datetimes', 'pandas.core.arrays.datetimelike', 'pandas.tseries', 'pandas.tseries.frequencies', 'pandas.tseries.offsets', 'dateutil.easter', 'pandas.core.tools', 'pandas.core.tools.datetimes', 'pandas.core.arrays._ranges', 'pandas.core.arrays.integer', 'pandas.core.tools.numeric', 'pandas.core.arrays.interval', 'pandas.core.indexes', 'pandas.core.indexes.base', 'pandas._libs.index', 'pandas._libs.join', 'pandas.core.dtypes.concat', 'pandas.core.indexes.frozen', 'pandas.io.formats.printing', 'pandas.core.strings', 'pandas.core.arrays.numpy_', 'pandas.core.arrays.period', 'pandas.core.arrays.sparse', 'pandas._libs.sparse', 'pandas.core.arrays.timedeltas', 'pandas.core.groupby', 'pandas.core.groupby.generic', 'copy', 'pandas.core.frame', 'pandas.core.generic', 'json', 'json.decoder', 'json.scanner', '_json', 'json.encoder', 'pandas.core.index', 'pandas.core.indexes.api', 'pandas.core.indexes.category', 'pandas.core.indexes.datetimes', 'pandas.core.indexes.datetimelike', 'pandas.core.tools.timedeltas', 'pandas.core.indexes.numeric', 'pandas.core.indexes.interval', 'pandas.util._exceptions', 'pandas.core.indexes.multi', 'pandas.core.indexes.timedeltas', 'pandas.core.indexes.period', 'pandas.core.indexes.range', 'pandas.core.indexing', 'pandas._libs.indexing', 'pandas.core.internals', 'pandas.core.internals.blocks', 'pandas._libs.internals', 'pandas.core.internals.arrays', 'pandas.core.internals.managers', 'pandas.core.internals.concat', 'pandas.io.formats.format', 'unicodedata', 'pandas.io.common', 'csv', '_csv', 'gzip', 'http', 'http.client', 'email', 'email.parser', 'email.feedparser', 'email.errors', 'email._policybase', 'email.header', 'email.quoprimime', 'email.base64mime', 'email.charset', 'email.encoders', 'quopri', 'email.utils', 'socket', '_socket', 'selectors', 'select', 'email._parseaddr', 'email.message', 'uu', 'email._encoded_words', 'email.iterators', 'ssl', '_ssl', 'mmap', 'urllib.error', 'urllib.response', 'urllib.request', 'nturl2path', 'zipfile', 'pandas.core.internals.construction', 'pandas.core.series', 'pandas._libs.reshape', 'pandas.core.indexes.accessors', 'pandas.plotting', 'pandas.plotting._core', 'pandas.plotting._matplotlib', 'pandas.plotting._matplotlib.boxplot', 'matplotlib', 'matplotlib.cbook', 'matplotlib.cbook.deprecation', 'matplotlib.cbook._backports', 'matplotlib.compat', 'matplotlib.compat.subprocess', 'matplotlib.rcsetup', 'matplotlib.testing', 'matplotlib.fontconfig_pattern', 'pyparsing', 'matplotlib.colors', 'matplotlib._color_data', 'cycler', 'six.moves.urllib', 'six.moves.urllib.request', 'matplotlib._version']
+INFO:root:Libraries loaded
+INFO:root:Reading in weekly prices file...
+INFO:root:Successfully read in data
+INFO:root:
+EXAMPLE OF data_df -> 
+   change  close       date  ema12  ema26    high  index    low  macd  macd_line   open  signal ticker      volume
+0   -30.0  965.0 2007-12-31    NaN    NaN  1023.0      0  964.0   NaN        NaN  995.0     NaN    III   4511565.0
+1   -43.5  924.0 2008-01-07    NaN    NaN   989.0      1  917.5   NaN        NaN  967.5     NaN    III  16056554.0
+2   -16.0  901.0 2008-01-14    NaN    NaN   936.0      2  881.0   NaN        NaN  917.0     NaN    III  21691287.0
+3    26.5  917.5 2008-01-21    NaN    NaN   965.0      3  847.0   NaN        NaN  891.0     NaN    III  17850580.0
+4    50.0  961.0 2008-01-28    NaN    NaN   971.0      4  903.0   NaN        NaN  911.0     NaN    III  12079245.0
+INFO:root:
+UNIQUE TICKERS -> 
+['III', 'ADM', 'AAL', 'ANTO', 'AHT', 'ABF', 'AZN', 'AUTO', 'AVV', 'AV', 'BA', 'BARC', 'BDEV', 'BKG', 'BHP', 'BP', 'BATS', 'BLND', 'BT-A', 'BNZL', 'BRBY', 'CCL', 'CNA', 'CCH', 'CPG', 'CRH', 'CRDA', 'DCC', 'DGE', 'DLG', 'EVR', 'EXPN', 'FERG', 'FLTR', 'FRES', 'GSK', 'GLEN', 'HLMA', 'HL', 'HSX', 'HSBA', 'IMB', 'INF', 'IHG', 'IAG', 'ITRK', 'ITV', 'JD', 'JMAT', 'JE', 'KGF', 'LAND', 'LGEN', 'LLOY', 'LSE', 'MKS', 'MRO', 'MCRO', 'MNDI', 'MRW', 'NG', 'NXT', 'NMC', 'OCDO', 'PSON', 'PSN', 'PHNX', 'PRU', 'RB', 'REL', 'RTO', 'RIO', 'RMV', 'RR', 'RBS', 'RDSA', 'RSA', 'SGE', 'SBRY', 'SDR', 'SMT', 'SGRO', 'SVT', 'SN', 'SMDS', 'SMIN', 'SKG', 'SPX', 'SSE', 'STAN', 'SLA', 'STJ', 'TW', 'TSCO', 'TUI', 'ULVR', 'UU', 'VOD', 'WTB', 'WPP', '3IN', 'FOUR', 'ASL', 'AGK', 'ATST', 'AMGO', 'APAX', 'ASCL', 'ASHM', 'AGR', 'AML', 'AVST', 'AGT', 'BAB', 'BGFD', 'BAKK', 'BBY', 'BNKR', 'BAG', 'BBA', 'BBGI', 'BCA', 'BGEO', 'BEZ', 'AJB', 'BWY', 'BYG', 'BME', 'BRSC', 'BGSC', 'BOY', 'BVS', 'BTEM', 'BVIC', 'CNE', 'CLDN', 'CAPC', 'CPI', 'CARD', 'CEY', 'CCFS', 'CINE', 'CTY', 'CKN', 'CBG', 'CLI', 'COA', 'COB', 'CCC', 'GLO', 'CTEC', 'CSP', 'CWK', 'CRST', 'CYBG', 'DJAN', 'DPH', 'DLN', 'DPLM', 'DC', 'DOM', 'DRX', 'DNLM', 'EZJ', 'EDIN', 'EIG', 'ECM', 'ELM', 'ENOG', 'ETO', 'EQN', 'ESNT', 'ERM', 'FCPT', 'FDM', 'FXPO', 'FCSS', 'FEV', 'FSV', 'FGT', 'FGP', 'FSJ', 'FRCL', 'FCH', 'FUTR', 'GFS', 'GFRD', 'GAW', 'GCP', 'DIGS', 'GSS', 'GNS', 'GOG', 'GPOR', 'GFTU', 'GRI', 'UKW', 'GNC', 'GNK', 'GRG', 'GVC', 'HMSO', 'HVPE', 'HSTG', 'HAS', 'HRI', 'HGT', 'HICL', 'HIK', 'HILS', 'HFG', 'HOC', 'HSV', 'HWDN', 'HTG', 'IBST', 'IGG', 'IMI', 'INCH', 'ISAT', 'ICP', 'IHP', 'INPP', 'INTU', 'INVP', 'IPO', 'IWG', 'JLG', 'JII', 'JAM', 'JMG', 'JFJ', 'JEO', 'JUP', 'KNOS', 'KAZ', 'LRE', 'LWDB', 'LMP', 'EMG', 'MSLH', 'MARS', 'MCS', 'MDC', 'MGGT', 'MRC', 'MERL', 'MTRO', 'MAB', 'MONY', 'MNKS', 'MGAM', 'MYI', 'NEX', 'NBLS', 'NETW', 'NRR', 'NESF', 'OTB', 'OXIG', 'PAGE', 'PIN', 'PAG', 'PAY', 'PNN', 'PLI', 'PSH', 'PNL', 'PFC', 'PETS', 'PTEC', 'PLUS', 'PCT', 'POLY', 'PLP', 'PPH', 'PMO', 'PHP', 'PFG', 'PRTC', 'PZC', 'QQ', 'QLT', 'RNK', 'RAT', 'RDW', 'TRIG', 'RSW', 'RTN', 'RHIM', 'RCP', 'RSE', 'ROR', 'RMG', 'SBRE', 'SAFE', 'SNN', 'SVS', 'SDP', 'SOI', 'SCIN', 'SNR', 'SEQI', 'SRP', 'SHB', 'SHI', 'SXX', 'SSON', 'SCT', 'SOPH', 'SXS', 'SPT', 'SPD', 'SSPG', 'SMP', 'SGC', 'SYNC', 'SYNT', 'TALK', 'TATE', 'TBCG', 'TED', 'TEP', 'TMPL', 'TEM', 'TIFS', 'TCAP', 'TRY', 'TPK', 'BBOX', 'TLW', 'UDG', 'UKCM', 'ULE', 'UTG', 'VSVS', 'VCT', 'VEIL', 'VOF', 'VVO', 'WEIR', 'JDW', 'SMWH', 'WMH', 'WTAN', 'WIZZ', 'WPCT', 'WG', 'WKP', 'WWH']
+INFO:root:TICKER ID FOR III ESTABLISHED AS -> 3
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ADM ESTABLISHED AS -> 4
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AAL ESTABLISHED AS -> 5
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ANTO ESTABLISHED AS -> 6
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AHT ESTABLISHED AS -> 7
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ABF ESTABLISHED AS -> 8
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AZN ESTABLISHED AS -> 9
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AUTO ESTABLISHED AS -> 10
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AVV ESTABLISHED AS -> 11
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AV ESTABLISHED AS -> 12
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BA ESTABLISHED AS -> 13
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BARC ESTABLISHED AS -> 14
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BDEV ESTABLISHED AS -> 15
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BKG ESTABLISHED AS -> 16
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BHP ESTABLISHED AS -> 17
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BP ESTABLISHED AS -> 18
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BATS ESTABLISHED AS -> 19
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BLND ESTABLISHED AS -> 20
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BT-A ESTABLISHED AS -> 21
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BNZL ESTABLISHED AS -> 22
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BRBY ESTABLISHED AS -> 23
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCL ESTABLISHED AS -> 24
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CNA ESTABLISHED AS -> 25
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCH ESTABLISHED AS -> 26
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CPG ESTABLISHED AS -> 27
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRH ESTABLISHED AS -> 28
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRDA ESTABLISHED AS -> 29
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DCC ESTABLISHED AS -> 30
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DGE ESTABLISHED AS -> 31
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DLG ESTABLISHED AS -> 32
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EVR ESTABLISHED AS -> 33
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EXPN ESTABLISHED AS -> 34
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FERG ESTABLISHED AS -> 35
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FLTR ESTABLISHED AS -> 36
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FRES ESTABLISHED AS -> 37
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GSK ESTABLISHED AS -> 38
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GLEN ESTABLISHED AS -> 39
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HLMA ESTABLISHED AS -> 40
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HL ESTABLISHED AS -> 41
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSX ESTABLISHED AS -> 42
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSBA ESTABLISHED AS -> 43
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IMB ESTABLISHED AS -> 44
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INF ESTABLISHED AS -> 45
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IHG ESTABLISHED AS -> 46
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IAG ESTABLISHED AS -> 47
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ITRK ESTABLISHED AS -> 48
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ITV ESTABLISHED AS -> 49
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JD ESTABLISHED AS -> 50
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JMAT ESTABLISHED AS -> 51
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JE ESTABLISHED AS -> 52
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KGF ESTABLISHED AS -> 53
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LAND ESTABLISHED AS -> 54
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LGEN ESTABLISHED AS -> 55
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LLOY ESTABLISHED AS -> 56
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LSE ESTABLISHED AS -> 57
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MKS ESTABLISHED AS -> 58
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRO ESTABLISHED AS -> 59
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MCRO ESTABLISHED AS -> 60
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MNDI ESTABLISHED AS -> 61
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRW ESTABLISHED AS -> 62
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NG ESTABLISHED AS -> 63
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NXT ESTABLISHED AS -> 64
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NMC ESTABLISHED AS -> 65
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OCDO ESTABLISHED AS -> 66
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSON ESTABLISHED AS -> 67
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSN ESTABLISHED AS -> 68
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PHNX ESTABLISHED AS -> 69
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PRU ESTABLISHED AS -> 70
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RB ESTABLISHED AS -> 71
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR REL ESTABLISHED AS -> 72
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RTO ESTABLISHED AS -> 73
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RIO ESTABLISHED AS -> 74
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RMV ESTABLISHED AS -> 75
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RR ESTABLISHED AS -> 76
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RBS ESTABLISHED AS -> 77
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RDSA ESTABLISHED AS -> 78
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSA ESTABLISHED AS -> 79
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGE ESTABLISHED AS -> 80
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SBRY ESTABLISHED AS -> 350
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SDR ESTABLISHED AS -> 81
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMT ESTABLISHED AS -> 82
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGRO ESTABLISHED AS -> 83
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SVT ESTABLISHED AS -> 84
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SN ESTABLISHED AS -> 85
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMDS ESTABLISHED AS -> 86
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMIN ESTABLISHED AS -> 87
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SKG ESTABLISHED AS -> 88
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPX ESTABLISHED AS -> 89
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSE ESTABLISHED AS -> 90
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR STAN ESTABLISHED AS -> 91
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SLA ESTABLISHED AS -> 92
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR STJ ESTABLISHED AS -> 93
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TW ESTABLISHED AS -> 94
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TSCO ESTABLISHED AS -> 95
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TUI ESTABLISHED AS -> 96
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ULVR ESTABLISHED AS -> 97
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UU ESTABLISHED AS -> 98
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VOD ESTABLISHED AS -> 99
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WTB ESTABLISHED AS -> 100
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WPP ESTABLISHED AS -> 101
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR 3IN ESTABLISHED AS -> 102
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FOUR ESTABLISHED AS -> 103
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASL ESTABLISHED AS -> 104
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGK ESTABLISHED AS -> 106
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ATST ESTABLISHED AS -> 107
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AMGO ESTABLISHED AS -> 108
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR APAX ESTABLISHED AS -> 109
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASCL ESTABLISHED AS -> 110
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASHM ESTABLISHED AS -> 111
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGR ESTABLISHED AS -> 112
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AML ESTABLISHED AS -> 113
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AVST ESTABLISHED AS -> 114
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGT ESTABLISHED AS -> 115
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAB ESTABLISHED AS -> 116
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGFD ESTABLISHED AS -> 117
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAKK ESTABLISHED AS -> 118
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBY ESTABLISHED AS -> 119
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BNKR ESTABLISHED AS -> 120
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAG ESTABLISHED AS -> 121
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBA ESTABLISHED AS -> 122
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBGI ESTABLISHED AS -> 123
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BCA ESTABLISHED AS -> 124
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGEO ESTABLISHED AS -> 125
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BEZ ESTABLISHED AS -> 126
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AJB ESTABLISHED AS -> 127
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BWY ESTABLISHED AS -> 128
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BYG ESTABLISHED AS -> 129
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BME ESTABLISHED AS -> 130
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BRSC ESTABLISHED AS -> 131
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGSC ESTABLISHED AS -> 132
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BOY ESTABLISHED AS -> 133
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BVS ESTABLISHED AS -> 134
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BTEM ESTABLISHED AS -> 135
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-06-24 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BVIC ESTABLISHED AS -> 136
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CNE ESTABLISHED AS -> 138
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CLDN ESTABLISHED AS -> 139
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CAPC ESTABLISHED AS -> 140
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CPI ESTABLISHED AS -> 141
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CARD ESTABLISHED AS -> 142
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CEY ESTABLISHED AS -> 143
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCFS ESTABLISHED AS -> 144
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CINE ESTABLISHED AS -> 145
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CTY ESTABLISHED AS -> 146
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CKN ESTABLISHED AS -> 147
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CBG ESTABLISHED AS -> 148
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CLI ESTABLISHED AS -> 149
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR COA ESTABLISHED AS -> 150
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR COB ESTABLISHED AS -> 151
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCC ESTABLISHED AS -> 152
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GLO ESTABLISHED AS -> 153
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CTEC ESTABLISHED AS -> 154
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CSP ESTABLISHED AS -> 155
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CWK ESTABLISHED AS -> 156
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRST ESTABLISHED AS -> 157
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CYBG ESTABLISHED AS -> 158
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DJAN ESTABLISHED AS -> 159
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DPH ESTABLISHED AS -> 160
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DLN ESTABLISHED AS -> 161
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DPLM ESTABLISHED AS -> 162
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DC ESTABLISHED AS -> 163
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DOM ESTABLISHED AS -> 351
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DRX ESTABLISHED AS -> 164
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DNLM ESTABLISHED AS -> 165
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EZJ ESTABLISHED AS -> 166
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EDIN ESTABLISHED AS -> 167
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EIG ESTABLISHED AS -> 168
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ECM ESTABLISHED AS -> 169
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ELM ESTABLISHED AS -> 170
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ENOG ESTABLISHED AS -> 171
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ETO ESTABLISHED AS -> 172
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EQN ESTABLISHED AS -> 173
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ESNT ESTABLISHED AS -> 174
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ERM ESTABLISHED AS -> 175
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCPT ESTABLISHED AS -> 176
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-06-24 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FDM ESTABLISHED AS -> 177
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FXPO ESTABLISHED AS -> 178
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCSS ESTABLISHED AS -> 179
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FEV ESTABLISHED AS -> 180
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FSV ESTABLISHED AS -> 181
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FGT ESTABLISHED AS -> 182
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FGP ESTABLISHED AS -> 183
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FSJ ESTABLISHED AS -> 184
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FRCL ESTABLISHED AS -> 185
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2018-11-12 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCH ESTABLISHED AS -> 186
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FUTR ESTABLISHED AS -> 187
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFS ESTABLISHED AS -> 188
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFRD ESTABLISHED AS -> 189
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GAW ESTABLISHED AS -> 190
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GCP ESTABLISHED AS -> 191
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DIGS ESTABLISHED AS -> 355
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GSS ESTABLISHED AS -> 192
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNS ESTABLISHED AS -> 193
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GOG ESTABLISHED AS -> 194
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GPOR ESTABLISHED AS -> 195
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFTU ESTABLISHED AS -> 196
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GRI ESTABLISHED AS -> 197
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UKW ESTABLISHED AS -> 198
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNC ESTABLISHED AS -> 199
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNK ESTABLISHED AS -> 200
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GRG ESTABLISHED AS -> 201
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GVC ESTABLISHED AS -> 202
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HMSO ESTABLISHED AS -> 203
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HVPE ESTABLISHED AS -> 204
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSTG ESTABLISHED AS -> 205
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HAS ESTABLISHED AS -> 206
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HRI ESTABLISHED AS -> 207
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HGT ESTABLISHED AS -> 208
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HICL ESTABLISHED AS -> 209
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HIK ESTABLISHED AS -> 210
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HILS ESTABLISHED AS -> 211
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HFG ESTABLISHED AS -> 212
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HOC ESTABLISHED AS -> 213
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSV ESTABLISHED AS -> 214
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HWDN ESTABLISHED AS -> 215
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HTG ESTABLISHED AS -> 216
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IBST ESTABLISHED AS -> 217
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IGG ESTABLISHED AS -> 218
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IMI ESTABLISHED AS -> 219
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INCH ESTABLISHED AS -> 220
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ISAT ESTABLISHED AS -> 221
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ICP ESTABLISHED AS -> 222
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IHP ESTABLISHED AS -> 223
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INPP ESTABLISHED AS -> 224
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INTU ESTABLISHED AS -> 225
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INVP ESTABLISHED AS -> 226
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IPO ESTABLISHED AS -> 227
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IWG ESTABLISHED AS -> 228
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JLG ESTABLISHED AS -> 229
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JII ESTABLISHED AS -> 230
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JAM ESTABLISHED AS -> 231
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JMG ESTABLISHED AS -> 232
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JFJ ESTABLISHED AS -> 233
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JEO ESTABLISHED AS -> 234
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JUP ESTABLISHED AS -> 235
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KNOS ESTABLISHED AS -> 236
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KAZ ESTABLISHED AS -> 237
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LRE ESTABLISHED AS -> 238
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LWDB ESTABLISHED AS -> 239
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LMP ESTABLISHED AS -> 240
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EMG ESTABLISHED AS -> 241
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MSLH ESTABLISHED AS -> 242
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MARS ESTABLISHED AS -> 352
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MCS ESTABLISHED AS -> 243
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MDC ESTABLISHED AS -> 244
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MGGT ESTABLISHED AS -> 245
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRC ESTABLISHED AS -> 246
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MERL ESTABLISHED AS -> 247
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MTRO ESTABLISHED AS -> 248
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MAB ESTABLISHED AS -> 250
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MONY ESTABLISHED AS -> 251
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MNKS ESTABLISHED AS -> 252
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MGAM ESTABLISHED AS -> 253
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MYI ESTABLISHED AS -> 254
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NEX ESTABLISHED AS -> 255
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NBLS ESTABLISHED AS -> 256
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NETW ESTABLISHED AS -> 257
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NRR ESTABLISHED AS -> 258
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NESF ESTABLISHED AS -> 259
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OTB ESTABLISHED AS -> 260
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OXIG ESTABLISHED AS -> 261
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAGE ESTABLISHED AS -> 262
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PIN ESTABLISHED AS -> 263
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAG ESTABLISHED AS -> 264
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAY ESTABLISHED AS -> 265
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PNN ESTABLISHED AS -> 266
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLI ESTABLISHED AS -> 267
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSH ESTABLISHED AS -> 268
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PNL ESTABLISHED AS -> 269
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PFC ESTABLISHED AS -> 270
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PETS ESTABLISHED AS -> 271
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PTEC ESTABLISHED AS -> 272
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLUS ESTABLISHED AS -> 273
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PCT ESTABLISHED AS -> 274
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR POLY ESTABLISHED AS -> 275
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLP ESTABLISHED AS -> 276
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PPH ESTABLISHED AS -> 277
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PMO ESTABLISHED AS -> 278
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PHP ESTABLISHED AS -> 279
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PFG ESTABLISHED AS -> 280
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PRTC ESTABLISHED AS -> 354
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PZC ESTABLISHED AS -> 281
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR QQ ESTABLISHED AS -> 282
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR QLT ESTABLISHED AS -> 283
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RNK ESTABLISHED AS -> 284
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RAT ESTABLISHED AS -> 285
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RDW ESTABLISHED AS -> 286
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TRIG ESTABLISHED AS -> 287
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSW ESTABLISHED AS -> 288
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RTN ESTABLISHED AS -> 289
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RHIM ESTABLISHED AS -> 290
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RCP ESTABLISHED AS -> 291
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSE ESTABLISHED AS -> 292
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ROR ESTABLISHED AS -> 293
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RMG ESTABLISHED AS -> 294
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SBRE ESTABLISHED AS -> 295
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SAFE ESTABLISHED AS -> 296
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SNN ESTABLISHED AS -> 297
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SVS ESTABLISHED AS -> 298
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SDP ESTABLISHED AS -> 299
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SOI ESTABLISHED AS -> 356
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SCIN ESTABLISHED AS -> 300
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SNR ESTABLISHED AS -> 301
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SEQI ESTABLISHED AS -> 302
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SRP ESTABLISHED AS -> 303
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SHB ESTABLISHED AS -> 304
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SHI ESTABLISHED AS -> 305
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SXX ESTABLISHED AS -> 306
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSON ESTABLISHED AS -> 307
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SCT ESTABLISHED AS -> 308
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SOPH ESTABLISHED AS -> 309
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SXS ESTABLISHED AS -> 310
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPT ESTABLISHED AS -> 311
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPD ESTABLISHED AS -> 312
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSPG ESTABLISHED AS -> 313
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMP ESTABLISHED AS -> 314
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGC ESTABLISHED AS -> 315
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SYNC ESTABLISHED AS -> 316
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SYNT ESTABLISHED AS -> 317
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TALK ESTABLISHED AS -> 318
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TATE ESTABLISHED AS -> 319
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TBCG ESTABLISHED AS -> 320
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TED ESTABLISHED AS -> 321
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TEP ESTABLISHED AS -> 322
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TMPL ESTABLISHED AS -> 323
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TEM ESTABLISHED AS -> 324
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TIFS ESTABLISHED AS -> 325
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TCAP ESTABLISHED AS -> 326
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TRY ESTABLISHED AS -> 327
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TPK ESTABLISHED AS -> 328
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBOX ESTABLISHED AS -> 329
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TLW ESTABLISHED AS -> 330
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UDG ESTABLISHED AS -> 331
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UKCM ESTABLISHED AS -> 332
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ULE ESTABLISHED AS -> 333
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UTG ESTABLISHED AS -> 334
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VSVS ESTABLISHED AS -> 335
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VCT ESTABLISHED AS -> 336
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VEIL ESTABLISHED AS -> 337
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VOF ESTABLISHED AS -> 338
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VVO ESTABLISHED AS -> 339
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WEIR ESTABLISHED AS -> 340
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JDW ESTABLISHED AS -> 341
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMWH ESTABLISHED AS -> 342
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WMH ESTABLISHED AS -> 343
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WTAN ESTABLISHED AS -> 344
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WIZZ ESTABLISHED AS -> 345
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WPCT ESTABLISHED AS -> 346
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WG ESTABLISHED AS -> 347
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WKP ESTABLISHED AS -> 348
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WWH ESTABLISHED AS -> 349
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-16 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+ERROR:root:ERRORS COUNT -> 0
+INFO:root:Reading in daily prices file...
+INFO:root:Successfully read in data
+INFO:root:
+EXAMPLE OF data_df -> 
+   change   close       date  ema12  ema26    high  index    low  macd  macd_line    open  signal ticker     volume
+0    10.0  1005.0 2008-01-02    NaN    NaN  1023.0      0  995.0   NaN        NaN   995.0     NaN    III   785944.0
+1   -17.0   988.0 2008-01-03    NaN    NaN  1020.0      1  981.0   NaN        NaN  1005.0     NaN    III  1805560.0
+2   -20.5   965.0 2008-01-04    NaN    NaN  1000.0      2  964.0   NaN        NaN   985.5     NaN    III  1920061.0
+3     4.0   971.5 2008-01-07    NaN    NaN   974.0      3  953.0   NaN        NaN   967.5     NaN    III  3167216.0
+4     3.5   978.5 2008-01-08    NaN    NaN   989.0      4  971.5   NaN        NaN   975.0     NaN    III  2297118.0
+INFO:root:
+UNIQUE TICKERS -> 
+['III', 'ADM', 'AAL', 'ANTO', 'AHT', 'ABF', 'AZN', 'AUTO', 'AVV', 'AV', 'BA', 'BARC', 'BDEV', 'BKG', 'BHP', 'BP', 'BATS', 'BLND', 'BT-A', 'BNZL', 'BRBY', 'CCL', 'CNA', 'CCH', 'CPG', 'CRH', 'CRDA', 'DCC', 'DGE', 'DLG', 'EVR', 'EXPN', 'FERG', 'FLTR', 'FRES', 'GSK', 'GLEN', 'HLMA', 'HL', 'HSX', 'HSBA', 'IMB', 'INF', 'IHG', 'IAG', 'ITRK', 'ITV', 'JD', 'JMAT', 'JE', 'KGF', 'LAND', 'LGEN', 'LLOY', 'LSE', 'MKS', 'MRO', 'MCRO', 'MNDI', 'MRW', 'NG', 'NXT', 'NMC', 'OCDO', 'PSON', 'PSN', 'PHNX', 'PRU', 'RB', 'REL', 'RTO', 'RIO', 'RMV', 'RR', 'RBS', 'RDSA', 'RSA', 'SGE', 'SBRY', 'SDR', 'SMT', 'SGRO', 'SVT', 'SN', 'SMDS', 'SMIN', 'SKG', 'SPX', 'SSE', 'STAN', 'SLA', 'STJ', 'TW', 'TSCO', 'TUI', 'ULVR', 'UU', 'VOD', 'WTB', 'WPP', '3IN', 'FOUR', 'ASL', 'AGK', 'ATST', 'AMGO', 'APAX', 'ASCL', 'ASHM', 'AGR', 'AML', 'AVST', 'AGT', 'BAB', 'BGFD', 'BAKK', 'BBY', 'BNKR', 'BAG', 'BBA', 'BBGI', 'BCA', 'BGEO', 'BEZ', 'AJB', 'BWY', 'BYG', 'BME', 'BRSC', 'BGSC', 'BOY', 'BVS', 'BTEM', 'BVIC', 'CNE', 'CLDN', 'CAPC', 'CPI', 'CARD', 'CEY', 'CCFS', 'CINE', 'CTY', 'CKN', 'CBG', 'CLI', 'COA', 'COB', 'CCC', 'GLO', 'CTEC', 'CSP', 'CWK', 'CRST', 'CYBG', 'DJAN', 'DPH', 'DLN', 'DPLM', 'DC', 'DOM', 'DRX', 'DNLM', 'EZJ', 'EDIN', 'EIG', 'ECM', 'ELM', 'ENOG', 'ETO', 'EQN', 'ESNT', 'ERM', 'FCPT', 'FDM', 'FXPO', 'FCSS', 'FEV', 'FSV', 'FGT', 'FGP', 'FSJ', 'FRCL', 'FCH', 'FUTR', 'GFS', 'GFRD', 'GAW', 'GCP', 'DIGS', 'GSS', 'GNS', 'GOG', 'GPOR', 'GFTU', 'GRI', 'UKW', 'GNC', 'GNK', 'GRG', 'GVC', 'HMSO', 'HVPE', 'HSTG', 'HAS', 'HRI', 'HGT', 'HICL', 'HIK', 'HILS', 'HFG', 'HOC', 'HSV', 'HWDN', 'HTG', 'IBST', 'IGG', 'IMI', 'INCH', 'ISAT', 'ICP', 'IHP', 'INPP', 'INTU', 'INVP', 'IPO', 'IWG', 'JLG', 'JII', 'JAM', 'JMG', 'JFJ', 'JEO', 'JUP', 'KNOS', 'KAZ', 'LRE', 'LWDB', 'LMP', 'EMG', 'MSLH', 'MARS', 'MCS', 'MDC', 'MGGT', 'MRC', 'MERL', 'MTRO', 'MAB', 'MONY', 'MNKS', 'MGAM', 'MYI', 'NEX', 'NBLS', 'NETW', 'NRR', 'NESF', 'OTB', 'OXIG', 'PAGE', 'PIN', 'PAG', 'PAY', 'PNN', 'PLI', 'PSH', 'PNL', 'PFC', 'PETS', 'PTEC', 'PLUS', 'PCT', 'POLY', 'PLP', 'PPH', 'PMO', 'PHP', 'PFG', 'PRTC', 'PZC', 'QQ', 'QLT', 'RNK', 'RAT', 'RDW', 'TRIG', 'RSW', 'RTN', 'RHIM', 'RCP', 'RSE', 'ROR', 'RMG', 'SBRE', 'SAFE', 'SNN', 'SVS', 'SDP', 'SOI', 'SCIN', 'SNR', 'SEQI', 'SRP', 'SHB', 'SHI', 'SXX', 'SSON', 'SCT', 'SOPH', 'SXS', 'SPT', 'SPD', 'SSPG', 'SMP', 'SGC', 'SYNC', 'SYNT', 'TALK', 'TATE', 'TBCG', 'TED', 'TEP', 'TMPL', 'TEM', 'TIFS', 'TCAP', 'TRY', 'TPK', 'BBOX', 'TLW', 'UDG', 'UKCM', 'ULE', 'UTG', 'VSVS', 'VCT', 'VEIL', 'VOF', 'VVO', 'WEIR', 'JDW', 'SMWH', 'WMH', 'WTAN', 'WIZZ', 'WPCT', 'WG', 'WKP', 'WWH']
+INFO:root:TICKER ID FOR III ESTABLISHED AS -> 3
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ADM ESTABLISHED AS -> 4
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AAL ESTABLISHED AS -> 5
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ANTO ESTABLISHED AS -> 6
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AHT ESTABLISHED AS -> 7
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ABF ESTABLISHED AS -> 8
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AZN ESTABLISHED AS -> 9
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AUTO ESTABLISHED AS -> 10
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AVV ESTABLISHED AS -> 11
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AV ESTABLISHED AS -> 12
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BA ESTABLISHED AS -> 13
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BARC ESTABLISHED AS -> 14
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BDEV ESTABLISHED AS -> 15
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BKG ESTABLISHED AS -> 16
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BHP ESTABLISHED AS -> 17
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BP ESTABLISHED AS -> 18
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BATS ESTABLISHED AS -> 19
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BLND ESTABLISHED AS -> 20
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BT-A ESTABLISHED AS -> 21
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BNZL ESTABLISHED AS -> 22
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BRBY ESTABLISHED AS -> 23
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCL ESTABLISHED AS -> 24
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CNA ESTABLISHED AS -> 25
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCH ESTABLISHED AS -> 26
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CPG ESTABLISHED AS -> 27
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRH ESTABLISHED AS -> 28
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRDA ESTABLISHED AS -> 29
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DCC ESTABLISHED AS -> 30
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DGE ESTABLISHED AS -> 31
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DLG ESTABLISHED AS -> 32
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EVR ESTABLISHED AS -> 33
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EXPN ESTABLISHED AS -> 34
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FERG ESTABLISHED AS -> 35
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FLTR ESTABLISHED AS -> 36
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FRES ESTABLISHED AS -> 37
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GSK ESTABLISHED AS -> 38
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GLEN ESTABLISHED AS -> 39
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HLMA ESTABLISHED AS -> 40
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HL ESTABLISHED AS -> 41
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSX ESTABLISHED AS -> 42
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSBA ESTABLISHED AS -> 43
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IMB ESTABLISHED AS -> 44
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INF ESTABLISHED AS -> 45
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IHG ESTABLISHED AS -> 46
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IAG ESTABLISHED AS -> 47
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ITRK ESTABLISHED AS -> 48
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ITV ESTABLISHED AS -> 49
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JD ESTABLISHED AS -> 50
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JMAT ESTABLISHED AS -> 51
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JE ESTABLISHED AS -> 52
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KGF ESTABLISHED AS -> 53
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LAND ESTABLISHED AS -> 54
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LGEN ESTABLISHED AS -> 55
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LLOY ESTABLISHED AS -> 56
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LSE ESTABLISHED AS -> 57
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MKS ESTABLISHED AS -> 58
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRO ESTABLISHED AS -> 59
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MCRO ESTABLISHED AS -> 60
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MNDI ESTABLISHED AS -> 61
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRW ESTABLISHED AS -> 62
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NG ESTABLISHED AS -> 63
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NXT ESTABLISHED AS -> 64
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NMC ESTABLISHED AS -> 65
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OCDO ESTABLISHED AS -> 66
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSON ESTABLISHED AS -> 67
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSN ESTABLISHED AS -> 68
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PHNX ESTABLISHED AS -> 69
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PRU ESTABLISHED AS -> 70
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RB ESTABLISHED AS -> 71
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR REL ESTABLISHED AS -> 72
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RTO ESTABLISHED AS -> 73
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RIO ESTABLISHED AS -> 74
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RMV ESTABLISHED AS -> 75
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RR ESTABLISHED AS -> 76
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RBS ESTABLISHED AS -> 77
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RDSA ESTABLISHED AS -> 78
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSA ESTABLISHED AS -> 79
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGE ESTABLISHED AS -> 80
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SBRY ESTABLISHED AS -> 350
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SDR ESTABLISHED AS -> 81
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMT ESTABLISHED AS -> 82
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGRO ESTABLISHED AS -> 83
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SVT ESTABLISHED AS -> 84
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SN ESTABLISHED AS -> 85
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMDS ESTABLISHED AS -> 86
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMIN ESTABLISHED AS -> 87
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SKG ESTABLISHED AS -> 88
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPX ESTABLISHED AS -> 89
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSE ESTABLISHED AS -> 90
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR STAN ESTABLISHED AS -> 91
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SLA ESTABLISHED AS -> 92
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR STJ ESTABLISHED AS -> 93
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TW ESTABLISHED AS -> 94
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TSCO ESTABLISHED AS -> 95
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TUI ESTABLISHED AS -> 96
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ULVR ESTABLISHED AS -> 97
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UU ESTABLISHED AS -> 98
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VOD ESTABLISHED AS -> 99
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WTB ESTABLISHED AS -> 100
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WPP ESTABLISHED AS -> 101
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR 3IN ESTABLISHED AS -> 102
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FOUR ESTABLISHED AS -> 103
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASL ESTABLISHED AS -> 104
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGK ESTABLISHED AS -> 106
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ATST ESTABLISHED AS -> 107
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AMGO ESTABLISHED AS -> 108
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR APAX ESTABLISHED AS -> 109
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASCL ESTABLISHED AS -> 110
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ASHM ESTABLISHED AS -> 111
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGR ESTABLISHED AS -> 112
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AML ESTABLISHED AS -> 113
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AVST ESTABLISHED AS -> 114
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AGT ESTABLISHED AS -> 115
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAB ESTABLISHED AS -> 116
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGFD ESTABLISHED AS -> 117
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAKK ESTABLISHED AS -> 118
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBY ESTABLISHED AS -> 119
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BNKR ESTABLISHED AS -> 120
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BAG ESTABLISHED AS -> 121
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBA ESTABLISHED AS -> 122
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBGI ESTABLISHED AS -> 123
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BCA ESTABLISHED AS -> 124
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGEO ESTABLISHED AS -> 125
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BEZ ESTABLISHED AS -> 126
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR AJB ESTABLISHED AS -> 127
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BWY ESTABLISHED AS -> 128
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BYG ESTABLISHED AS -> 129
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BME ESTABLISHED AS -> 130
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BRSC ESTABLISHED AS -> 131
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BGSC ESTABLISHED AS -> 132
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BOY ESTABLISHED AS -> 133
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BVS ESTABLISHED AS -> 134
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BTEM ESTABLISHED AS -> 135
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-06-28 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BVIC ESTABLISHED AS -> 136
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CNE ESTABLISHED AS -> 138
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CLDN ESTABLISHED AS -> 139
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CAPC ESTABLISHED AS -> 140
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CPI ESTABLISHED AS -> 141
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CARD ESTABLISHED AS -> 142
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CEY ESTABLISHED AS -> 143
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCFS ESTABLISHED AS -> 144
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CINE ESTABLISHED AS -> 145
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CTY ESTABLISHED AS -> 146
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CKN ESTABLISHED AS -> 147
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CBG ESTABLISHED AS -> 148
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CLI ESTABLISHED AS -> 149
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR COA ESTABLISHED AS -> 150
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR COB ESTABLISHED AS -> 151
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CCC ESTABLISHED AS -> 152
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GLO ESTABLISHED AS -> 153
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CTEC ESTABLISHED AS -> 154
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CSP ESTABLISHED AS -> 155
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CWK ESTABLISHED AS -> 156
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CRST ESTABLISHED AS -> 157
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR CYBG ESTABLISHED AS -> 158
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DJAN ESTABLISHED AS -> 159
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DPH ESTABLISHED AS -> 160
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DLN ESTABLISHED AS -> 161
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DPLM ESTABLISHED AS -> 162
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DC ESTABLISHED AS -> 163
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DOM ESTABLISHED AS -> 351
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DRX ESTABLISHED AS -> 164
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DNLM ESTABLISHED AS -> 165
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EZJ ESTABLISHED AS -> 166
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EDIN ESTABLISHED AS -> 167
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EIG ESTABLISHED AS -> 168
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ECM ESTABLISHED AS -> 169
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ELM ESTABLISHED AS -> 170
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ENOG ESTABLISHED AS -> 171
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ETO ESTABLISHED AS -> 172
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EQN ESTABLISHED AS -> 173
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ESNT ESTABLISHED AS -> 174
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ERM ESTABLISHED AS -> 175
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCPT ESTABLISHED AS -> 176
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-06-28 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FDM ESTABLISHED AS -> 177
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FXPO ESTABLISHED AS -> 178
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCSS ESTABLISHED AS -> 179
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FEV ESTABLISHED AS -> 180
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FSV ESTABLISHED AS -> 181
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FGT ESTABLISHED AS -> 182
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FGP ESTABLISHED AS -> 183
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FSJ ESTABLISHED AS -> 184
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FRCL ESTABLISHED AS -> 185
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2018-11-12 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FCH ESTABLISHED AS -> 186
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR FUTR ESTABLISHED AS -> 187
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFS ESTABLISHED AS -> 188
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFRD ESTABLISHED AS -> 189
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GAW ESTABLISHED AS -> 190
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GCP ESTABLISHED AS -> 191
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR DIGS ESTABLISHED AS -> 355
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GSS ESTABLISHED AS -> 192
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNS ESTABLISHED AS -> 193
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GOG ESTABLISHED AS -> 194
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GPOR ESTABLISHED AS -> 195
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GFTU ESTABLISHED AS -> 196
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GRI ESTABLISHED AS -> 197
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UKW ESTABLISHED AS -> 198
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNC ESTABLISHED AS -> 199
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GNK ESTABLISHED AS -> 200
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GRG ESTABLISHED AS -> 201
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR GVC ESTABLISHED AS -> 202
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HMSO ESTABLISHED AS -> 203
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HVPE ESTABLISHED AS -> 204
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSTG ESTABLISHED AS -> 205
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HAS ESTABLISHED AS -> 206
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HRI ESTABLISHED AS -> 207
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HGT ESTABLISHED AS -> 208
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HICL ESTABLISHED AS -> 209
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HIK ESTABLISHED AS -> 210
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HILS ESTABLISHED AS -> 211
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HFG ESTABLISHED AS -> 212
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HOC ESTABLISHED AS -> 213
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HSV ESTABLISHED AS -> 214
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HWDN ESTABLISHED AS -> 215
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR HTG ESTABLISHED AS -> 216
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IBST ESTABLISHED AS -> 217
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IGG ESTABLISHED AS -> 218
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IMI ESTABLISHED AS -> 219
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INCH ESTABLISHED AS -> 220
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ISAT ESTABLISHED AS -> 221
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ICP ESTABLISHED AS -> 222
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IHP ESTABLISHED AS -> 223
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INPP ESTABLISHED AS -> 224
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INTU ESTABLISHED AS -> 225
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR INVP ESTABLISHED AS -> 226
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IPO ESTABLISHED AS -> 227
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR IWG ESTABLISHED AS -> 228
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JLG ESTABLISHED AS -> 229
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JII ESTABLISHED AS -> 230
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JAM ESTABLISHED AS -> 231
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JMG ESTABLISHED AS -> 232
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JFJ ESTABLISHED AS -> 233
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JEO ESTABLISHED AS -> 234
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JUP ESTABLISHED AS -> 235
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KNOS ESTABLISHED AS -> 236
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR KAZ ESTABLISHED AS -> 237
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LRE ESTABLISHED AS -> 238
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LWDB ESTABLISHED AS -> 239
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR LMP ESTABLISHED AS -> 240
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR EMG ESTABLISHED AS -> 241
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MSLH ESTABLISHED AS -> 242
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MARS ESTABLISHED AS -> 352
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MCS ESTABLISHED AS -> 243
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MDC ESTABLISHED AS -> 244
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MGGT ESTABLISHED AS -> 245
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MRC ESTABLISHED AS -> 246
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MERL ESTABLISHED AS -> 247
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MTRO ESTABLISHED AS -> 248
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MAB ESTABLISHED AS -> 250
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MONY ESTABLISHED AS -> 251
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MNKS ESTABLISHED AS -> 252
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MGAM ESTABLISHED AS -> 253
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR MYI ESTABLISHED AS -> 254
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NEX ESTABLISHED AS -> 255
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NBLS ESTABLISHED AS -> 256
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NETW ESTABLISHED AS -> 257
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NRR ESTABLISHED AS -> 258
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR NESF ESTABLISHED AS -> 259
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OTB ESTABLISHED AS -> 260
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR OXIG ESTABLISHED AS -> 261
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAGE ESTABLISHED AS -> 262
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PIN ESTABLISHED AS -> 263
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAG ESTABLISHED AS -> 264
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PAY ESTABLISHED AS -> 265
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PNN ESTABLISHED AS -> 266
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLI ESTABLISHED AS -> 267
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PSH ESTABLISHED AS -> 268
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PNL ESTABLISHED AS -> 269
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PFC ESTABLISHED AS -> 270
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PETS ESTABLISHED AS -> 271
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PTEC ESTABLISHED AS -> 272
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLUS ESTABLISHED AS -> 273
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PCT ESTABLISHED AS -> 274
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR POLY ESTABLISHED AS -> 275
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PLP ESTABLISHED AS -> 276
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PPH ESTABLISHED AS -> 277
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PMO ESTABLISHED AS -> 278
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PHP ESTABLISHED AS -> 279
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PFG ESTABLISHED AS -> 280
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PRTC ESTABLISHED AS -> 354
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR PZC ESTABLISHED AS -> 281
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR QQ ESTABLISHED AS -> 282
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR QLT ESTABLISHED AS -> 283
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RNK ESTABLISHED AS -> 284
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RAT ESTABLISHED AS -> 285
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RDW ESTABLISHED AS -> 286
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TRIG ESTABLISHED AS -> 287
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSW ESTABLISHED AS -> 288
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RTN ESTABLISHED AS -> 289
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RHIM ESTABLISHED AS -> 290
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RCP ESTABLISHED AS -> 291
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RSE ESTABLISHED AS -> 292
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ROR ESTABLISHED AS -> 293
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR RMG ESTABLISHED AS -> 294
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SBRE ESTABLISHED AS -> 295
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SAFE ESTABLISHED AS -> 296
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SNN ESTABLISHED AS -> 297
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SVS ESTABLISHED AS -> 298
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SDP ESTABLISHED AS -> 299
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SOI ESTABLISHED AS -> 356
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SCIN ESTABLISHED AS -> 300
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SNR ESTABLISHED AS -> 301
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SEQI ESTABLISHED AS -> 302
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SRP ESTABLISHED AS -> 303
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SHB ESTABLISHED AS -> 304
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SHI ESTABLISHED AS -> 305
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SXX ESTABLISHED AS -> 306
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSON ESTABLISHED AS -> 307
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SCT ESTABLISHED AS -> 308
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SOPH ESTABLISHED AS -> 309
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SXS ESTABLISHED AS -> 310
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPT ESTABLISHED AS -> 311
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SPD ESTABLISHED AS -> 312
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SSPG ESTABLISHED AS -> 313
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMP ESTABLISHED AS -> 314
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SGC ESTABLISHED AS -> 315
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SYNC ESTABLISHED AS -> 316
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SYNT ESTABLISHED AS -> 317
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TALK ESTABLISHED AS -> 318
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TATE ESTABLISHED AS -> 319
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TBCG ESTABLISHED AS -> 320
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TED ESTABLISHED AS -> 321
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TEP ESTABLISHED AS -> 322
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TMPL ESTABLISHED AS -> 323
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TEM ESTABLISHED AS -> 324
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TIFS ESTABLISHED AS -> 325
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TCAP ESTABLISHED AS -> 326
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TRY ESTABLISHED AS -> 327
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TPK ESTABLISHED AS -> 328
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR BBOX ESTABLISHED AS -> 329
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR TLW ESTABLISHED AS -> 330
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UDG ESTABLISHED AS -> 331
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UKCM ESTABLISHED AS -> 332
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR ULE ESTABLISHED AS -> 333
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR UTG ESTABLISHED AS -> 334
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VSVS ESTABLISHED AS -> 335
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VCT ESTABLISHED AS -> 336
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VEIL ESTABLISHED AS -> 337
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VOF ESTABLISHED AS -> 338
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR VVO ESTABLISHED AS -> 339
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WEIR ESTABLISHED AS -> 340
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR JDW ESTABLISHED AS -> 341
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR SMWH ESTABLISHED AS -> 342
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WMH ESTABLISHED AS -> 343
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WTAN ESTABLISHED AS -> 344
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WIZZ ESTABLISHED AS -> 345
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WPCT ESTABLISHED AS -> 346
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WG ESTABLISHED AS -> 347
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WKP ESTABLISHED AS -> 348
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:TICKER ID FOR WWH ESTABLISHED AS -> 349
+INFO:root:	LAST_DATE_ESTABLISHED AS -> 2019-09-20 00:00:00
+INFO:root:	NO NEW PRICES TO ADD, SKIP TO THE NEXT TICKER
+INFO:root:
+UPDATE current_prices_w WITH LATEST PRICES
+INFO:root:
+SUCCESSFULLY DELETED 353 RECORDS
+INFO:root:
+SUCCESSFULLY INSERTED 353 RECORDS
+ERROR:root:ERRORS COUNT -> 0

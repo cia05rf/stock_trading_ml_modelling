@@ -1,0 +1,1307 @@
+INFO:root:STARTING update_db_historic_bsh...
+DEBUG:matplotlib:$HOME=C:\Users\Robert
+DEBUG:matplotlib:matplotlib data path C:\Users\Robert\Anaconda3\lib\site-packages\matplotlib\mpl-data
+DEBUG:matplotlib:loaded rc file C:\Users\Robert\Anaconda3\lib\site-packages\matplotlib\mpl-data\matplotlibrc
+DEBUG:matplotlib:matplotlib version 2.2.3
+DEBUG:matplotlib:interactive is False
+DEBUG:matplotlib:platform is win32
+DEBUG:matplotlib:loaded modules: ['sys', 'builtins', '_frozen_importlib', '_imp', '_thread', '_warnings', '_weakref', 'zipimport', '_frozen_importlib_external', '_io', 'marshal', 'nt', 'winreg', 'encodings', 'codecs', '_codecs', 'encodings.aliases', 'encodings.utf_8', '_signal', '__main__', 'encodings.latin_1', 'io', 'abc', '_abc', 'site', 'os', 'stat', '_stat', 'ntpath', 'genericpath', 'os.path', '_collections_abc', '_sitebuiltins', '_bootlocale', '_locale', 'encodings.cp1252', 'types', 'importlib', 'importlib._bootstrap', 'importlib._bootstrap_external', 'warnings', 'importlib.util', 'importlib.abc', 'importlib.machinery', 'contextlib', 'collections', 'operator', '_operator', 'keyword', 'heapq', '_heapq', 'itertools', 'reprlib', '_collections', 'functools', '_functools', 'mpl_toolkits', 'google', 'sphinxcontrib', 'zope', 'logging', 'time', 'traceback', 'linecache', 'tokenize', 're', 'enum', 'sre_compile', '_sre', 'sre_parse', 'sre_constants', 'copyreg', 'token', 'weakref', '_weakrefset', 'collections.abc', 'string', '_string', 'threading', 'atexit', 'pandas', 'numpy', '__future__', 'numpy._globals', 'numpy.__config__', 'numpy.version', 'numpy._distributor_init', 'ctypes', '_ctypes', 'struct', '_struct', 'ctypes._endian', 'glob', 'fnmatch', 'posixpath', 'numpy.core', 'numpy.core.info', 'numpy.core.multiarray', 'numpy.core.overrides', 'textwrap', 'datetime', 'math', '_datetime', 'numpy.core._multiarray_umath', 'numpy.compat', 'numpy.compat._inspect', 'numpy.compat.py3k', 'pathlib', 'errno', 'urllib', 'urllib.parse', 'pickle', '_compat_pickle', '_pickle', 'numpy.core.umath', 'numpy.core.numerictypes', 'numbers', 'numpy.core._string_helpers', 'numpy.core._type_aliases', 'numpy.core._dtype', 'numpy.core.numeric', 'numpy.core._exceptions', 'numpy.core._asarray', 'numpy.core._ufunc_config', 'numpy.core.fromnumeric', 'numpy.core._methods', 'numpy.core.arrayprint', 'numpy.core.defchararray', 'numpy.core.records', 'numpy.core.memmap', 'numpy.core.function_base', 'numpy.core.machar', 'numpy.core.getlimits', 'numpy.core.shape_base', 'numpy.core.einsumfunc', 'numpy.core._add_newdocs', 'numpy.core._multiarray_tests', 'numpy.core._dtype_ctypes', 'numpy.core._internal', 'platform', 'subprocess', 'signal', 'msvcrt', '_winapi', 'numpy._pytesttester', 'numpy.lib', 'numpy.lib.info', 'numpy.lib.type_check', 'numpy.lib.ufunclike', 'numpy.lib.index_tricks', 'numpy.matrixlib', 'numpy.matrixlib.defmatrix', 'ast', '_ast', 'numpy.linalg', 'numpy.linalg.info', 'numpy.linalg.linalg', 'numpy.lib.twodim_base', 'numpy.linalg.lapack_lite', 'numpy.linalg._umath_linalg', 'numpy.lib.function_base', 'numpy.lib.histograms', 'numpy.lib.stride_tricks', 'numpy.lib.mixins', 'numpy.lib.nanfunctions', 'numpy.lib.shape_base', 'numpy.lib.scimath', 'numpy.lib.polynomial', 'numpy.lib.utils', 'numpy.lib.arraysetops', 'numpy.lib.npyio', 'numpy.lib.format', 'numpy.lib._datasource', 'shutil', 'zlib', 'bz2', '_compression', '_bz2', 'lzma', '_lzma', 'numpy.lib._iotools', 'numpy.lib.financial', 'decimal', '_decimal', 'numpy.lib.arrayterator', 'numpy.lib.arraypad', 'numpy.lib._version', 'numpy.fft', 'numpy.fft.info', 'numpy.fft.pocketfft', 'numpy.fft.pocketfft_internal', 'numpy.fft.helper', 'numpy.polynomial', 'numpy.polynomial.polynomial', 'numpy.polynomial.polyutils', 'numpy.polynomial._polybase', 'numpy.polynomial.chebyshev', 'numpy.polynomial.legendre', 'numpy.polynomial.hermite', 'numpy.polynomial.hermite_e', 'numpy.polynomial.laguerre', 'numpy.random', 'numpy.random.mtrand', 'cython_runtime', 'numpy.random.common', 'numpy.random.bounded_integers', 'numpy.random.mt19937', 'numpy.random.bit_generator', '_cython_0_29_13', 'secrets', 'base64', 'binascii', 'hmac', '_hashlib', 'hashlib', '_blake2', '_sha3', 'random', 'bisect', '_bisect', '_random', 'numpy.random.entropy', 'numpy.random.generator', 'numpy.random.pcg64', 'numpy.random.philox', 'numpy.random.sfc64', 'numpy.ctypeslib', 'numpy.ma', 'numpy.ma.core', 'numpy.ma.extras', 'numpy.testing', 'unittest', 'unittest.result', 'unittest.util', 'unittest.case', 'difflib', 'pprint', 'unittest.suite', 'unittest.loader', 'unittest.main', 'argparse', 'gettext', 'locale', 'unittest.runner', 'unittest.signals', 'numpy.testing._private', 'numpy.testing._private.utils', 'gc', 'tempfile', 'numpy.testing._private.decorators', 'numpy.testing._private.nosetester', 'pytz', 'pytz.exceptions', 'pytz.lazy', 'pytz.tzinfo', 'pytz.tzfile', 'dateutil', 'dateutil._version', 'pandas.compat', 'pandas.compat.numpy', 'distutils', 'distutils.version', 'pandas._libs', 'pandas._libs.tslibs', 'pandas._libs.tslibs.conversion', 'pandas._libs.tslibs.c_timestamp', 'pandas._libs.tslibs.nattype', '_cython_0_29_12', 'pandas._libs.tslibs.np_datetime', 'pandas._libs.tslibs.timezones', 'dateutil.tz', 'dateutil.tz.tz', 'six', 'six.moves', 'dateutil.tz._common', 'dateutil.tz._factories', 'dateutil.tz.win', 'ctypes.wintypes', 'pandas._libs.tslibs.tzconversion', 'pandas._libs.tslibs.timedeltas', 'pandas._libs.tslibs.offsets', 'pandas._libs.tslibs.ccalendar', 'pandas._config', 'pandas._config.config', 'typing', 'typing.io', 'typing.re', 'pandas._config.dates', 'pandas._config.display', 'pandas._config.localization', 'pandas._libs.tslibs.strptime', 'calendar', 'dateutil.relativedelta', 'dateutil._common', 'pandas._libs.tslibs.fields', 'pandas._libs.tslibs.parsing', 'dateutil.parser', 'dateutil.parser._parser', 'dateutil.parser.isoparser', 'pandas._libs.tslibs.period', 'pandas._libs.tslibs.frequencies', 'pandas._libs.tslibs.timestamps', 'pandas._libs.tslibs.resolution', 'pandas._libs.hashtable', 'pandas._libs.missing', 'pandas._libs.lib', 'fractions', 'pandas._libs.tslib', 'pandas.core', 'pandas.core.config_init', 'pandas.core.api', 'pandas.core.arrays', 'pandas.core.arrays.array_', 'pandas.core.dtypes', 'pandas.core.dtypes.common', 'pandas._libs.algos', 'pandas.core.dtypes.dtypes', 'pandas._libs.interval', 'pandas.core.dtypes.generic', 'pandas.core.dtypes.base', 'pandas.errors', 'pandas.core.dtypes.inference', 'pandas._typing', 'pandas.core.arrays.base', 'pandas.compat.numpy.function', 'pandas.util', 'pandas.util._decorators', 'inspect', 'dis', 'opcode', '_opcode', 'pandas._libs.properties', 'pandas.core.util', 'pandas.core.util.hashing', 'pandas._libs.hashing', 'pandas.core.dtypes.cast', 'pandas.core.dtypes.missing', 'pandas.util._validators', 'pandas.core.ops', 'pandas._libs.ops', 'pandas.core.common', 'pandas.core.ops.missing', 'pandas.core.ops.roperator', 'pandas.core.ops.docstrings', 'pandas.core.sorting', 'pandas.core.algorithms', 'pandas.core.indexers', 'pandas.core.arrays.categorical', 'pandas.core.accessor', 'pandas.core.base', 'pandas.core.nanops', 'pandas.compat._optional', 'bottleneck', 'bottleneck.reduce', 'bottleneck.nonreduce', 'bottleneck.nonreduce_axis', 'bottleneck.move', 'bottleneck.slow', 'bottleneck.slow.reduce', 'bottleneck.slow.nonreduce', 'bottleneck.slow.nonreduce_axis', 'bottleneck.slow.move', 'bottleneck.version', 'bottleneck.benchmark', 'bottleneck.benchmark.bench', 'bottleneck.benchmark.autotimeit', 'timeit', 'bottleneck.benchmark.bench_detailed', 'bottleneck.tests', 'bottleneck.tests.util', 'pandas.core.missing', 'pandas.io', 'pandas.io.formats', 'pandas.io.formats.console', 'pandas.core.arrays.datetimes', 'pandas.core.arrays.datetimelike', 'pandas.tseries', 'pandas.tseries.frequencies', 'pandas.tseries.offsets', 'dateutil.easter', 'pandas.core.tools', 'pandas.core.tools.datetimes', 'pandas.core.arrays._ranges', 'pandas.core.arrays.integer', 'pandas.core.tools.numeric', 'pandas.core.arrays.interval', 'pandas.core.indexes', 'pandas.core.indexes.base', 'pandas._libs.index', 'pandas._libs.join', 'pandas.core.dtypes.concat', 'pandas.core.indexes.frozen', 'pandas.io.formats.printing', 'pandas.core.strings', 'pandas.core.arrays.numpy_', 'pandas.core.arrays.period', 'pandas.core.arrays.sparse', 'pandas._libs.sparse', 'pandas.core.arrays.timedeltas', 'pandas.core.groupby', 'pandas.core.groupby.generic', 'copy', 'pandas.core.frame', 'pandas.core.generic', 'json', 'json.decoder', 'json.scanner', '_json', 'json.encoder', 'pandas.core.index', 'pandas.core.indexes.api', 'pandas.core.indexes.category', 'pandas.core.indexes.datetimes', 'pandas.core.indexes.datetimelike', 'pandas.core.tools.timedeltas', 'pandas.core.indexes.numeric', 'pandas.core.indexes.interval', 'pandas.util._exceptions', 'pandas.core.indexes.multi', 'pandas.core.indexes.timedeltas', 'pandas.core.indexes.period', 'pandas.core.indexes.range', 'pandas.core.indexing', 'pandas._libs.indexing', 'pandas.core.internals', 'pandas.core.internals.blocks', 'pandas._libs.internals', 'pandas.core.internals.arrays', 'pandas.core.internals.managers', 'pandas.core.internals.concat', 'pandas.io.formats.format', 'unicodedata', 'pandas.io.common', 'csv', '_csv', 'gzip', 'http', 'http.client', 'email', 'email.parser', 'email.feedparser', 'email.errors', 'email._policybase', 'email.header', 'email.quoprimime', 'email.base64mime', 'email.charset', 'email.encoders', 'quopri', 'email.utils', 'socket', '_socket', 'selectors', 'select', 'email._parseaddr', 'email.message', 'uu', 'email._encoded_words', 'email.iterators', 'ssl', '_ssl', 'mmap', 'urllib.error', 'urllib.response', 'urllib.request', 'nturl2path', 'zipfile', 'pandas.core.internals.construction', 'pandas.core.series', 'pandas._libs.reshape', 'pandas.core.indexes.accessors', 'pandas.plotting', 'pandas.plotting._core', 'pandas.plotting._matplotlib', 'pandas.plotting._matplotlib.boxplot', 'matplotlib', 'matplotlib.cbook', 'matplotlib.cbook.deprecation', 'matplotlib.cbook._backports', 'matplotlib.compat', 'matplotlib.compat.subprocess', 'matplotlib.rcsetup', 'matplotlib.testing', 'matplotlib.fontconfig_pattern', 'pyparsing', 'matplotlib.colors', 'matplotlib._color_data', 'cycler', 'six.moves.urllib', 'six.moves.urllib.request', 'matplotlib._version']
+INFO:root:Libraries loaded
+INFO:root:Reading in weekly bsh signals file...
+INFO:root:Successfully read in data
+INFO:root:
+EXAMPLE OF data_df -> 
+   change   close       date       ema12       ema26    high  index  ...    open  open_shift_neg1  signal  signal_line  signal_prob ticker     volume
+0    0.00  189.72 2014-01-06  187.437790  187.351381  190.56    237  ...  189.72           188.87    hold    -0.035103     0.760336    3IN  2305949.0
+1    0.71  189.58 2014-01-13  187.767361  187.516464  190.56    238  ...  188.87           188.87    hold     0.022097     0.774873    3IN  2091342.0
+2    0.71  189.58 2014-01-20  188.046228  187.669319  190.00    239  ...  188.87           188.17    hold     0.093059     0.816349    3IN  2386674.0
+3    2.67  190.84 2014-01-27  188.476039  187.904184  190.84    240  ...  188.17           189.44    sell     0.188819     0.652482    3IN  1783577.0
+4    0.28  189.72 2014-02-03  188.667418  188.038689  190.42    241  ...  189.44           188.59    sell     0.276801     0.554863    3IN  1742104.0
+
+[5 rows x 17 columns]
+INFO:root:
+UNIQUE TICKERS -> 
+['3IN', 'AAL', 'ABF', 'ADM', 'AGK', 'AGR', 'AHT', 'ANTO', 'APAX', 'ASCL', 'ASHM', 'ASL', 'ATST', 'AUTO', 'AVV', 'AZN', 'BAB', 'BAG', 'BAKK', 'BARC', 'BATS', 'BBA', 'BBGI', 'BBOX', 'BBY', 'BCA', 'BDEV', 'BEZ', 'BGEO', 'BGFD', 'BGSC', 'BHP', 'BKG', 'BLND', 'BME', 'BNKR', 'BNZL', 'BOY', 'BRBY', 'BRSC', 'BRW', 'BVIC', 'BVS', 'BWY', 'BYG', 'CAPC', 'CARD', 'CBG', 'CCC', 'CCFS', 'CCH', 'CCL', 'CEY', 'CINE', 'CKN', 'CLDN', 'CLI', 'CNA', 'CNE', 'COA', 'COB', 'CPG', 'CPI', 'CRDA', 'CRH', 'CRST', 'CSP', 'CTEC', 'CTY', 'CWK', 'CYBG', 'DCC', 'DGE', 'DIGS', 'DJAN', 'DLG', 'DLN', 'DNLM', 'DOM', 'DPH', 'DPLM', 'DRX', 'ECM', 'EDIN', 'EIG', 'ELM', 'EMG', 'EQN', 'ERM', 'ESNT', 'ETO', 'EVR', 'EXPN', 'EZJ', 'FCIT', 'FCSS', 'FDM', 'FERG', 'FEV', 'FGP', 'FGT', 'FOUR', 'FRES', 'FSFL', 'FSJ', 'FSV', 'FUTR', 'FXPO', 'GAW', 'GCP', 'GFRD', 'GFS', 'GFTU', 'GLEN', 'GLO', 'GNC', 'GNK', 'GNS', 'GOG', 'GPOR', 'GRG', 'GRI', 'GSK', 'GSS', 'GVC', 'HAS', 'HFG', 'HGT', 'HICL', 'HIK', 'HILS', 'HLMA', 'HMSO', 'HOC', 'HRI', 'HSBA', 'HSTG', 'HSV', 'HSX', 'HTG', 'HVPE', 'HWDN', 'IAG', 'IBST', 'ICP', 'IGG', 'IHG', 'III', 'IMB', 'IMI', 'INCH', 'INF', 'INPP', 'INVP', 'IPO', 'ISAT', 'ITRK', 'ITV', 'IWG', 'JAM', 'JDW', 'JEO', 'JFJ', 'JII', 'JLG', 'JMAT', 'JMG', 'JUP', 'KAZ', 'KGF', 'KNOS', 'LAND', 'LGEN', 'LLOY', 'LMP', 'LRE', 'LSE', 'LWDB', 'MAB', 'MARS', 'MCRO', 'MCS', 'MDC', 'MERL', 'MGAM', 'MGGT', 'MKS', 'MNDI', 'MNKS', 'MONY', 'MRC', 'MRO', 'MRW', 'MSLH', 'MYI', 'NBLS', 'NESF', 'NEX', 'NMC', 'NRR', 'NXT', 'OCDO', 'OSB', 'OXIG', 'PAG', 'PAGE', 'PAY', 'PCT', 'PETS', 'PFC', 'PFG', 'PHNX', 'PHP', 'PIN', 'PLI', 'PLP', 'PLUS', 'PMO', 'PNL', 'PNN', 'POLY', 'PPH', 'PRTC', 'PRU', 'PSH', 'PSN', 'PSON', 'PTEC', 'PZC', 'QLT', 'RAT', 'RBS', 'RDSA', 'RDSB', 'RDW', 'REL', 'RIO', 'RMG', 'RMV', 'RNK', 'ROR', 'RSA', 'RSE', 'RSW', 'RTN', 'RTO', 'SAFE', 'SBRE', 'SBRY', 'SCIN', 'SCT', 'SDP', 'SDR', 'SEQI', 'SGC', 'SGE', 'SGRO', 'SHB', 'SHI', 'SKG', 'SLA', 'SMDS', 'SMIN', 'SMP', 'SMT', 'SMWH', 'SNN', 'SNR', 'SOI', 'SOPH', 'SPD', 'SPT', 'SPX', 'SRE', 'SRP', 'SSE', 'SSPG', 'STAN', 'STJ', 'SVS', 'SVT', 'SXS', 'SXX', 'SYNC', 'SYNT', 'TALK', 'TATE', 'TBCG', 'TCAP', 'TEM', 'TEP', 'TIFS', 'TLW', 'TMPL', 'TPK', 'TRIG', 'TRY', 'TSCO', 'TUI', 'UDG', 'UKCM', 'UKW', 'ULE', 'ULVR', 'UTG', 'VCT', 'VEIL', 'VOD', 'VOF', 'VSVS', 'VVO', 'WEIR', 'WIZZ', 'WKP', 'WMH', 'WPP', 'WTAN', 'WTB', 'WWH']
+INFO:root:TICKER FOR 3IN ID ESTABLISHED AS -> 102
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AAL ID ESTABLISHED AS -> 5
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ABF ID ESTABLISHED AS -> 8
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ADM ID ESTABLISHED AS -> 4
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+143 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AGK ID ESTABLISHED AS -> 106
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AGR ID ESTABLISHED AS -> 112
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AHT ID ESTABLISHED AS -> 7
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ANTO ID ESTABLISHED AS -> 6
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR APAX ID ESTABLISHED AS -> 109
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+155 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ASCL ID ESTABLISHED AS -> 110
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+105 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ASHM ID ESTABLISHED AS -> 111
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ASL ID ESTABLISHED AS -> 104
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+289 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ATST ID ESTABLISHED AS -> 107
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AUTO ID ESTABLISHED AS -> 10
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+167 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AVV ID ESTABLISHED AS -> 11
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR AZN ID ESTABLISHED AS -> 9
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BAB ID ESTABLISHED AS -> 116
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BAG ID ESTABLISHED AS -> 121
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BAKK ID ESTABLISHED AS -> 118
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+25 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BARC ID ESTABLISHED AS -> 14
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BATS ID ESTABLISHED AS -> 19
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BBA ID ESTABLISHED AS -> 122
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BBGI ID ESTABLISHED AS -> 123
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+291 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BBOX ID ESTABLISHED AS -> 329
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+205 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BBY ID ESTABLISHED AS -> 119
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BCA ID ESTABLISHED AS -> 124
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+164 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BDEV ID ESTABLISHED AS -> 15
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BEZ ID ESTABLISHED AS -> 126
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+89 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BGEO ID ESTABLISHED AS -> 125
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BGFD ID ESTABLISHED AS -> 117
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+292 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BGSC ID ESTABLISHED AS -> 132
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+280 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BHP ID ESTABLISHED AS -> 17
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+214 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BKG ID ESTABLISHED AS -> 16
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BLND ID ESTABLISHED AS -> 20
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BME ID ESTABLISHED AS -> 130
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+207 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BNKR ID ESTABLISHED AS -> 120
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BNZL ID ESTABLISHED AS -> 22
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BOY ID ESTABLISHED AS -> 133
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BRBY ID ESTABLISHED AS -> 23
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BRSC ID ESTABLISHED AS -> 131
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+94 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BRW ID ESTABLISHED AS -> 378
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BVIC ID ESTABLISHED AS -> 136
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BVS ID ESTABLISHED AS -> 134
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BWY ID ESTABLISHED AS -> 128
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR BYG ID ESTABLISHED AS -> 129
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CAPC ID ESTABLISHED AS -> 140
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CARD ID ESTABLISHED AS -> 142
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+195 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CBG ID ESTABLISHED AS -> 148
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CCC ID ESTABLISHED AS -> 152
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CCFS ID ESTABLISHED AS -> 144
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+33 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CCH ID ESTABLISHED AS -> 26
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+234 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CCL ID ESTABLISHED AS -> 24
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CEY ID ESTABLISHED AS -> 143
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CINE ID ESTABLISHED AS -> 145
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CKN ID ESTABLISHED AS -> 147
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CLDN ID ESTABLISHED AS -> 139
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+277 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CLI ID ESTABLISHED AS -> 149
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CNA ID ESTABLISHED AS -> 25
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CNE ID ESTABLISHED AS -> 138
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR COA ID ESTABLISHED AS -> 150
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR COB ID ESTABLISHED AS -> 151
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CPG ID ESTABLISHED AS -> 27
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CPI ID ESTABLISHED AS -> 141
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CRDA ID ESTABLISHED AS -> 29
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CRH ID ESTABLISHED AS -> 28
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CRST ID ESTABLISHED AS -> 157
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+216 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CSP ID ESTABLISHED AS -> 155
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+191 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CTEC ID ESTABLISHED AS -> 154
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+62 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CTY ID ESTABLISHED AS -> 146
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CWK ID ESTABLISHED AS -> 156
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR CYBG ID ESTABLISHED AS -> 158
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+110 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DCC ID ESTABLISHED AS -> 30
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DGE ID ESTABLISHED AS -> 31
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DIGS ID ESTABLISHED AS -> 355
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+221 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DJAN ID ESTABLISHED AS -> 159
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DLG ID ESTABLISHED AS -> 32
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+258 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DLN ID ESTABLISHED AS -> 161
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DNLM ID ESTABLISHED AS -> 165
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DOM ID ESTABLISHED AS -> 351
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DPH ID ESTABLISHED AS -> 160
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DPLM ID ESTABLISHED AS -> 162
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR DRX ID ESTABLISHED AS -> 164
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ECM ID ESTABLISHED AS -> 169
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EDIN ID ESTABLISHED AS -> 167
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EIG ID ESTABLISHED AS -> 168
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ELM ID ESTABLISHED AS -> 170
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EMG ID ESTABLISHED AS -> 241
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EQN ID ESTABLISHED AS -> 173
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+144 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ERM ID ESTABLISHED AS -> 175
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+262 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ESNT ID ESTABLISHED AS -> 174
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ETO ID ESTABLISHED AS -> 172
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EVR ID ESTABLISHED AS -> 33
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+303 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EXPN ID ESTABLISHED AS -> 34
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR EZJ ID ESTABLISHED AS -> 166
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FCIT ID ESTABLISHED AS -> 380
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FCSS ID ESTABLISHED AS -> 179
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FDM ID ESTABLISHED AS -> 177
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+181 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FERG ID ESTABLISHED AS -> 35
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+303 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FEV ID ESTABLISHED AS -> 180
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FGP ID ESTABLISHED AS -> 183
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FGT ID ESTABLISHED AS -> 182
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FOUR ID ESTABLISHED AS -> 103
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FRES ID ESTABLISHED AS -> 37
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FSFL ID ESTABLISHED AS -> 359
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+173 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FSJ ID ESTABLISHED AS -> 184
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FSV ID ESTABLISHED AS -> 181
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FUTR ID ESTABLISHED AS -> 187
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR FXPO ID ESTABLISHED AS -> 178
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GAW ID ESTABLISHED AS -> 190
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GCP ID ESTABLISHED AS -> 191
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GFRD ID ESTABLISHED AS -> 189
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GFS ID ESTABLISHED AS -> 188
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GFTU ID ESTABLISHED AS -> 196
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GLEN ID ESTABLISHED AS -> 39
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GLO ID ESTABLISHED AS -> 153
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+12 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GNC ID ESTABLISHED AS -> 199
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GNK ID ESTABLISHED AS -> 200
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GNS ID ESTABLISHED AS -> 193
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GOG ID ESTABLISHED AS -> 194
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GPOR ID ESTABLISHED AS -> 195
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GRG ID ESTABLISHED AS -> 201
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GRI ID ESTABLISHED AS -> 197
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GSK ID ESTABLISHED AS -> 38
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GSS ID ESTABLISHED AS -> 192
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR GVC ID ESTABLISHED AS -> 202
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HAS ID ESTABLISHED AS -> 206
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HFG ID ESTABLISHED AS -> 212
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HGT ID ESTABLISHED AS -> 208
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HICL ID ESTABLISHED AS -> 209
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HIK ID ESTABLISHED AS -> 210
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HILS ID ESTABLISHED AS -> 211
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HLMA ID ESTABLISHED AS -> 40
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+303 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HMSO ID ESTABLISHED AS -> 203
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+309 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HOC ID ESTABLISHED AS -> 213
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HRI ID ESTABLISHED AS -> 207
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HSBA ID ESTABLISHED AS -> 43
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HSTG ID ESTABLISHED AS -> 205
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+98 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HSV ID ESTABLISHED AS -> 214
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HSX ID ESTABLISHED AS -> 42
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HTG ID ESTABLISHED AS -> 216
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HVPE ID ESTABLISHED AS -> 204
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR HWDN ID ESTABLISHED AS -> 215
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IAG ID ESTABLISHED AS -> 47
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IBST ID ESTABLISHED AS -> 217
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+90 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ICP ID ESTABLISHED AS -> 222
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IGG ID ESTABLISHED AS -> 218
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IHG ID ESTABLISHED AS -> 46
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR III ID ESTABLISHED AS -> 3
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+299 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IMB ID ESTABLISHED AS -> 44
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IMI ID ESTABLISHED AS -> 219
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR INCH ID ESTABLISHED AS -> 220
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR INF ID ESTABLISHED AS -> 45
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR INPP ID ESTABLISHED AS -> 224
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR INVP ID ESTABLISHED AS -> 226
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IPO ID ESTABLISHED AS -> 227
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ISAT ID ESTABLISHED AS -> 221
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ITRK ID ESTABLISHED AS -> 48
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ITV ID ESTABLISHED AS -> 49
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR IWG ID ESTABLISHED AS -> 228
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JAM ID ESTABLISHED AS -> 231
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JDW ID ESTABLISHED AS -> 341
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JEO ID ESTABLISHED AS -> 234
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JFJ ID ESTABLISHED AS -> 233
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JII ID ESTABLISHED AS -> 230
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+280 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JLG ID ESTABLISHED AS -> 229
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+167 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JMAT ID ESTABLISHED AS -> 51
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+262 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JMG ID ESTABLISHED AS -> 232
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR JUP ID ESTABLISHED AS -> 235
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR KAZ ID ESTABLISHED AS -> 237
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR KGF ID ESTABLISHED AS -> 53
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR KNOS ID ESTABLISHED AS -> 236
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+78 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LAND ID ESTABLISHED AS -> 54
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LGEN ID ESTABLISHED AS -> 55
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LLOY ID ESTABLISHED AS -> 56
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LMP ID ESTABLISHED AS -> 240
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LRE ID ESTABLISHED AS -> 238
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LSE ID ESTABLISHED AS -> 57
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR LWDB ID ESTABLISHED AS -> 239
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MAB ID ESTABLISHED AS -> 250
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MARS ID ESTABLISHED AS -> 352
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MCRO ID ESTABLISHED AS -> 60
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MCS ID ESTABLISHED AS -> 243
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+18 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MDC ID ESTABLISHED AS -> 244
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+90 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MERL ID ESTABLISHED AS -> 247
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+188 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MGAM ID ESTABLISHED AS -> 253
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MGGT ID ESTABLISHED AS -> 245
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MKS ID ESTABLISHED AS -> 58
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MNDI ID ESTABLISHED AS -> 61
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MNKS ID ESTABLISHED AS -> 252
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MONY ID ESTABLISHED AS -> 251
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MRC ID ESTABLISHED AS -> 246
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MRO ID ESTABLISHED AS -> 59
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MRW ID ESTABLISHED AS -> 62
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MSLH ID ESTABLISHED AS -> 242
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR MYI ID ESTABLISHED AS -> 254
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NBLS ID ESTABLISHED AS -> 256
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+270 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NESF ID ESTABLISHED AS -> 259
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+173 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NEX ID ESTABLISHED AS -> 255
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NMC ID ESTABLISHED AS -> 65
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NRR ID ESTABLISHED AS -> 258
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR NXT ID ESTABLISHED AS -> 64
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR OCDO ID ESTABLISHED AS -> 66
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR OSB ID ESTABLISHED AS -> 381
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+197 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR OXIG ID ESTABLISHED AS -> 261
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PAG ID ESTABLISHED AS -> 264
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PAGE ID ESTABLISHED AS -> 262
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PAY ID ESTABLISHED AS -> 265
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PCT ID ESTABLISHED AS -> 274
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PETS ID ESTABLISHED AS -> 271
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+178 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PFC ID ESTABLISHED AS -> 270
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PFG ID ESTABLISHED AS -> 280
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PHNX ID ESTABLISHED AS -> 69
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PHP ID ESTABLISHED AS -> 279
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PIN ID ESTABLISHED AS -> 263
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PLI ID ESTABLISHED AS -> 267
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+270 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PLP ID ESTABLISHED AS -> 276
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+204 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PLUS ID ESTABLISHED AS -> 273
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+228 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PMO ID ESTABLISHED AS -> 278
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+279 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PNL ID ESTABLISHED AS -> 269
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PNN ID ESTABLISHED AS -> 266
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR POLY ID ESTABLISHED AS -> 275
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PPH ID ESTABLISHED AS -> 277
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PRTC ID ESTABLISHED AS -> 354
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+129 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PRU ID ESTABLISHED AS -> 70
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PSH ID ESTABLISHED AS -> 268
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+48 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PSN ID ESTABLISHED AS -> 68
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PSON ID ESTABLISHED AS -> 67
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PTEC ID ESTABLISHED AS -> 272
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR PZC ID ESTABLISHED AS -> 281
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR QLT ID ESTABLISHED AS -> 283
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+5 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RAT ID ESTABLISHED AS -> 285
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RBS ID ESTABLISHED AS -> 77
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RDSA ID ESTABLISHED AS -> 78
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+114 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RDSB ID ESTABLISHED AS -> 371
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RDW ID ESTABLISHED AS -> 286
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR REL ID ESTABLISHED AS -> 72
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RIO ID ESTABLISHED AS -> 74
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RMG ID ESTABLISHED AS -> 294
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+166 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RMV ID ESTABLISHED AS -> 75
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RNK ID ESTABLISHED AS -> 284
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ROR ID ESTABLISHED AS -> 293
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RSA ID ESTABLISHED AS -> 79
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RSE ID ESTABLISHED AS -> 292
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+177 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RSW ID ESTABLISHED AS -> 288
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RTN ID ESTABLISHED AS -> 289
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR RTO ID ESTABLISHED AS -> 73
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SAFE ID ESTABLISHED AS -> 296
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SBRE ID ESTABLISHED AS -> 295
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+20 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SBRY ID ESTABLISHED AS -> 350
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SCIN ID ESTABLISHED AS -> 300
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SCT ID ESTABLISHED AS -> 308
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+100 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SDP ID ESTABLISHED AS -> 299
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SDR ID ESTABLISHED AS -> 81
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SEQI ID ESTABLISHED AS -> 302
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+162 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SGC ID ESTABLISHED AS -> 315
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SGE ID ESTABLISHED AS -> 80
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SGRO ID ESTABLISHED AS -> 83
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SHB ID ESTABLISHED AS -> 304
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SHI ID ESTABLISHED AS -> 305
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SKG ID ESTABLISHED AS -> 88
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SLA ID ESTABLISHED AS -> 92
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SMDS ID ESTABLISHED AS -> 86
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SMIN ID ESTABLISHED AS -> 87
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SMP ID ESTABLISHED AS -> 314
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SMT ID ESTABLISHED AS -> 82
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+63 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SMWH ID ESTABLISHED AS -> 342
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SNN ID ESTABLISHED AS -> 297
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+168 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SNR ID ESTABLISHED AS -> 301
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SOI ID ESTABLISHED AS -> 356
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SOPH ID ESTABLISHED AS -> 309
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+166 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SPD ID ESTABLISHED AS -> 312
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SPT ID ESTABLISHED AS -> 311
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SPX ID ESTABLISHED AS -> 89
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SRE ID ESTABLISHED AS -> 360
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SRP ID ESTABLISHED AS -> 303
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SSE ID ESTABLISHED AS -> 90
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SSPG ID ESTABLISHED AS -> 313
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+179 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR STAN ID ESTABLISHED AS -> 91
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR STJ ID ESTABLISHED AS -> 93
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SVS ID ESTABLISHED AS -> 298
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SVT ID ESTABLISHED AS -> 84
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SXS ID ESTABLISHED AS -> 310
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SXX ID ESTABLISHED AS -> 306
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SYNC ID ESTABLISHED AS -> 316
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+258 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR SYNT ID ESTABLISHED AS -> 317
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TALK ID ESTABLISHED AS -> 318
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TATE ID ESTABLISHED AS -> 319
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TBCG ID ESTABLISHED AS -> 320
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+97 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TCAP ID ESTABLISHED AS -> 326
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TEM ID ESTABLISHED AS -> 324
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+271 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TEP ID ESTABLISHED AS -> 322
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TIFS ID ESTABLISHED AS -> 325
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+32 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TLW ID ESTABLISHED AS -> 330
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TMPL ID ESTABLISHED AS -> 323
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TPK ID ESTABLISHED AS -> 328
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TRIG ID ESTABLISHED AS -> 287
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+185 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TRY ID ESTABLISHED AS -> 327
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+270 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TSCO ID ESTABLISHED AS -> 95
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR TUI ID ESTABLISHED AS -> 96
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+194 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR UDG ID ESTABLISHED AS -> 331
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR UKCM ID ESTABLISHED AS -> 332
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+272 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR UKW ID ESTABLISHED AS -> 198
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+243 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ULE ID ESTABLISHED AS -> 333
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR ULVR ID ESTABLISHED AS -> 97
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR UTG ID ESTABLISHED AS -> 334
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+195 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VCT ID ESTABLISHED AS -> 336
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VEIL ID ESTABLISHED AS -> 337
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+62 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VOD ID ESTABLISHED AS -> 99
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VOF ID ESTABLISHED AS -> 338
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VSVS ID ESTABLISHED AS -> 335
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR VVO ID ESTABLISHED AS -> 339
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+7 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WEIR ID ESTABLISHED AS -> 340
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WIZZ ID ESTABLISHED AS -> 345
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+156 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WKP ID ESTABLISHED AS -> 348
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WMH ID ESTABLISHED AS -> 343
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WPP ID ESTABLISHED AS -> 101
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WTAN ID ESTABLISHED AS -> 344
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+280 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WTB ID ESTABLISHED AS -> 100
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+300 NEW SIGNALS TO ADD
+INFO:root:TICKER FOR WWH ID ESTABLISHED AS -> 349
+INFO:root:	LAST DATE ESTABLISHED AS -> 1970-01-01 00:00:00
+INFO:root:
+281 NEW SIGNALS TO ADD
+INFO:root:
+UPDATE current_bsh_signals WITH LATEST RESULTS
+INFO:root:
+SUCCESSFULLY DELETED 345 RECORDS
+INFO:root:
+SUCCESSFULLY INSERTED 319 RECORDS
+ERROR:root:ERRORS COUNT -> 0
