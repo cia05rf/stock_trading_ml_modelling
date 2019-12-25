@@ -13,6 +13,16 @@ from rf_modules import *
 from functions.ft_eng_funcs import *
 from config import CONFIG
 
+#Programming note
+#df.shift(1) looks 1 period into the past
+#df.shift(-1) looks 1 period into the future
+
+
+
+######################
+### IMPORTING DATA ###
+######################
+
 #Import the ftse list
 tick_ftse = pd.read_csv(CONFIG['files']['store_path'] + CONFIG['files']['tick_ftse'])
 tick_ftse = tick_ftse.iloc[:,1:]
@@ -38,6 +48,39 @@ print(df_prices_w.shape)
 print(df_prices_w.dtypes)
 print(df_prices_w.head())
 
+
+
+#############################
+### BUY HOLD SELL SIGNALS ###
+#############################
+
+#Set records into the correct order
+df_prices_w = df_prices_w.sort_values(['ticker','date'],ascending=[True,True])
+df_prices_w.reset_index(inplace=True,drop=True)
+
+#Calc a column for will the price increase next week
+df_prices_w['signal'] = (df_prices_w.close.shift(-CONFIG['feature_eng']['target_price_period']) - df_prices_w.close) > 0
+print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.value_counts()))
+
+#Get buy signals
+df_prices_w['buy'] = get_buys(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
+
+#Get sell signals
+df_prices_w['sell'] = get_sells(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
+
+#Get hold signals
+df_prices_w["hold"] = (df_prices_w["buy"] == False) & (df_prices_w["sell"] == False)
+
+print('BUY PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['buy'] == True].shape[0]*100/df_prices_w.shape[0]))
+print('SELL PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['sell'] == True].shape[0]*100/df_prices_w.shape[0]))
+print('HOLD PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['hold'] == True].shape[0]*100/df_prices_w.shape[0]))
+
+
+
+#######################################
+### FILTER OUT SHORT HISTORY SHARES ###
+#######################################
+
 #Remove tickers with fewer than 34 entries as this is where the MACD can be calculated
 print('START ROW COUNT -> {}'.format(df_prices_w.shape[0]))
 print('START TICK COUNT -> {}'.format(tick_ftse.shape[0]))
@@ -54,9 +97,11 @@ for tick in tick_ftse.ticker:
 print('\nEND ROW COUNT -> {}'.format(df_prices_w.shape[0]))
 print('END TICK COUNT -> {}'.format(tick_ftse.shape[0]))
 
-#Set records into the correct order
-df_prices_w = df_prices_w.sort_values(['ticker','date'],ascending=[True,True])
-df_prices_w.reset_index(inplace=True,drop=True)
+
+
+############################
+### NORMALISE THE PRICES ###
+############################
 
 # Normalize the prices by ticker and time then create emas and macds for each ticker
 print('NORALISING AND CALCULATING EMA & MACD VALUES')
@@ -68,7 +113,7 @@ for tick in tick_ftse.ticker:
     print('\nRUN FOR {} - {}'.format(tick,len(run_time.lap_li)))
     try:
         this_tick_df = df_prices_w[df_prices_w.ticker == tick]
-        this_tick_df = norm_prices(this_tick_df.copy(),5*52)
+        # this_tick_df = norm_prices(this_tick_df.copy(),5*52)
         #Calculate the ema and macd
         this_tick_df = calc_ema_macd(this_tick_df)
         #Append back on to the dataframe
@@ -89,7 +134,7 @@ if len(error_li) > 0:
 for col in df_prices_w:
     df_prices_w.rename(columns={col:col.lower()},inplace=True)
     
-df_prices_w["change_price"],df_prices_w["per_change_price"] = calc_changes(df_prices_w.close.copy(),df_prices_w.open.copy())
+df_prices_w["change_close"],df_prices_w["per_change_close"] = calc_changes(df_prices_w.close.copy(),df_prices_w.open.copy())
 print(df_prices_w.head())
 
 #Sort values by ticker and date to ensure sequential records
@@ -98,30 +143,15 @@ df_prices_w.reset_index(inplace=True,drop=True)
 print(df_prices_w.ticker.unique())
 print(df_prices_w.head())
 
-#Programming note
-#df.shift(1) looks 1 period into the past
-#df.shift(-1) looks 1 period into the future
-
-#Calc a column for will the price increase next week
-df_prices_w['signal'] = (df_prices_w.close.shift(-CONFIG['feature_eng']['target_price_period']) - df_prices_w.close) > 0
-print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.value_counts()))
-
-#Get buy signals
-df_prices_w['buy'] = get_buys(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
-
-#Get sell signals
-df_prices_w['sell'] = get_sells(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
-
-#Get hold signals
-df_prices_w["hold"] = (df_prices_w["buy"] == False) & (df_prices_w["sell"] == False)
-
-print('BUY PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['buy'] == True].shape[0]*100/df_prices_w.shape[0]))
-print('SELL PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['sell'] == True].shape[0]*100/df_prices_w.shape[0]))
-print('HOLD PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['hold'] == True].shape[0]*100/df_prices_w.shape[0]))
-
 #Get column lengths
 col_lens = get_col_len_df(df_prices_w)
 print(col_lens)
+
+
+
+#######################
+### CREATE FEATURES ###
+#######################
 
 #Create a single function to run each stock through feature creation
 def create_features(_df_in):
@@ -136,8 +166,46 @@ def create_features(_df_in):
     pandas dataframe
     """
     
-    _df_out = _df_in.copy() 
+    _df_out = _df_in.copy()
+
+    ### PRICES ###
+
+    #Close change vs avg over set period
+    #Divide by absolute to see if this is an extreme move and which direction it is in
+    for period in CONFIG['feature_eng']['period_li']:
+        _df_out['change_vs_{}_wk_avg'.format(period)] = _df_out['per_change_close'] / np.abs(avg_in_range(_df_out['per_change_close'],period))
     
+    #Previous close benchmarked against tis close as 1.0 for last n records
+    for n in range(1,CONFIG['feature_eng']['look_back_price_period']+1):
+        _df_out['close_vs_shift_{}_bench'.format(n)] = _df_out['close'].shift(n) / _df_out['close']
+
+    #Get gradient from previous 2 real min/max
+    #Find turn points
+    _df_out['real_close_min'] = flag_mins(_df_out['close'],_period=CONFIG['feature_eng']['period_high_volatility'],_cur=False)
+    _df_out['real_close_max'] = flag_maxs(_df_out['close'],_period=CONFIG['feature_eng']['period_high_volatility'],_cur=False)
+    for max_min in ['max','min']:
+        #Find the last 2 mins
+        _df_out["prev_{}_close".format(max_min)],_df_out["prev_{}_close_date".format(max_min)],_df_out["prev_{}_close_index".format(max_min)] = prev_max_min(_df_out[["date",'close',"real_close_{}".format(max_min)]].copy(),'close',"real_close_{}".format(max_min))
+        _df_out["prev_{}_close_change".format(max_min)] = mk_prev_move_float(_df_out['prev_{}_close'.format(max_min)])
+        _df_out["prev_{}_close_index_change".format(max_min)] = mk_prev_move_float(_df_out['prev_{}_close_index'.format(max_min)])
+        #Calc the gradient
+        _df_out['prev_{}_grad'.format(max_min)] = _df_out["prev_{}_close_change".format(max_min)] / _df_out["prev_{}_close_index_change".format(max_min)]
+        #Count hte periods since the change
+        _df_out['prev_{}_period_count'.format(max_min)] = _df_out.index - _df_out["prev_{}_close_index".format(max_min)]
+        #Calc the projected value and diff to the actual value
+        _df_out['prev_{}_projected_close'.format(max_min)] = _df_out["prev_{}_close".format(max_min)] + (_df_out['prev_{}_period_count'.format(max_min)] * _df_out['prev_{}_grad'.format(max_min)])
+        _df_out['prev_{}_projected_close_diff'.format(max_min)] = _df_out["close"] - _df_out['prev_{}_projected_close'.format(max_min)]
+        #Keep only the wanted columns - keep grad, period_count, and project_close_diff
+        _df_out = _df_out.drop(columns=[
+            "prev_{}_close".format(max_min)
+            ,"prev_{}_close_date".format(max_min)
+            ,"prev_{}_close_index".format(max_min)
+            ,"prev_{}_close_change".format(max_min)
+            ,"prev_{}_close_index_change".format(max_min)
+            ,'prev_{}_projected_close'.format(max_min)
+            ])
+
+
     #Calc vol as proportion of previous n-rows
     _df_out["prop_vol"] = calc_prop_of_prev(_df_out["volume"].copy().astype("float"),6)
 

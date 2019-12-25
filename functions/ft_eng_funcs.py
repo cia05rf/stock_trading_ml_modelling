@@ -330,18 +330,29 @@ def flag_mins(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
     pandas series - bools
     """
     _s_out = 0
-    #Create a benchmark series
-    _bench_s = _s_in.shift(_gap)
-    #Check within window
+    #Adjust the series input if looking at the current values (IE not able to see the future)
+    if _cur:
+        _s_in = _s_in.shift(_gap)
+    #Looking back - check within window
     for i in range(1,_period+1):
-        _s_out += (_bench_s > _bench_s.shift(i)) | (_bench_s.shift(i).isnull())
-    #Check within gap
-    for i in range(1,_gap+1):
-        _s_out += (_bench_s > _bench_s.shift(-i))
+        _s_out += (_s_in > _s_in.shift(i)) | (_s_in.shift(i).isnull())
+    
+    #Looking forwards
+    if _cur:
+        #Check within gap
+        for i in range(1,_gap+1):
+            _s_out += (_s_in > _s_in.shift(-i))
+    else:
+        #Check within forwardlooking periods
+        for i in range(1,_period+1):
+            _s_out += (_s_in > _s_in.shift(-i)) | (_s_in.shift(-i).isnull())
+    
+    #Check end series
     _s_out = _s_out == 0
+    
     return _s_out
 
-def flag_maxs(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
+def flag_maxs(_s_in,_period:int=3,_gap:int=0,_cur:bool=False):
     """Function used to identify values in a series as maxs
     
     args:
@@ -357,19 +368,27 @@ def flag_maxs(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
     pandas series - bools
     """
     _s_out = 0
-    #Create a benchmark series
-    _bench_s = _s_in.shift(_gap)
-    #Check within window
+    #Adjust the series input if looking at the current values (IE not able to see the future)
+    if _cur:
+        _s_in = _s_in.shift(_gap)
+    #Looking back - check within window
     for i in range(1,_period+1):
-        _s_out += (_bench_s < _bench_s.shift(i)) | (_bench_s.shift(i).isnull())
-    #Check within gap
-    for i in range(1,_gap+1):
-        _s_out += (_bench_s < _bench_s.shift(-i))
+        _s_out += (_s_in < _s_in.shift(i)) | (_s_in.shift(i).isnull())
+    
+    #Looking forwards
+    if _cur:
+        #Check within gap
+        for i in range(1,_gap+1):
+            _s_out += (_s_in < _s_in.shift(-i))
+    else:
+        #Check within forwardlooking periods
+        for i in range(1,_period+1):
+            _s_out += (_s_in < _s_in.shift(-i)) | (_s_in.shift(-i).isnull())
     _s_out = _s_out == 0
     return _s_out
 
 #Function to find last max and mins
-def prev_max_min(_df_in,_var_col,_bool_col,_gap:int=0):
+def prev_max_min(_df_in,_var_col,_bool_col):
     """Function to find last max and mins
     
     args:
@@ -384,11 +403,14 @@ def prev_max_min(_df_in,_var_col,_bool_col,_gap:int=0):
     ------
     tuple - pandas series,pandas series - last max/min value, last max/min date
     """
-    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].shift(-_gap).fillna(False),_var_col]
+    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].fillna(False),_var_col]
     _df_in["prev_val"] = _df_in["prev_val"].fillna(method='ffill')
-    _df_in["prev_marker_date"] = _df_in.loc[_df_in[_bool_col].shift(-_gap).fillna(False),"date"]
+    _df_in["prev_marker_date"] = _df_in.loc[_df_in[_bool_col].fillna(False),"date"]
     _df_in["prev_marker_date"] = _df_in["prev_marker_date"].fillna(method='ffill')
-    return (_df_in["prev_val"],_df_in["prev_marker_date"])
+    _df_in['index'] = _df_in.index
+    _df_in["prev_marker_index"] = _df_in.loc[_df_in[_bool_col].fillna(False),'index']
+    _df_in["prev_marker_index"] = _df_in["prev_marker_index"].fillna(method='ffill')
+    return (_df_in["prev_val"],_df_in["prev_marker_date"],_df_in["prev_marker_index"])
 
 #Function for finding the max within a given time period using indexes
 def max_min_period(_s_in,_period:int=1,_normalise:bool=False,_max_min:str='max'):
@@ -482,6 +504,22 @@ def per_change_in_range(_s_in,_period:int=1,**kwargs):
     pandas series - floats
     """
     return ((_s_in - max_min_period(_s_in,_period,_normalise=False,**kwargs)) / max_min_period(_s_in,_period,_normalise=False,**kwargs))
+
+def avg_in_range(_s_in,_period:int=1):
+    """Function for calculating average within a range
+    
+    args:
+    -----
+    _s_in - pandas series - the values to be looked at
+    _period - int:1 - the time window to look over
+    
+    returns:
+    ------
+    pandas series - floats
+    """
+    _s_out = [_s_in.iloc[x-_period:x].mean() if x-_period > 0 else _s_in.iloc[:x].mean() for x in range(_s_in.shape[0])]
+
+    return _s_out
 
 
 
@@ -708,7 +746,7 @@ def get_col_len_df(_df_in):
     
     returns:
     ------
-    pandas series - floats
+    dictionary
     """
     _col_lens = {}
     for _c in _df_in:
