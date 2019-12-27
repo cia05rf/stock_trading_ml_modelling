@@ -251,8 +251,6 @@ for tick in tick_ftse['ticker']:
         else:
             print('No new records to collect')
 
-        #Calc emas and macd
-        tick_df = calc_ema_macd(tick_df)
         print('DAILY FINAL SHAPE -> {}'.format(tick_df.shape))
         
         #Clarify col_lens with cur cols in data
@@ -271,8 +269,6 @@ for tick in tick_ftse['ticker']:
         #Drop duplicates
         df_w = df_w.drop_duplicates()
 
-        #Calc emas and macd
-        df_w = calc_ema_macd(df_w)
         print('WEEKLY FINAL SHAPE -> {}'.format(df_w.shape))
 
         #Add to weekly h5 file

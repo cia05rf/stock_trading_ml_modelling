@@ -89,7 +89,7 @@ def calc_ema_macd(_df_in):
 ###################
 
 #Create a function which normalises a feature based only on the values which have come before it - avoids time series bias
-def norm_time_s(_ind,_s_in,_window):
+def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False):
     """Function used to call EMA and MACD functions
     
     args:
@@ -97,6 +97,7 @@ def norm_time_s(_ind,_s_in,_window):
     _ind - int - the index of this value in the series
     _s_in - pandas series - a series of values to be normalised
     _window - int - the number of values to look over
+    _neg_vals - bool:False - is the output to accunt for the sign of values
     
     returns:
     ------
@@ -109,6 +110,11 @@ def norm_time_s(_ind,_s_in,_window):
         _st_ind = _this_ind - _window
     _min = np.nanmin(_s_in[_st_ind:_this_ind+1].values)
     _max = np.nanmax(_s_in[_st_ind:_this_ind+1].values)
+    #If accounting for neg_vals then adjust _max and _min to allow this
+    # This method allows values to be normalised and be relative to each other (IE -25 is half the magnitude of -50 and 50)
+    if _neg_vals:
+        _max = np.max([np.abs(_min),_max])
+        _min = 0
     _norm_val = (_s_in[_ind] - _min) / (_max - _min)
     return _norm_val
 
@@ -388,7 +394,7 @@ def flag_maxs(_s_in,_period:int=3,_gap:int=0,_cur:bool=False):
     return _s_out
 
 #Function to find last max and mins
-def prev_max_min(_df_in,_var_col,_bool_col):
+def prev_max_min(_df_in,_var_col,_bool_col,_gap:int=0):
     """Function to find last max and mins
     
     args:
@@ -397,19 +403,19 @@ def prev_max_min(_df_in,_var_col,_bool_col):
     _var_col - str - the name of the column containing the current variables
     _bool_col - str - the name of the column containing the bool values defining max and min vlaues
     _gap - int:0 - the number of period which must have elapsed before a min is 
-        identified (prevents changing of min_flags on current week vs same week next week)
+        identified (means that when you're in that week you can't tell if it's a min/max)
     
     returns:
     ------
-    tuple - pandas series,pandas series - last max/min value, last max/min date
+    tuple - pandas series,pandas series,pandas series - last max/min value, last max/min date, last max/min index
     """
-    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].fillna(False),_var_col]
-    _df_in["prev_val"] = _df_in["prev_val"].fillna(method='ffill')
+    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].fillna(False),_var_col]  
+    _df_in["prev_val"] = _df_in["prev_val"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
     _df_in["prev_marker_date"] = _df_in.loc[_df_in[_bool_col].fillna(False),"date"]
-    _df_in["prev_marker_date"] = _df_in["prev_marker_date"].fillna(method='ffill')
+    _df_in["prev_marker_date"] = _df_in["prev_marker_date"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
     _df_in['index'] = _df_in.index
     _df_in["prev_marker_index"] = _df_in.loc[_df_in[_bool_col].fillna(False),'index']
-    _df_in["prev_marker_index"] = _df_in["prev_marker_index"].fillna(method='ffill')
+    _df_in["prev_marker_index"] = _df_in["prev_marker_index"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
     return (_df_in["prev_val"],_df_in["prev_marker_date"],_df_in["prev_marker_index"])
 
 #Function for finding the max within a given time period using indexes
@@ -505,19 +511,23 @@ def per_change_in_range(_s_in,_period:int=1,**kwargs):
     """
     return ((_s_in - max_min_period(_s_in,_period,_normalise=False,**kwargs)) / max_min_period(_s_in,_period,_normalise=False,**kwargs))
 
-def avg_in_range(_s_in,_period:int=1):
+def avg_in_range(_s_in,_period:int=1,_inc_val:bool=True):
     """Function for calculating average within a range
     
     args:
     -----
     _s_in - pandas series - the values to be looked at
     _period - int:1 - the time window to look over
+    _inc_val - bool:True - should the average include the subject value
     
     returns:
     ------
     pandas series - floats
     """
-    _s_out = [_s_in.iloc[x-_period:x].mean() if x-_period > 0 else _s_in.iloc[:x].mean() for x in range(_s_in.shape[0])]
+    if _inc_val:
+        _s_out = [_s_in.iloc[x-_period+1:x+1].mean() if x-_period+1 > 0 else _s_in.iloc[:x+1].mean() for x in range(_s_in.shape[0])]
+    else:
+        _s_out = [_s_in.iloc[x-_period:x].mean() if x-_period > 0 else _s_in.iloc[:x].mean() for x in range(_s_in.shape[0])]
 
     return _s_out
 

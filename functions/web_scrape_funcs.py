@@ -129,8 +129,8 @@ def get_price_hist_d(_tick:str,_sec_ref_li:list):
         _tick_df.loc[:,'ticker'] = _tick    
         #Mark the week identifier
         _tick_df['isocalendar'] = [x.isocalendar()[:2] for x in _tick_df['date']]
-        _min_wk_day = _tick_df.loc[_tick_df['open'] > 0,['date','isocalendar']].groupby('isocalendar').min().rename(columns={'date':'week_start_date'}).reset_index()
-        _tick_df = pd.merge(_tick_df,_min_wk_day,left_on='isocalendar',right_on='isocalendar')
+        _min_wk_day = _tick_df.loc[_tick_df['open'] > 0,['date','isocalendar']].groupby('isocalendar').min().reset_index().rename(columns={'date':'week_start_date'})
+        _tick_df = pd.merge(_tick_df,_min_wk_day,on='isocalendar')
         #CLEANING - Remove any rows with zero volume
         _tick_df = _tick_df[_tick_df['volume'] > 0]
         #CLEANING - Copy row above where the change has been more than 90%
@@ -172,17 +172,18 @@ def get_price_hist_w(_df_d):
         _vol_df = _df_d.loc[_df_d['volume'] > 0,['volume','isocalendar']].groupby('isocalendar').sum().reset_index()
         #Get open price
         _min_wk_day = _df_d.loc[_df_d['open'] > 0,['date','isocalendar']].groupby('isocalendar').min().reset_index()
-        _open_df = pd.merge(_df_d[['date','open']],_min_wk_day,left_on='date',right_on='date')
+        _open_df = pd.merge(_df_d[['date','open']],_min_wk_day,on='date')
         #Get close price
         _max_wk_day = _df_d.loc[_df_d['close'] > 0,['date','isocalendar']].groupby('isocalendar').max().reset_index()
-        _close_df = pd.merge(_df_d[['date','close']],_max_wk_day,left_on='date',right_on='date').reset_index()
+        _close_df = pd.merge(_df_d[['date','close']],_max_wk_day,on='date').reset_index()
         #Form the final df
-        _wk_df = pd.merge(_df_d[['ticker','isocalendar']],_min_wk_day,left_on='isocalendar',right_on='isocalendar') #date
-        _wk_df = pd.merge(_wk_df,_high_df,left_on='isocalendar',right_on='isocalendar') #high
-        _wk_df = pd.merge(_wk_df,_low_df,left_on='isocalendar',right_on='isocalendar') #low
-        _wk_df = pd.merge(_wk_df,_vol_df,left_on='isocalendar',right_on='isocalendar') #volume
-        _wk_df = pd.merge(_wk_df,_open_df[['isocalendar','open']],left_on='isocalendar',right_on='isocalendar') #open
-        _wk_df = pd.merge(_wk_df,_close_df[['isocalendar','close']],left_on='isocalendar',right_on='isocalendar') #close
+        _wk_df = _df_d[['ticker','isocalendar']]
+        _wk_df = pd.merge(_wk_df,_min_wk_day,on='isocalendar') #date
+        _wk_df = pd.merge(_wk_df,_high_df,on='isocalendar') #high
+        _wk_df = pd.merge(_wk_df,_low_df,on='isocalendar') #low
+        _wk_df = pd.merge(_wk_df,_vol_df,on='isocalendar') #volume
+        _wk_df = pd.merge(_wk_df,_open_df[['isocalendar','open']],on='isocalendar') #open
+        _wk_df = pd.merge(_wk_df,_close_df[['isocalendar','close']],on='isocalendar') #close
         _wk_df['change'] = _wk_df['close'] - _wk_df['open']
         _wk_df = _wk_df.drop_duplicates().reset_index(drop=True)
         #Get the monday of each week
