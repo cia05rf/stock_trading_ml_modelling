@@ -516,7 +516,7 @@ h_store.close()
 tables.file._open_files.close_all()
 
 #Delete the old h5 file and rename the TMP
-replace_file(CONFIG['files']['store_path'] + CONFIG['files']['ft_eng_w'],CONFIG['files']['ft_eng_w_tmp'] + CONFIG['files']['hist_prices_d_tmp'])
+replace_file(CONFIG['files']['store_path'] + CONFIG['files']['ft_eng_w'],CONFIG['files']['store_path'] + CONFIG['files']['ft_eng_w_tmp'])
 
 #Remove 'date' from out_cols
 out_cols.remove('date')
