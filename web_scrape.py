@@ -258,9 +258,10 @@ for tick in tick_ftse['ticker']:
         for col in tick_df:
             if col in col_lens:
                 col_lens_tmp[col] = col_lens[col]
+        col_lens = col_lens_tmp
                 
         #Add to daily h5 file
-        tick_df.to_hdf(hf_store_name_d,key=group_name_d,append=True,min_itemsize=col_lens_tmp)
+        tick_df.to_hdf(hf_store_name_d,key=group_name_d,append=True,min_itemsize=col_lens)
         
         #WEEKLY PRICES
         #Convert to weekly prices
@@ -272,7 +273,12 @@ for tick in tick_ftse['ticker']:
         print('WEEKLY FINAL SHAPE -> {}'.format(df_w.shape))
 
         #Add to weekly h5 file
-        df_w.to_hdf(hf_store_name_w,key=group_name_w,append=True,min_itemsize=col_lens)
+        col_lens_w = col_lens.copy()
+        try:
+            del col_lens_w['week_start_date']
+        except KeyError:
+            print('ERROR - Could not find the key "week_start_date"')
+        df_w.to_hdf(hf_store_name_w,key=group_name_w,append=True,min_itemsize=col_lens_w)
         
         #Lap
         run_time.lap()

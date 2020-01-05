@@ -89,7 +89,7 @@ def calc_ema_macd(_df_in):
 ###################
 
 #Create a function which normalises a feature based only on the values which have come before it - avoids time series bias
-def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False):
+def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
     """Function used to call EMA and MACD functions
     
     args:
@@ -98,24 +98,45 @@ def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False):
     _s_in - pandas series - a series of values to be normalised
     _window - int - the number of values to look over
     _neg_vals - bool:False - is the output to accunt for the sign of values
-    
+    _mode  str:max_min - should the normalisation be done by max mins or standard deviation
+
     returns:
     ------
     float - normalised value in the window period
     """
+    #Establish the index window
     _this_ind = _ind - _s_in.index.min()
     if _this_ind < _window:
         _st_ind = 0
     else:
         _st_ind = _this_ind - _window
-    _min = np.nanmin(_s_in[_st_ind:_this_ind+1].values)
-    _max = np.nanmax(_s_in[_st_ind:_this_ind+1].values)
-    #If accounting for neg_vals then adjust _max and _min to allow this
-    # This method allows values to be normalised and be relative to each other (IE -25 is half the magnitude of -50 and 50)
-    if _neg_vals:
-        _max = np.max([np.abs(_min),_max])
-        _min = 0
-    _norm_val = (_s_in[_ind] - _min) / (_max - _min)
+    _s = _s_in[_st_ind:_this_ind+1]
+    _v = _s_in[_ind]
+    #Normalise the value
+    if _mode == 'max_min':
+        _min = np.nanmin(_s.values)
+        _max = np.nanmax(_s.values)
+        #If accounting for neg_vals then adjust _max and _min to allow this
+        # This method allows values to be normalised and be relative to each other (IE -25 is half the magnitude of -50 and 50)
+        if _neg_vals:
+            _max = np.max([np.abs(_min),_max])
+            _min = 0
+        _norm_val = (_v - _min) / (_max - _min)
+    elif _mode == 'std':
+        if _neg_vals:
+            if _v < 0:
+                _s = _s[_s <= 0]
+            else:
+                _s = _s[_s >= 0]
+            _mean = np.nanmean(_s.values)
+            _std = np.nanstd(_s.values)
+            _norm_val = (_v - _mean) / _std
+        else:
+            _mean = np.nanmean(_s.values)
+            _std = np.nanstd(_s.values)
+            _norm_val = (_v - _mean) / _std
+    else:
+        raise ValueError('mode must be "std" or "max_min", {} given'.format(mode))
     return _norm_val
 
 #Run the functions

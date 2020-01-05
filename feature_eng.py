@@ -64,23 +64,28 @@ print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.valu
 
 #Get buy signals
 df_prices_w['buy'] = get_buys(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
+# df_prices_w['buy'] = df_prices_w['close'].shift(-CONFIG['feature_eng']['target_price_period']) > df_prices_w['close']
 
 #Get sell signals
 df_prices_w['sell'] = get_sells(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
 
-#Get hold signals
-df_prices_w["hold"] = (df_prices_w["buy"] == False) & (df_prices_w["sell"] == False)
-
 #Turn into a single signal
 df_prices_w['signal'] = 'hold'
 df_prices_w.loc[df_prices_w.sell,'signal'] = 'sell'
+# df_prices_w['signal'] = 'sell'
 df_prices_w.loc[df_prices_w.buy,'signal'] = 'buy'
 print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.value_counts()))
 
-print('BUY PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['buy'] == True].shape[0]*100/df_prices_w.shape[0]))
-print('SELL PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['sell'] == True].shape[0]*100/df_prices_w.shape[0]))
-print('HOLD PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w['hold'] == True].shape[0]*100/df_prices_w.shape[0]))
+print('BUY PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w.signal == 'buy'].shape[0]*100/df_prices_w.shape[0]))
+print('SELL PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w.signal == 'sell'].shape[0]*100/df_prices_w.shape[0]))
+print('HOLD PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w.signal == 'hold'].shape[0]*100/df_prices_w.shape[0]))
 
+#Convert to bool
+if len(np.unique(df_prices_w.signal)) and 'buy' in  np.unique(df_prices_w.signal):
+    df_prices_w['signal'] = df_prices_w.signal == 'buy'
+    df_prices_w['signal'] = df_prices_w.signal.astype('int')
+    CONFIG['lgbm_training']['buy_signal'] = 1
+    CONFIG['lgbm_training']['sell_signal'] = 0
 
 
 #######################################
@@ -150,7 +155,7 @@ print(df_prices_w.head())
 
 #Get column lengths
 col_lens = get_col_len_df(df_prices_w)
-print(col_lens)
+print('col_lens -> {}'.format(col_lens))
 
 
 ###############################################
@@ -213,7 +218,7 @@ def create_features(_df_in):
         _df_out['prev_{}_close_period_count'.format(max_min)] = _df_out.index - _df_out["prev_{}_close_index".format(max_min)]
         #Calc the projected value and diff to the actual value
         _df_out['prev_{}_projected_close'.format(max_min)] = _df_out["prev_{}_close".format(max_min)] + (_df_out['prev_{}_close_period_count'.format(max_min)] * _df_out['prev_{}_close_grad'.format(max_min)])
-        _df_out['prev_{}_projected_close_diff'.format(max_min)] = _df_out["close"] - _df_out['prev_{}_projected_close'.format(max_min)]
+        _df_out['prev_{}_projected_close_diff'.format(max_min)] = (_df_out["close"] - _df_out['prev_{}_projected_close'.format(max_min)]) / _df_out["close"]
         #Keep only the wanted columns - keep grad, period_count, and project_close_diff
         _df_out = _df_out.drop(columns=[
             "prev_{}_close".format(max_min)
@@ -324,13 +329,13 @@ def create_features(_df_in):
         ,'per_change_close'
         ,'ema26'
     ]:
-        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window']) for _x in _df_out.index]
+        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_mode='std') for _x in _df_out.index]
     #Between -1 and 1
     for _col in [
         'macd'
         ,'signal_line'
     ]:
-        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_neg_vals=True) for _x in _df_out.index]
+        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_neg_vals=True,_mode='std') for _x in _df_out.index]
 
     return _df_out
 
@@ -437,15 +442,20 @@ for max_min in ['max','min']:
     conv_di['prev_{}_signal_line_grad'.format(max_min)] = 'float64'
     conv_di['prev_{}_signal_line_period_count'.format(max_min)] = 'float64'
 #Append signal
-conv_di["signal"] = 'object'
+conv_di["signal"] = 'int'
 
 #Then loop the tickers and combine these into one large dataset
 hf_store_name = CONFIG['files']['store_path'] + CONFIG['files']['ft_eng_w_tmp']
 h_store = pd.HDFStore(hf_store_name)
 errors = []
 run_time = process_time()
+#Get the min col lens
+min_itemsize_di = {}
+for col in out_cols:
+    if col in col_lens:
+        min_itemsize_di[col] = col_lens[col]
 for tick in tick_ftse["ticker"]:
-# for tick in ['SBRY']: #TEMP
+# for tick in ['VVO','SBRY']: #TEMP
     try:
         print("\n{}".format(len(run_time.lap_li)))
         print("RUN FOR {}".format(tick))
@@ -456,18 +466,16 @@ for tick in tick_ftse["ticker"]:
         this_tick_df = create_features(this_tick_df)
         #Clarify col_lens with cur cols in data
         this_col_lens = get_col_len_df(this_tick_df)
-        min_itemsize_di = {}
         for col in out_cols:
-            if col in col_lens:
-                if this_col_lens[col] > col_lens[col]:
-                    col_lens[col] = this_col_lens[col]
+            if col in min_itemsize_di:
+                if this_col_lens[col] > min_itemsize_di[col]:
+                    min_itemsize_di[col] = this_col_lens[col]
             else:
-                col_lens[col] = this_col_lens[col]
-            min_itemsize_di = col_lens[col]
+                min_itemsize_di[col] = this_col_lens[col]
         print("shape after -> {}".format(this_tick_df.shape))
         #Create function for appending to hdf file
         def append_to_hdf(df_in):
-            df_in[out_cols].to_hdf(hf_store_name,key='weekly_data',append=True,min_itemsize=min_itemsize_di)
+            df_in[out_cols].to_hdf(hf_store_name,key='data',append=True,min_itemsize=min_itemsize_di)
         #Append this data to the group
         try:
             append_to_hdf(this_tick_df)
@@ -500,16 +508,17 @@ run_time.end()
 print('\nERROR COUNT -> {}'.format(len(errors)))
 if len(errors) > 0:
     print('\tERRORS -> ')
-    display(pd.DataFrame(errors))
+    print(pd.DataFrame(errors))
 
 #close any open h5 files
 tables.file._open_files.close_all()
 
 #Check the final tmp table
-tmp_df = pd.read_hdf(hf_store_name,key='weekly_data',mode='r')
+tmp_df = pd.read_hdf(hf_store_name,key='data',mode='r')
 print("")
 print("FINAL HDFSTORE SIZE: {}".format(tmp_df.shape))
-print("FINAL SIGNAL COUNTS: {}".format(tmp_df.signal.value_counts()))
+print("FINAL SIGNAL COUNTS: \n{}".format(tmp_df.signal.value_counts()))
+print("FINAL NULL COUNTS: \n{}".format(tmp_df.isnull().sum()))
 h_store.close()
 
 #close any open h5 files
