@@ -2,6 +2,7 @@
 
 import datetime as dt
 import numpy as np
+import skopt
 
 CONFIG = {
     'files':{
@@ -51,8 +52,8 @@ CONFIG = {
             ,'random_state':0
             ,'silent':False
             ,'objective':'binary'
-            ,'min_samples_split':2000 #Should be between 0.5-1% of samples
-            ,'min_samples_leaf':500
+            # ,'min_samples_split':2000 #Should be between 0.5-1% of samples
+            # ,'min_samples_leaf':500
             ,'n_estimators':20
             ,'subsample':0.8
         }
@@ -69,8 +70,18 @@ CONFIG = {
                 'learning_rate':[0.1,0.01,0.005]
                 ,'num_leaves':np.linspace(10,1010,100,dtype=int)
                 ,'max_depth':np.linspace(2,8,6,dtype=int)
+                ,'min_samples_split':np.linspace(200,2200,10,dtype=int)
+                ,'min_samples_leaf':np.linspace(50,550,10,dtype=int)
             }
         }
+        ,'skopt_params':[
+            skopt.space.Real(0.01,0.5,name='learning_rate',prior='log-uniform')
+            ,skopt.space.Integer(1,30,name='max_depth')
+            ,skopt.space.Integer(2,100,name='num_leaves')
+            ,skopt.space.Integer(200,2000,name='min_samples_split')
+            ,skopt.space.Integer(50,500,name='min_samples_leaf')
+            ,
+        ]
         ,'fit_params':{
             'verbose':True
         }

@@ -17,6 +17,7 @@ from sklearn.externals import joblib as jl
 import lightgbm as lgb
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import GridSearchCV
+import skopt
 
 from rf_modules import *
 from config import CONFIG
@@ -47,6 +48,7 @@ target_cols = CONFIG['lgbm_training']['target_cols']
 df_model = df_ft[feature_cols+[target_cols]+['date']].copy()
 print("DTYPES:",df_model.dtypes)
 print("SHAPE:",df_model.shape)
+print('{} UNIQUE SIGNALS -> {}'.format(len(np.unique(df_model[target_cols])),np.unique(df_model[target_cols])))
 
 #Remove rows with missing or infinate values
 if CONFIG['lgbm_training']['rem_inf']:
@@ -139,8 +141,9 @@ def lgbm_custom_loss(_y_act,_y_pred):
     _y_pred_conv = []
     _n_classes = len(np.unique(_y_act))
     _binary = _n_classes == 2 and 1 in np.unique(_y_act) and 0 in np.unique(_y_act)
-    if _binary:
-        _y_pred = np.round(_y_pred)
+    if _y_act.shape == _y_pred.shape:
+        if _binary:
+            _y_pred = np.round(_y_pred)
         _y_pred_conv = _y_pred
     else:
         for i in range(0,_y_act.shape[0]):
@@ -149,14 +152,14 @@ def lgbm_custom_loss(_y_act,_y_pred):
                 _tmp_li.append(_y_pred[(_y_act.shape[0]*j) + i])
             _y_pred_conv.append(np.argmax(_tmp_li))
     _y_pred_conv = np.array(_y_pred_conv)
-    _ac_results = calc_tpr(_y_pred_conv,_y_act,unique_classes=range(0,_n_classes))
+    _ac_results = calc_tpr(_y_pred_conv,_y_act,unique_classes=list(np.unique(_y_act)))
     # _av = _ac_results[_ac_results.opt_text.isin([0,2])]['ppv'].mean() #Only average for buy and sell
     if _binary:
         _av = _ac_results[_ac_results.opt_text == 1][CONFIG['lgbm_training']['custom_metric']].values[0]
     else:
         _av = _ac_results[CONFIG['lgbm_training']['custom_metric']].mean()
-    #If _av_ppv is 0 then append the time to prevent early stopping
-    if _av == 0:
+    #Append the time to prevent early stopping
+    if (_av == 0 and CONFIG['lgbm_training']['custom_metric'] != 'auc') or (_av == 0.5 and CONFIG['lgbm_training']['custom_metric'] == 'auc'):
         _time_now = dt.datetime.now()
         _av += _time_now.hour*10**-4 + _time_now.minute*10**-6 + _time_now.second*10**-8
     # (eval_name, eval_result, is_higher_better)
@@ -175,26 +178,35 @@ if CONFIG['lgbm_training']['use_custom_eval_set']:
     fit_params['eval_metric'] = 'auc'
 if CONFIG['lgbm_training']['use_custom_loss_function']:
     fit_params['eval_metric'] = lgbm_custom_loss
-# print('mod_fixed_params -> {}'.format(mod_fixed_params))
-# print('search_params -> {}'.format(search_params))
-# print('fit_params -> {}'.format(fit_params))
 
 # Train the model
 run_time = process_time()
-#Setup the model
-lgb_mod = lgb.LGBMClassifier(**mod_fixed_params)
-#Add the search grid
-seed = CONFIG['lgbm_training']['rand_seed']
-gbm = RandomizedSearchCV(lgb_mod,search_params['variable'],**search_params['fixed'])
-#Fit the model
-gbm.fit(X_train,y_train,**fit_params)
-print('Best parameters found by grid search are: {}'.format(gbm.best_params_))
+#Find the minimum using skopt
+@skopt.utils.use_named_args(CONFIG['lgbm_training']['skopt_params'])
+def train_func(**params):
+    print('\n')
+    lgb_mod = lgb.LGBMClassifier(**params)
+    best_mod = lgb_mod.fit(X_train,y_train,**fit_params)
+    y_pred = best_mod.predict(X_test)
+    print('y_pred.value_counts() -> \n{}'.format(np.unique(y_pred,return_counts=True)))
+    loss = lgbm_custom_loss(y_test,y_pred)
+    if loss[2] == True:#higher is better
+        loss = 1 - loss[1]
+    else:
+        loss = loss[1]
+    print('loss -> {}'.format(loss))
+    return loss
+HPO_PARAMS = {
+    'n_calls':100
+}
+results = skopt.gbrt_minimize(train_func,CONFIG['lgbm_training']['skopt_params'],**HPO_PARAMS)
+print('\nBEST RESULT - {} -> {:.4f}'.format(CONFIG['lgbm_training']['custom_metric'],results.fun))
+best_params = {k.name:v for k, v in zip(CONFIG['lgbm_training']['skopt_params'],results.x)}
+print('\nBEST PARAMS -> {}'.format(best_params))
 run_time.end()
 
-
 ### FIT THE FINAL MODEL USIN BEST PARAMS ###
-
-final_models = lgb.LGBMClassifier(**gbm.best_params_)
+final_models = lgb.LGBMClassifier(**best_params)
 final_models.fit(X_train,y_train)
 
 #Show the best and worst features

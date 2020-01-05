@@ -64,7 +64,6 @@ print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.valu
 
 #Get buy signals
 df_prices_w['buy'] = get_buys(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
-# df_prices_w['buy'] = df_prices_w['close'].shift(-CONFIG['feature_eng']['target_price_period']) > df_prices_w['close']
 
 #Get sell signals
 df_prices_w['sell'] = get_sells(df_prices_w['close'],CONFIG['feature_eng']['target_price_period'],CONFIG['feature_eng']['min_gain'],CONFIG['feature_eng']['max_drop'])
@@ -72,7 +71,6 @@ df_prices_w['sell'] = get_sells(df_prices_w['close'],CONFIG['feature_eng']['targ
 #Turn into a single signal
 df_prices_w['signal'] = 'hold'
 df_prices_w.loc[df_prices_w.sell,'signal'] = 'sell'
-# df_prices_w['signal'] = 'sell'
 df_prices_w.loc[df_prices_w.buy,'signal'] = 'buy'
 print('df_prices_w.signal.value_counts() -> \n{}'.format(df_prices_w.signal.value_counts()))
 
@@ -81,7 +79,7 @@ print('SELL PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w.signal == 'sel
 print('HOLD PERCENTAGE -> {:.2f}%'.format(df_prices_w[df_prices_w.signal == 'hold'].shape[0]*100/df_prices_w.shape[0]))
 
 #Convert to bool
-if len(np.unique(df_prices_w.signal)) and 'buy' in  np.unique(df_prices_w.signal):
+if len(np.unique(df_prices_w.signal)) == 2 and 'buy' in  np.unique(df_prices_w.signal):
     df_prices_w['signal'] = df_prices_w.signal == 'buy'
     df_prices_w['signal'] = df_prices_w.signal.astype('int')
     CONFIG['lgbm_training']['buy_signal'] = 1
