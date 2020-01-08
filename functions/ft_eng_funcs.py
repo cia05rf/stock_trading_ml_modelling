@@ -89,7 +89,7 @@ def calc_ema_macd(_df_in):
 ###################
 
 #Create a function which normalises a feature based only on the values which have come before it - avoids time series bias
-def norm_time_s(_ind,_s_in,_window):
+def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
     """Function used to call EMA and MACD functions
     
     args:
@@ -97,19 +97,46 @@ def norm_time_s(_ind,_s_in,_window):
     _ind - int - the index of this value in the series
     _s_in - pandas series - a series of values to be normalised
     _window - int - the number of values to look over
-    
+    _neg_vals - bool:False - is the output to accunt for the sign of values
+    _mode  str:max_min - should the normalisation be done by max mins or standard deviation
+
     returns:
     ------
     float - normalised value in the window period
     """
+    #Establish the index window
     _this_ind = _ind - _s_in.index.min()
     if _this_ind < _window:
         _st_ind = 0
     else:
         _st_ind = _this_ind - _window
-    _min = np.nanmin(_s_in[_st_ind:_this_ind+1].values)
-    _max = np.nanmax(_s_in[_st_ind:_this_ind+1].values)
-    _norm_val = (_s_in[_ind] - _min) / (_max - _min)
+    _s = _s_in[_st_ind:_this_ind+1]
+    _v = _s_in[_ind]
+    #Normalise the value
+    if _mode == 'max_min':
+        _min = np.nanmin(_s.values)
+        _max = np.nanmax(_s.values)
+        #If accounting for neg_vals then adjust _max and _min to allow this
+        # This method allows values to be normalised and be relative to each other (IE -25 is half the magnitude of -50 and 50)
+        if _neg_vals:
+            _max = np.max([np.abs(_min),_max])
+            _min = 0
+        _norm_val = (_v - _min) / (_max - _min)
+    elif _mode == 'std':
+        if _neg_vals:
+            if _v < 0:
+                _s = _s[_s <= 0]
+            else:
+                _s = _s[_s >= 0]
+            _mean = np.nanmean(_s.values)
+            _std = np.nanstd(_s.values)
+            _norm_val = (_v - _mean) / _std
+        else:
+            _mean = np.nanmean(_s.values)
+            _std = np.nanstd(_s.values)
+            _norm_val = (_v - _mean) / _std
+    else:
+        raise ValueError('mode must be "std" or "max_min", {} given'.format(mode))
     return _norm_val
 
 #Run the functions
@@ -330,18 +357,29 @@ def flag_mins(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
     pandas series - bools
     """
     _s_out = 0
-    #Create a benchmark series
-    _bench_s = _s_in.shift(_gap)
-    #Check within window
+    #Adjust the series input if looking at the current values (IE not able to see the future)
+    if _cur:
+        _s_in = _s_in.shift(_gap)
+    #Looking back - check within window
     for i in range(1,_period+1):
-        _s_out += (_bench_s > _bench_s.shift(i)) | (_bench_s.shift(i).isnull())
-    #Check within gap
-    for i in range(1,_gap+1):
-        _s_out += (_bench_s > _bench_s.shift(-i))
+        _s_out += (_s_in > _s_in.shift(i)) | (_s_in.shift(i).isnull())
+    
+    #Looking forwards
+    if _cur:
+        #Check within gap
+        for i in range(1,_gap+1):
+            _s_out += (_s_in > _s_in.shift(-i))
+    else:
+        #Check within forwardlooking periods
+        for i in range(1,_period+1):
+            _s_out += (_s_in > _s_in.shift(-i)) | (_s_in.shift(-i).isnull())
+    
+    #Check end series
     _s_out = _s_out == 0
+    
     return _s_out
 
-def flag_maxs(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
+def flag_maxs(_s_in,_period:int=3,_gap:int=0,_cur:bool=False):
     """Function used to identify values in a series as maxs
     
     args:
@@ -357,14 +395,22 @@ def flag_maxs(_s_in,_period:int=3,_gap:int=3,_cur:bool=False):
     pandas series - bools
     """
     _s_out = 0
-    #Create a benchmark series
-    _bench_s = _s_in.shift(_gap)
-    #Check within window
+    #Adjust the series input if looking at the current values (IE not able to see the future)
+    if _cur:
+        _s_in = _s_in.shift(_gap)
+    #Looking back - check within window
     for i in range(1,_period+1):
-        _s_out += (_bench_s < _bench_s.shift(i)) | (_bench_s.shift(i).isnull())
-    #Check within gap
-    for i in range(1,_gap+1):
-        _s_out += (_bench_s < _bench_s.shift(-i))
+        _s_out += (_s_in < _s_in.shift(i)) | (_s_in.shift(i).isnull())
+    
+    #Looking forwards
+    if _cur:
+        #Check within gap
+        for i in range(1,_gap+1):
+            _s_out += (_s_in < _s_in.shift(-i))
+    else:
+        #Check within forwardlooking periods
+        for i in range(1,_period+1):
+            _s_out += (_s_in < _s_in.shift(-i)) | (_s_in.shift(-i).isnull())
     _s_out = _s_out == 0
     return _s_out
 
@@ -378,17 +424,20 @@ def prev_max_min(_df_in,_var_col,_bool_col,_gap:int=0):
     _var_col - str - the name of the column containing the current variables
     _bool_col - str - the name of the column containing the bool values defining max and min vlaues
     _gap - int:0 - the number of period which must have elapsed before a min is 
-        identified (prevents changing of min_flags on current week vs same week next week)
+        identified (means that when you're in that week you can't tell if it's a min/max)
     
     returns:
     ------
-    tuple - pandas series,pandas series - last max/min value, last max/min date
+    tuple - pandas series,pandas series,pandas series - last max/min value, last max/min date, last max/min index
     """
-    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].shift(-_gap).fillna(False),_var_col]
-    _df_in["prev_val"] = _df_in["prev_val"].fillna(method='ffill')
-    _df_in["prev_marker_date"] = _df_in.loc[_df_in[_bool_col].shift(-_gap).fillna(False),"date"]
-    _df_in["prev_marker_date"] = _df_in["prev_marker_date"].fillna(method='ffill')
-    return (_df_in["prev_val"],_df_in["prev_marker_date"])
+    _df_in["prev_val"] = _df_in.loc[_df_in[_bool_col].fillna(False),_var_col]  
+    _df_in["prev_val"] = _df_in["prev_val"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
+    _df_in["prev_marker_date"] = _df_in.loc[_df_in[_bool_col].fillna(False),"date"]
+    _df_in["prev_marker_date"] = _df_in["prev_marker_date"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
+    _df_in['index'] = _df_in.index
+    _df_in["prev_marker_index"] = _df_in.loc[_df_in[_bool_col].fillna(False),'index']
+    _df_in["prev_marker_index"] = _df_in["prev_marker_index"].fillna(method='ffill').shift(_gap)#Shift _gap allows offset
+    return (_df_in["prev_val"],_df_in["prev_marker_date"],_df_in["prev_marker_index"])
 
 #Function for finding the max within a given time period using indexes
 def max_min_period(_s_in,_period:int=1,_normalise:bool=False,_max_min:str='max'):
@@ -482,6 +531,26 @@ def per_change_in_range(_s_in,_period:int=1,**kwargs):
     pandas series - floats
     """
     return ((_s_in - max_min_period(_s_in,_period,_normalise=False,**kwargs)) / max_min_period(_s_in,_period,_normalise=False,**kwargs))
+
+def avg_in_range(_s_in,_period:int=1,_inc_val:bool=True):
+    """Function for calculating average within a range
+    
+    args:
+    -----
+    _s_in - pandas series - the values to be looked at
+    _period - int:1 - the time window to look over
+    _inc_val - bool:True - should the average include the subject value
+    
+    returns:
+    ------
+    pandas series - floats
+    """
+    if _inc_val:
+        _s_out = [_s_in.iloc[x-_period+1:x+1].mean() if x-_period+1 > 0 else _s_in.iloc[:x+1].mean() for x in range(_s_in.shape[0])]
+    else:
+        _s_out = [_s_in.iloc[x-_period:x].mean() if x-_period > 0 else _s_in.iloc[:x].mean() for x in range(_s_in.shape[0])]
+
+    return _s_out
 
 
 
@@ -708,7 +777,7 @@ def get_col_len_df(_df_in):
     
     returns:
     ------
-    pandas series - floats
+    dictionary
     """
     _col_lens = {}
     for _c in _df_in:

@@ -12,8 +12,9 @@
 
 #SETUP LOGGING FILE
 import logging
-log_file = r'C:\xampp\htdocs\freshandeasyfood\trading\python_parsers\update_db_historic_prices_LOG.log'    
-logging.basicConfig(filename=log_file, filemode="w", level=logging.DEBUG)   
+from config import CONFIG
+log_file = CONFIG['files']['log_path'] + CONFIG['files']['ws_update_prices_log']
+logging.basicConfig(filename=log_file, filemode="w", level=logging.DEBUG)
 console = logging.StreamHandler()
 console.setLevel(logging.DEBUG)
 logging.getLogger("").addHandler(console)
@@ -29,12 +30,12 @@ import re
 logging.info('Libraries loaded')
 
 #Setup the variables
-path = r'C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices'
+path = CONFIG['files']['store_path']
 
 #Read in the file
 logging.info('Reading in weekly prices file...')
-f = h5py.File(path + r'\all_hist_prices_w.h5',mode='r')
-grp = f['weekly_data'] #Group name given to weekly data in this file
+f = h5py.File(path + CONFIG['files']['hist_prices_w'],mode='r')
+grp = f['data'] #Group name given to weekly data in this file
 logging.info('Successfully read in data')
 #Get the column headers
 col_li = list(grp['_i_table'])
@@ -62,7 +63,25 @@ db = db_conx()
 #  you execute all the queries you need
 cur = db.cursor()
 
-#STEPS 2 & 3 - LOOP THROUGH THE TICKERS AND CREATE AN SQL TEMPLATE WHIC ADDS TO THE DATABASE
+#If doing a full upload wipe the tables clean
+if CONFIG['db_update']['prices'] == 'full':
+    logging.info('\nWIPING DB PRICING TABLES')
+    sql = '''
+        DELETE FROM historic_prices_w;
+        DELETE FROM historic_prices_d;
+    '''
+    #Query the database
+    try:
+        cur.execute(sql)
+    except Exception as e:
+        raise Exception('WIPE_TABLES_ERROR','sql error \n\tsql -> {}\n\tERROR -> {}'.format(sql,e))
+    logging.info('\nWIPE COMPLETE')
+    #Close and re-create the connection
+    cur.close()
+    db = db_conx()
+    cur = db.cursor()
+
+#STEPS 2 & 3 - LOOP THROUGH THE TICKERS AND CREATE AN SQL TEMPLATE WHICH ADDS TO THE DATABASE
 errors_li = []
 for tick in tick_li:
     try:
@@ -127,11 +146,6 @@ for tick in tick_li:
                 ,{low}
                 ,{change}
                 ,{volume}
-                ,{ema12}
-                ,{ema26}
-                ,{macd_line}
-                ,{signal_line}
-                ,{macd}
             )'''.format(**data)
         #Replace nan with NULL for SQL
         rows_sql = re.sub('nan','NULL',rows_sql)
@@ -147,11 +161,6 @@ for tick in tick_li:
             ,price_low
             ,price_change
             ,volume
-            ,ema12
-            ,ema26
-            ,macd_line
-            ,macd_signal
-            ,macd_hist
         ) VALUES
         {0}
         '''.format(rows_sql)
@@ -190,8 +199,8 @@ show_err(errors_li)
 #STEP 4 - REPEAT FOR DAILY PRICES
 #Read in the file
 logging.info('Reading in daily prices file...')
-f = h5py.File(path + r'\all_hist_prices_d.h5',mode='r')
-grp = f['daily_data'] #Group name given to weekly data in this file
+f = h5py.File(path + CONFIG['files']['hist_prices_d'],mode='r')
+grp = f['data'] #Group name given to weekly data in this file
 logging.info('Successfully read in data')
 #Get the column headers
 col_li = list(grp['_i_table'])
@@ -268,11 +277,6 @@ for tick in tick_li:
                 ,{low}
                 ,{change}
                 ,{volume}
-                ,{ema12}
-                ,{ema26}
-                ,{macd_line}
-                ,{signal_line}
-                ,{macd}
             )'''.format(**data)
         #Replace nan with NULL for SQL
         rows_sql = re.sub('nan','NULL',rows_sql)
@@ -291,11 +295,6 @@ for tick in tick_li:
             ,price_low
             ,price_change
             ,volume
-            ,ema12
-            ,ema26
-            ,macd_line
-            ,macd_signal
-            ,macd_hist
         ) VALUES
         {0}
         '''.format(rows_sql)
@@ -345,11 +344,6 @@ try:
             ,price_low
             ,price_change
             ,volume
-            ,ema12
-            ,ema26
-            ,macd_line
-            ,macd_signal
-            ,macd_hist
         ) 
         SELECT
             hpw.price_id
@@ -362,11 +356,6 @@ try:
             ,hpw.price_low
             ,hpw.price_change
             ,hpw.volume
-            ,hpw.ema12
-            ,hpw.ema26
-            ,hpw.macd_line
-            ,hpw.macd_signal
-            ,hpw.macd_hist
         FROM historic_prices_w AS hpw
         INNER JOIN tickers AS t
             ON t.ticker_id = hpw.ticker_id
