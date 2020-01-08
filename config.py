@@ -7,6 +7,7 @@ import skopt
 CONFIG = {
     'files':{
         'store_path':r"C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices"
+        ,'log_path':r"C:\xampp\htdocs\freshandeasyfood\trading\logs"
         ,'tick_ftse':r"\tick_ftse.csv"
         ,'hist_prices_d':r"\all_hist_prices_d.h5"
         ,'hist_prices_d_tmp':r"\all_hist_prices_d_TMP.h5"
@@ -20,6 +21,9 @@ CONFIG = {
         ,'signals':r'\historic_lgb_bsh_signals.h5'
         ,'signals_tmp':r'\historic_lgb_bsh_signals_TMP.h5'
         ,'fund_ledger':r'\fund_ledger_lgb.csv'
+        ,'ws_update_prices_log':r'\update_db_historic_prices_LOG.log'
+        ,'ws_update_tickers_log':r'\update_db_tickers_LOG.log'
+        ,'ws_update_signals_log':r'\update_db_historic_bsh_LOG.log'
     }
     ,'web_scrape':{
         'mode':'update' #Set to 'update' or 'full'
@@ -92,5 +96,9 @@ CONFIG = {
         ,'_investment_limit_min_val':100000 #£1,000
         ,'_investment_limit_max_per':0.1 #10%
         ,'_spread':0.01 #1%
+    }
+    ,'db_update':{
+        'prices':'full'#'update' or 'full'
+        ,'signals':'full'#'update' or 'full'
     }
 }

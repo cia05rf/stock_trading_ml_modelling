@@ -12,7 +12,8 @@
 
 #SETUP LOGGING FILE
 import logging
-log_file = r'C:\xampp\htdocs\freshandeasyfood\trading\python_parsers\update_db_historic_bsh_LOG.log'    
+from config import CONFIG
+log_file = CONFIG['files']['log_path'] + CONFIG['files']['ws_update_signals_log']
 logging.basicConfig(filename=log_file, filemode="w", level=logging.DEBUG)   
 console = logging.StreamHandler()
 console.setLevel(logging.DEBUG)
@@ -30,12 +31,12 @@ import tables
 logging.info('Libraries loaded')
 
 #Setup the variables
-path = r'C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices'
+path = CONFIG['files']['store_path']
 
 #Read in the file
 logging.info('Reading in weekly bsh signals file...')
-f = h5py.File(path + r'\historic_lgb_bsh_signals.h5',mode='r')
-grp = f['bsh_signals'] #Group name given to weekly data in this file
+f = h5py.File(path + CONFIG['files']['signals'],mode='r')
+grp = f['data'] #Group name given to weekly data in this file
 logging.info('Successfully read in data')
 #Get the column headers
 col_li = list(grp['_i_table'])
@@ -66,6 +67,24 @@ db = db_conx()
 # you must create a Cursor object. It will let
 #  you execute all the queries you need
 cur = db.cursor()
+
+#If doing a full upload wipe the tables clean
+if CONFIG['db_update']['signals'] == 'full':
+    logging.info('\nWIPING DB BSH SIGNAL TABLE')
+    sql = '''
+        DELETE FROM historic_bsh_signals;
+    '''
+    #Query the database
+    try:
+        cur.execute(sql)
+    except Exception as e:
+        raise Exception('WIPE_TABLES_ERROR','sql error \n\tsql -> {}\n\tERROR -> {}'.format(sql,e))
+    logging.info('\nWIPE COMPLETE')
+    #Close and re-create the connection
+    cur.close()
+    db = db_conx()
+    cur = db.cursor()
+
 
 #STEPS 2 & 3 - LOOP THROUGH THE TICKERS AND CREATE AN SQL TEMPLATE WHIC ADDS TO THE DATABASE
 errors_li = []

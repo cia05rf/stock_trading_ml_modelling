@@ -84,7 +84,7 @@ if len(np.unique(df_prices_w.signal)) == 2 and 'buy' in  np.unique(df_prices_w.s
     df_prices_w['signal'] = df_prices_w.signal.astype('int')
     CONFIG['lgbm_training']['buy_signal'] = 1
     CONFIG['lgbm_training']['sell_signal'] = 0
-
+print('{} UNIQUE SIGNALS -> {}'.format(len(np.unique(df_prices_w.signal)),np.unique(df_prices_w.signal)))
 
 #######################################
 ### FILTER OUT SHORT HISTORY SHARES ###

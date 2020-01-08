@@ -12,7 +12,8 @@
 
 #SETUP LOGGING FILE
 import logging
-log_file = r'C:\xampp\htdocs\freshandeasyfood\trading\python_parsers\update_db_tickers_LOG.log'    
+from config import CONFIG
+log_file = CONFIG['files']['log_path'] + CONFIG['files']['ws_update_tickers_log']
 logging.basicConfig(filename=log_file, filemode="w", level=logging.DEBUG)   
 console = logging.StreamHandler()
 console.setLevel(logging.DEBUG)
@@ -25,11 +26,11 @@ import pandas as pd
 import datetime as dt
 
 #Setup the variables
-path = r'C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices'
+path = CONFIG['files']['store_path']
 
 #Read in the file
-data_df = pd.read_csv(path + r'\tick_ftse.csv')
-logging.info('\nSUCCESSFULLY LOADED tick_ftse.csv')
+data_df = pd.read_csv(path + CONFIG['files']['tick_ftse'])
+logging.info('\nSUCCESSFULLY LOADED tickers')
 logging.info('EXAMPLE OF data_df -> \n{}'.format(data_df.head()))
 
 #STEP 2 - CONNECT TO THE DATABASE AND CREATE AN SQL TEMPLATE
