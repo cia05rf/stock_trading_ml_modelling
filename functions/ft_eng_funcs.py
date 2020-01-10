@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import datetime as dt
-from rf_modules import *
+# from rf_modules import *
 
 
 
@@ -89,8 +89,8 @@ def calc_ema_macd(_df_in):
 ###################
 
 #Create a function which normalises a feature based only on the values which have come before it - avoids time series bias
-def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
-    """Function used to call EMA and MACD functions
+def norm_time_s(_ind:int,_s_in,_window:int,_neg_vals:bool=False,_mode:str='max_min',_return_series:bool=False,_fill_window:bool=False):
+    """Normalise a value within over a time period
     
     args:
     -----
@@ -99,6 +99,8 @@ def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
     _window - int - the number of values to look over
     _neg_vals - bool:False - is the output to accunt for the sign of values
     _mode  str:max_min - should the normalisation be done by max mins or standard deviation
+    _return_series - bool:Fasle - Should the return be a series or a value
+    _fill_window - bool:False - Should the returned series be bulked up to fit the window
 
     returns:
     ------
@@ -109,9 +111,12 @@ def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
     if _this_ind < _window:
         _st_ind = 0
     else:
-        _st_ind = _this_ind - _window
+        _st_ind = _this_ind - _window + 1
     _s = _s_in[_st_ind:_this_ind+1]
-    _v = _s_in[_ind]
+    if _return_series:
+        _v = _s
+    else:
+        _v = _s_in[_ind]
     #Normalise the value
     if _mode == 'max_min':
         _min = np.nanmin(_s.values)
@@ -119,7 +124,7 @@ def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
         #If accounting for neg_vals then adjust _max and _min to allow this
         # This method allows values to be normalised and be relative to each other (IE -25 is half the magnitude of -50 and 50)
         if _neg_vals:
-            _max = np.max([np.abs(_min),_max])
+            _max = np.nanmax([np.abs(_min),_max])
             _min = 0
         _norm_val = (_v - _min) / (_max - _min)
     elif _mode == 'std':
@@ -136,7 +141,10 @@ def norm_time_s(_ind,_s_in,_window,_neg_vals:bool=False,_mode:str='max_min'):
             _std = np.nanstd(_s.values)
             _norm_val = (_v - _mean) / _std
     else:
-        raise ValueError('mode must be "std" or "max_min", {} given'.format(mode))
+        raise ValueError('mode must be "std" or "max_min", {} given'.format(_mode))
+    if _return_series and _fill_window:
+            _leading_s = pd.Series([np.nan] * (_window - _norm_val.shape[0]))
+            _norm_val = _leading_s.append(_norm_val)
     return _norm_val
 
 #Run the functions
@@ -169,21 +177,6 @@ def norm_prices(_df_in,_norm_window:int):
         _df_out["{}_orig".format(_col)] = _df_out[_col].copy() #Take a copy so as the values are changed this does not affect following calculations
         _df_out[_col] = [norm_time_s(_x,_df_out["{}_orig".format(_col)],_norm_window) for _x in _df_out.index]
     return _df_out
-
-#Function to normalise current price compared to another
-def norm_s(_s_in):
-    """Function to normalise current price compared to another
-    
-    args:
-    -----
-    _s_in - pandas series - values to be looked at
-    
-    returns:
-    ------
-    pandas series - bools
-    """
-    _s_out = (_s_in - _s_in.min()) / (_max_in - _s_in.max())
-    return _s_out
 
 #Get in-row price change
 def calc_changes(_s_in,_prev_s_in):

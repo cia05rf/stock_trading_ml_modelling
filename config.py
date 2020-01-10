@@ -6,8 +6,8 @@ import skopt
 
 CONFIG = {
     'files':{
-        'store_path':r"C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices"
-        ,'log_path':r"C:\xampp\htdocs\freshandeasyfood\trading\logs"
+        'store_path':r"C:\Users\Robert.Franklin\Documents\historical_prices"
+        ,'log_path':r"C:\Users\Robert.Franklin\Documents\historical_prices\logs"
         ,'tick_ftse':r"\tick_ftse.csv"
         ,'hist_prices_d':r"\all_hist_prices_d.h5"
         ,'hist_prices_d_tmp':r"\all_hist_prices_d_TMP.h5"
@@ -24,9 +24,15 @@ CONFIG = {
         ,'ws_update_prices_log':r'\update_db_historic_prices_LOG.log'
         ,'ws_update_tickers_log':r'\update_db_tickers_LOG.log'
         ,'ws_update_signals_log':r'\update_db_historic_bsh_LOG.log'
+        ,'nn_ft_numpy':r'\nn_ft'
+        ,'nn_tar_numpy':r'\nn_tar'
     }
     ,'web_scrape':{
         'mode':'update' #Set to 'update' or 'full'
+    }
+    ,'nn_ft_eng':{
+        'ft_periods':6 #TEMP - change to 52 eventually
+        ,'target_periods':6
     }
     ,'feature_eng':{
         'min_records':30
