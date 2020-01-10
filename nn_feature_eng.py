@@ -27,7 +27,6 @@ tickers = prices_w.ticker.unique()
 ######################
 ### BUILD FEATURES ###
 ######################
-df_in = prices_w #TEMP
 def build_ft_arrays(df_in):
     """Function to build the features for the given dataset.
     Idealy dataset input should be for a single ticker in ascending datetime order
@@ -147,6 +146,10 @@ def build_ft_arrays(df_in):
     # Normalise over time period
     min_cl_grad_diff_li,min_cl_grad_diff_pos_li,min_cl_grad_diff_neg_li = pos_neg_fts('prev_min_projected_close_diff')
 
+    ### BUILD TARGET VARIABLE ###
+    # Use the value of the EMA12 close n periods from this one relative to this EMA12
+    target = np.array((df_in.ema12.shift(-CONFIG['nn_ft_eng']['target_periods']) / df_in.ema12).tolist())
+
     ### COMBINE THE FEATURES ###
     #The fetaures need to be made so that the nth terms of each list are blocked together
     features = []
@@ -177,17 +180,28 @@ def build_ft_arrays(df_in):
     #Convert to a numpy array
     features = np.array(features)
 
-    #############################
-    ### BUILD TARGET VARIABLE ###
-    #############################
-
-    # Use the value of the EMA12 close n periods from this one relative to this EMA12
-    target = np.array((df_in.ema12.shift(-CONFIG['nn_ft_eng']['target_periods']) / df_in.ema12).tolist())
-
-    ### NOTE TO SELF - Need to remove rows with nan values (IE the first few features and the last few targets)
+    ### REMOVE NAN FEATURES AND TARGETS ###
+    rem_li = []
+    for i in range(features.shape[0]):
+        if np.isnan(features[i]).sum() > 0:
+            rem_li.append(i)
+    for i in range(target.shape[0]):
+        if np.isnan(target[i]).sum() > 0 and i not in rem_li:
+            rem_li.append(i)
+    keep_li = []
+    for i in range(features.shape[0]):
+        if i not in rem_li:
+            keep_li.append(i)
+    # Keep only these indexes
+    print('SHAPE BEFORE FILTERING NAN (features, target) -> ({},{})'.format(features.shape,target.shape))
+    features = features[keep_li,:,:]
+    target = target[keep_li]
+    print('SHAPE AFTER FILTERING NAN (features, target) -> ({},{})'.format(features.shape,target.shape))
 
     return features,target
 
+
+### LOOP TICKERS AND CREATE AN OUTPUT ###
 #Setup a timing class
 run_time = process_time()
 features = np.array([])
