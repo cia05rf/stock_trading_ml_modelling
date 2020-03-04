@@ -11,61 +11,84 @@ import datetime as dt
 ####################
 
 #Function for calculating ema
-def calc_ema(_s_in,_periods):
+def calc_ema(_s_in,_periods,_lead_nan:int=0):
     """Function used to create EMA for a series
     
     args:
     -----
     _s_in - pandas series - series of float values
     _periods - int - value describing how far to look at for EMA calc
-    
+    _lead_nan - int:0 - value describing the number of nans at the start which should be ignored
+
     returns:
     ------
     pandas series    
     """
     #Calc mod val
-    _mod = 2/(_periods+1)
-    #Calc sma
-    _sma_s = [0] * _s_in.shape[0]
-    for _i in range(0,_periods):
-        _sma_s += _s_in.shift(_i) / _periods
-    #Calc ema
-    _ema_s = _sma_s.copy()
-    _ema_s[(_ema_s > 0) & (np.isnan(_ema_s) == False)] = _mod*(_s_in - _ema_s.shift(1)) + _ema_s.shift(1)
-    return _ema_s.copy()
+    _mod = 2 / (_periods+1)
+
+    _li_out = []
+    _thresh_i = _s_in.index.min() + _lead_nan + _periods - 1
+    for _i,_v in _s_in.iteritems():
+        if _i < _thresh_i:
+            _ema = None
+        elif _i == _thresh_i:
+            _ema = np.nanmean(_s_in.iloc[_lead_nan:_lead_nan + _periods + 1])
+        else:
+            _ema = (_v * _mod) + (_prev_ema * (1 - _mod))
+        _prev_ema = _ema
+        _li_out.append(_ema)
+    _s_out = pd.Series(_li_out)
+    _s_out.index = _s_in.index
+    return _s_out
+
+    # #Weighting series
+    # _weight_ar = np.array(range(0,_periods))
+    # _weight_ar = (1-_mod)**_weight_ar
+    # #Calc cum emas
+    # _ema_s = [0] * _s_in.shape[0]
+    # for _i in range(0,_periods):
+    #     _ema_s += _s_in.shift(_i) * _weight_ar[_i]
+    # #Calc ema
+    # _ema_s =  _ema_s / np.sum(_weight_ar)
+    # return _ema_s.copy()
 
 #Function for calculating the MACD
-def calc_macd(_ema_lng_s,_ema_sht_s,_sig_period:int):
+def calc_macd(_s_in,_ema_lng:int=26,_ema_sht:int=12,_sig_period:int=9):
     """Function used to create MACD for a series
     
     args:
     -----
-    _ema_lng_s - pandas series - series of float values for the long term EMA 
-    _ema_sht_s - pandas series - series of float values for the short term EMA
-    _sig_period - int - value describing how far to look at for MACD calc
+    _s_in - pandas series - values to be converted to macd
+    _ema_lng - int:26 - the period over which the long ema will be calculated
+    _ema_sht - int:12 - the period over which the short ema will be calculated
+    _sig_period - int:9 - the period over which the macd will be smoothed as an ema
     
     returns:
     ------
     tuple of pandas series,pandas series,pandas series - MACD line, signal line, macd histogram  
     """
-    #Make a df
-    _tmp_df = pd.DataFrame([])
-    _tmp_df['ema_lng'] = _ema_lng_s
-    _tmp_df['ema_sht'] = _ema_sht_s
+    
+    _tmp_df = _s_in.to_frame()
+    _tmp_df['ema_lng'] = calc_ema(_s_in,_ema_lng)
+    _tmp_df['ema_sht'] = calc_ema(_s_in,_ema_sht)
     #Calc the signal line
     _tmp_df['macd_line'] = _tmp_df['ema_sht'] - _tmp_df['ema_lng']
-    _tmp_df['signal_line'] = calc_ema(_tmp_df['macd_line'],_sig_period)
+    _tmp_df['signal_line'] = calc_ema(_tmp_df['macd_line'],_sig_period,_lead_nan=_ema_lng)
     _tmp_df['macd_hist'] = _tmp_df['macd_line'] - _tmp_df['signal_line']
-    return (_tmp_df['macd_line'].copy(),_tmp_df['signal_line'].copy(),_tmp_df['macd_hist'].copy())
+    return (_tmp_df['ema_sht'].copy(),_tmp_df['ema_lng'].copy(),_tmp_df['macd_line'].copy(),_tmp_df['signal_line'].copy(),_tmp_df['macd_hist'].copy())
 
 #Calc the ema and macds for the data
-def calc_ema_macd(_df_in):
+def calc_ema_macd(_df_in,_ema_lng:int=26,_ema_sht:int=12,_sig_period:int=9):
     """Function used to call EMA and MACD functions
     
     args:
     -----
     _df_in - pandas dataframe - must have columns 'close' and 'date' 
-    
+    _ema_lng - int:26 - the period over which the long ema will be calculated
+    _ema_sht - int:12 - the period over which the short ema will be calculated
+    _sig_period - int:9 - the period over which the macd will be smoothed as an ema
+
     returns:
     ------
     pandas dataframe - with new columns for ema12,ema26,macd_line,signal_line,macd
@@ -74,9 +97,7 @@ def calc_ema_macd(_df_in):
     try:
         #Add in the ema and macd
         _tick_df = _tick_df.sort_values(by='date')
-        _tick_df['ema12'] = calc_ema(_tick_df['close'],12)
-        _tick_df['ema26'] = calc_ema(_tick_df['close'],26)
-        _tick_df['macd_line'],_tick_df['signal_line'],_tick_df['macd'] = calc_macd(_tick_df['ema26'],_tick_df['ema12'],9)
+        _tick_df['ema12'],_tick_df['ema26'],_tick_df['macd_line'],_tick_df['signal_line'],_tick_df['macd'] = calc_macd(_tick_df['close'],_ema_lng=_ema_lng,_ema_sht=_ema_sht,_sig_period=_sig_period)
         return _tick_df
     except Exception as e:
         print('ERROR:{}'.format(e))

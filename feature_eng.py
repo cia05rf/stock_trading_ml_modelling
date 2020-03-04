@@ -188,6 +188,25 @@ def create_features(_df_in):
     
     _df_out = _df_in.copy()
 
+    ### NORMALISING ###
+
+    #Between 0 and 1
+    for _col in [
+        'close'
+        ,'volume'
+        # ,'change_close'
+        # ,'per_change_close'
+        # ,'ema26'
+    ]:
+        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_mode='std') for _x in _df_out.index]
+    #Between -1 and 1
+    # for _col in [
+    #     'macd'
+    #     ,'signal_line'
+    # ]:
+    #     _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_neg_vals=True,_mode='std') for _x in _df_out.index]
+
+
     ### PRICES ###
 
     #Close change vs avg over set period
@@ -315,25 +334,6 @@ def create_features(_df_in):
             ,"prev_{}_signal_line_change".format(max_min)
             ,"prev_{}_signal_line_index_change".format(max_min)
             ])
-
-
-    ### NORMALISING ###
-
-    #Between 0 and 1
-    for _col in [
-        'close'
-        ,'volume'
-        ,'change_close'
-        ,'per_change_close'
-        ,'ema26'
-    ]:
-        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_mode='std') for _x in _df_out.index]
-    #Between -1 and 1
-    for _col in [
-        'macd'
-        ,'signal_line'
-    ]:
-        _df_out[_col] = [norm_time_s(_x,_df_out[_col],CONFIG['feature_eng']['norm_window'],_neg_vals=True,_mode='std') for _x in _df_out.index]
 
     return _df_out
 

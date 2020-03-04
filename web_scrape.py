@@ -151,8 +151,6 @@ tick_ftse['ticker'] = [re.sub('[^0-9A-Z\-]','',tick) for tick in tick_ftse['tick
 
 #open the price file
 hist_prices_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_d'])
-print('hist_prices_df.head() -> \n{}'.format(hist_prices_df.head()))
-
 #Convert date
 def conv_date(_str_in):
     if type(_str_in) == str:
@@ -161,7 +159,12 @@ def conv_date(_str_in):
         return _str_in
 hist_prices_df.date = [conv_date(x) for x in hist_prices_df.date]
 print('hist_prices_df.dtypes -> \n{}'.format(hist_prices_df.dtypes))
-
+#If there are any missing week_start_date fields then calculate them
+if hist_prices_df.week_start_date.isnull().sum() > 0:
+    hist_prices_df['isocalendar'] = [x.isocalendar()[:2] for x in hist_prices_df['date']]
+    min_wk_day = hist_prices_df.loc[hist_prices_df.open > 0,['ticker','date','isocalendar']].groupby(['ticker','isocalendar']).min().reset_index().rename(columns={'date':'week_start_date'})
+    hist_prices_df = pd.merge(hist_prices_df.drop(columns=['week_start_date']),min_wk_day,on=['ticker','isocalendar']).drop(columns=['isocalendar'])
+print('hist_prices_df.head() -> \n{}'.format(hist_prices_df.head()))
 
 ############################
 ### SCRAPE STOCK HISTORY ###
@@ -208,7 +211,7 @@ group_name_w = r'data'
 tables.file._open_files.close_all()
 
 #Scrape daily price data
-out_cols = ['ticker','date','open','close','high','low','change','volume']
+out_cols = ['ticker','date','open','close','high','low','change','volume','week_start_date']
 errors = []
 run_time = process_time()
 for tick in tick_ftse['ticker']:
@@ -234,9 +237,9 @@ for tick in tick_ftse['ticker']:
         #Establish the end date for scrapping
         en_date = dt.date.today()+dt.timedelta(days=1)
         en_date = dt.datetime(en_date.year,en_date.month,en_date.day,0,0,0)
-        #Match to friday if sat or sunday
-        if en_date.weekday() in (5,6):
-            en_date = en_date-dt.timedelta(days=(en_date.weekday()-4))
+        #Match to sat if sunday
+        if en_date.weekday() == 6:
+            en_date = en_date-dt.timedelta(days=(en_date.weekday()-5))
         
         #Get new price data if neccesary
         if st_date < en_date:
@@ -265,7 +268,12 @@ for tick in tick_ftse['ticker']:
         
         #WEEKLY PRICES
         #Convert to weekly prices
-        df_w = get_price_hist_w(tick_df)
+        resp = get_price_hist_w(tick_df)
+        if resp[0]:
+            df_w = resp[1]
+        else:
+            #Raise error
+            raise resp[1]
         
         #Drop duplicates
         df_w = df_w.drop_duplicates()
@@ -315,3 +323,29 @@ tick_ftse.to_csv(path_or_buf=CONFIG['files']['store_path'] + CONFIG['files']['ti
 ### END THE PROGRAM ###
 #######################
 sys.exit()
+
+# import pandas as pd
+# from config import CONFIG
+# _tick_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_d'],key='data')
+# # w_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'],key='data')
+
+# _tick_df = _tick_df[['ticker','date','open','close','high','low','change','volume']]
+# # w_df = w_df[['ticker','date','open','close','high','low','change','volume']]
+
+# #Mark the week identifier
+# _tick_df['isocalendar'] = [x.isocalendar()[:2] for x in _tick_df['date']]
+# _min_wk_day = _tick_df.loc[_tick_df['open'] > 0,['date','ticker','isocalendar']].groupby(['ticker','isocalendar']).min().reset_index().rename(columns={'date':'week_start_date'})
+# _tick_df = pd.merge(_tick_df,_min_wk_day,on=['ticker','isocalendar'])
+# #CLEANING - Remove any rows with zero volume
+# _tick_df = _tick_df[_tick_df['volume'] > 0]
+# #CLEANING - Copy row above where the change has been more than 90%
+# _tick_df['cl_change'] = (_tick_df['close'] - _tick_df['close'].shift(1))/_tick_df['close'].shift(1)
+# _check_s = _tick_df['cl_change'] < -0.9
+# _tick_df.loc[_check_s,'open'] = _tick_df['open'].shift(-1).copy().loc[_check_s]
+# _tick_df.loc[_check_s,'close'] = _tick_df['close'].shift(-1).copy().loc[_check_s]
+# _tick_df.loc[_check_s,'high'] = _tick_df['high'].shift(-1).copy().loc[_check_s]
+# _tick_df.loc[_check_s,'low'] = _tick_df['low'].shift(-1).copy().loc[_check_s]
+# _tick_df = _tick_df.loc[:,['ticker','date','week_start_date','open','close','high','low','change','volume']]
+
+# _tick_df.to_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_d'],key='data')
+# # w_df.to_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'],key='data')
