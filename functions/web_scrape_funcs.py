@@ -72,7 +72,7 @@ def get_price_hist_d(_tick:str,_sec_ref_li:list):
             print('Making call {} -> {} - {}'.format(i,dt.datetime.fromtimestamp(_secs[0]),dt.datetime.fromtimestamp(_secs[1])))
             try:
                 _web_add = 'https://finance.yahoo.com/quote/{0}/history?period1={1}&period2={2}&interval={3}&filter=history&frequency={3}'.format(re.sub('\.','-',_tick)+'.L',_secs[0],_secs[1],'1d')
-                # print('_web_add: {}'.format(_web_add))
+                print('_web_add: {}'.format(_web_add))
                 
                 _resp = rq.get(_web_add)
                 if int(_resp.status_code) != 200:

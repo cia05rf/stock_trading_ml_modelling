@@ -34,6 +34,7 @@ import re
 import datetime as dt
 import sqlite3
 import os
+from tqdm import tqdm
 
 from functions.sql_funcs import start_engine
 from rf_modules import *
@@ -48,11 +49,19 @@ engine, session = start_engine(db_file)
 conn = sqlite3.connect(db_file)
 cur = conn.cursor()
 
+#Setup columns for inserting
+db_cols = {
+    'ticker':['ticker','company','last_seen_date'],
+    'ticker_market':['market','first_seen_date','ticker_id'],
+    'daily_price':['date','open','high','low','close','change','volume','week_start_date','ticker_id'],
+    'weekly_price':['date','open','high','low','close','change','volume','ticker_id']
+}
+
 
 #########################
 ### SCRAPPING TICKERS ###
 #########################
-
+print("\nSCRAPPING TICKERS")
 #This section will scrap the ticker values for the FTSE 100 and FTSE 250 and store them in dataframes 'tick_ftse100' and 'tick_ftse250'.
 #Finally concatenate into 1 dataframe 'tick_ftse'.
 
@@ -65,8 +74,9 @@ par_elem = parser.find_all('div',id='pi-colonna1-display')[0]
 num_pages = int(re.sub('[^0-9]','',par_elem.find_all('p')[0].text[-3:]))
 
 #Collect the rows of data
+print("\nFTSE 100")
 row_li = []
-for page in range(1,num_pages+1):
+for page in tqdm(range(1,num_pages+1), total=len(range(1,num_pages+1))):
     web_add = r'https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/summary/summary-indices-constituents.html?index=UKX&page={}'.format(page)
     resp = rq.get(web_add)
     parser = bs(resp.content,'html.parser')
@@ -84,7 +94,6 @@ print('count -> {}'.format(len(row_li)))
 #Create a dataframe
 tick_ftse100 = pd.DataFrame(data=row_li,columns=['ticker','company'])
 tick_ftse100['market'] = 'FTSE100'
-print('tick_ftse100.head() -> \n{}'.format(tick_ftse100.head()))
 
 #Fetch the data for ftse 250
 web_add = r'https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/summary/summary-indices-constituents.html?index=MCX&page=1'
@@ -95,8 +104,9 @@ par_elem = parser.find_all('div',id='pi-colonna1-display')[0]
 num_pages = int(re.sub('[^0-9]','',par_elem.find_all('p')[0].text[-3:]))
 
 #Collect the rows of data
+print("\nFTSE 250")
 row_li = []
-for page in range(1,num_pages+1):
+for page in tqdm(range(1,num_pages+1), total=len(range(1,num_pages+1))):
     web_add = r'https://www.londonstockexchange.com/exchange/prices-and-markets/stocks/indices/summary/summary-indices-constituents.html?index=MCX&page={}'.format(page)
     resp = rq.get(web_add)
     parser = bs(resp.content,'html.parser')
@@ -114,12 +124,9 @@ print('count -> {}'.format(len(row_li)))
 #Create a dataframe
 tick_ftse250 = pd.DataFrame(data=row_li,columns=['ticker','company'])
 tick_ftse250['market'] = 'FTSE250'
-print('tick_ftse250.head() -> \n{}'.format(tick_ftse250.head()))
 
 #Combine into 1 dataframe
 tick_ftse = pd.concat([tick_ftse100,tick_ftse250])
-print('shape -> {}'.format(tick_ftse.shape))
-print('value_counts -> \n{}'.format(tick_ftse.ticker.value_counts()))
 tick_ftse.sort_values(['ticker'])
 tick_ftse['ticker'] = [re.sub('(?=[0-9A-Z])*\.(?=[0-9A-Z]+)','-',tick) for tick in tick_ftse['ticker']]
 tick_ftse['ticker'] = [re.sub('[^0-9A-Z\-]','',tick) for tick in tick_ftse['ticker']]
@@ -130,23 +137,22 @@ sql = """
     SELECT 
         t.*,
         tm.market,
-        tm.'index' AS ticker_market_id
+        tm.id AS ticker_market_id
     FROM ticker AS t
     LEFT JOIN ticker_market AS tm
-        ON tm.ticker_id = t.'index'
+        ON tm.ticker_id = t.id
 """
 db_tick_df = pd.read_sql(sql, con=conn)
-new_tick_market_df = pd.merge(tick_ftse, db_tick_df[['ticker','index','market','ticker_market_id']].rename(columns={'index':'ticker_id'}), on=['ticker','market'], how='left')
+new_tick_market_df = pd.merge(tick_ftse, db_tick_df[['ticker','id','market','ticker_market_id']].rename(columns={'id':'ticker_id'}), on=['ticker','market'], how='left')
 new_tick_market_df = new_tick_market_df[new_tick_market_df.ticker_market_id.isnull()]
 new_tick_market_df['first_seen_date'] = dt.date.today()
-db_cols = ['market','first_seen_date','ticker_id']
-new_tick_market_df[db_cols].to_sql('ticker_market', con=conn, if_exists='append')
+new_tick_market_df[db_cols['ticker_market']].to_sql('ticker_market', con=conn, index=False, if_exists='append')
+print(f"ADDED {new_tick_market_df.shape[0]} CHANGED markets TO ticker_market")
 
 #If the ticker doesn't exist add it to both ticker and ticker_market
-new_tick_df = pd.merge(tick_ftse, db_tick_df[['ticker','index']].rename(columns={'index':'ticker_id'}), on=['ticker'], how='left')
+new_tick_df = pd.merge(tick_ftse, db_tick_df[['ticker','id']].rename(columns={'id':'ticker_id'}), on=['ticker'], how='left')
 new_tick_df = new_tick_df[new_tick_df.ticker_id.isnull()]
-db_cols = ['ticker','company','last_seen_date']
-new_tick_df[db_cols].to_sql('ticker', con=conn, if_exists='append')
+new_tick_df[db_cols['ticker']].to_sql('ticker', con=conn, index=False, if_exists='append')
 sql = """
     SELECT 
         t.*
@@ -154,14 +160,15 @@ sql = """
 """
 db_tick_df = pd.read_sql(sql, con=conn)
 new_tick_df['first_seen_date'] = dt.date.today()
-new_tick_df = pd.merge(new_tick_df.drop(columns=['ticker_id']), db_tick_df, on=['ticker']).rename(columns={'index':'ticker_id'})
-db_cols = ['market','first_seen_date','ticker_id']
-new_tick_df[db_cols].to_sql('ticker_market', con=conn, if_exists='append')
+new_tick_df = pd.merge(new_tick_df.drop(columns=['ticker_id']), db_tick_df, on=['ticker']).rename(columns={'id':'ticker_id'})
+new_tick_df[db_cols['ticker_market']].to_sql('ticker_market', con=conn, index=False, if_exists='append')
+print(f"ADDED {new_tick_df.shape[0]} NEW tickers TO ticker AND ticker_market")
 
 
 ####################
 ### DAILY PRICES ###
 ####################
+print("\nSCRAPPING DAILY PRICES")
 
 #Make a call for all the latest dates
 sql = """
@@ -185,7 +192,6 @@ def conv_date(_str_in):
         return _str_in
 latest_dates_df.date = [conv_date(x[:10]) for x in latest_dates_df.date]
 latest_dates_df.week_start_date = [conv_date(x[:10]) for x in latest_dates_df.week_start_date]
-print('latest_dates_df.dtypes -> \n{}'.format(latest_dates_df.dtypes))
 
 #Establish the end date
 #Establish the end date for scrapping
@@ -206,14 +212,13 @@ sql = """
     FROM ticker AS t
 """
 db_tick_df = pd.read_sql(sql, con=conn)
-db_cols = ["date","open","high","low","close","change","volume","week_start_date","ticker_id"]
 dp_errors = []
 run_time = process_time()
-for _,row in db_tick_df.iterrows():
+for _,row in tqdm(db_tick_df.iterrows(), total=db_tick_df.shape[0]):
     try:
         print(f'\n{len(run_time.lap_li)} RUNNING FOR -> {row.ticker}')
         #Get the latest date
-        st_date = latest_dates_df[latest_dates_df.ticker_id == row['index']].date.values[0]
+        st_date = latest_dates_df[latest_dates_df.ticker_id == row['id']].date.values[0]
         #Add 1 day to st_date
         st_date = st_date + np.timedelta64(1,'D')
         #Establish the date to start scrapping on
@@ -225,7 +230,7 @@ for _,row in db_tick_df.iterrows():
             st_date = dt.datetime(1970,1,1)
             #Remove all the existing data
             sql = f"""
-                DELETE FROM daily_price WHERE 'index' == {row['index']}
+                DELETE FROM daily_price WHERE id == {row['id']}
             """
             cur.execute(sql)
         else:
@@ -234,15 +239,15 @@ for _,row in db_tick_df.iterrows():
         #Get new price data if neccesary
         if st_date < en_date:
             new_prices_df = get_price_hist_d(row.ticker,create_sec_ref_li(st_date,en_date))
-            new_prices_df['ticker_id'] = row['index']
+            new_prices_df['ticker_id'] = row['id']
             #Add new prices to the sql database
-            new_prices_df[db_cols].to_sql('daily_price', con=conn, if_exists='append')
-            print(f"ADDED {new_prices_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {new_prices_df.date.min()} \n\tTO {new_prices_df.date.max()}")
+            new_prices_df[db_cols['daily_price']].to_sql('daily_price', index=False, con=conn, if_exists='append')
+            print(f"\nADDED {new_prices_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {new_prices_df.date.min()} \n\tTO {new_prices_df.date.max()}")
         else:
             print('No new records to collect')
             continue
     except Exception as e:
-        print('ERROR -> {e}')
+        print(f'ERROR -> {e}')
         dp_errors.append({'ticker':row.ticker,"error":e})
     #Lap
     run_time.lap()
@@ -260,6 +265,7 @@ if len(dp_errors) > 0:
 #####################
 ### WEEKLY PRICES ###
 #####################
+print("\nSCRAPPING WEEKLY PRICES")
 
 #Make a call for all the latest dates
 sql = """
@@ -276,19 +282,17 @@ sql = """
 """
 latest_dates_df = pd.read_sql(sql, con=conn)
 latest_dates_df.date = [conv_date(x[:10]) for x in latest_dates_df.date]
-print('latest_dates_df.dtypes -> \n{}'.format(latest_dates_df.dtypes))
 
 #Loop through the tickers in tick_ftse and for each one get the latest date of scrape.
 #Convert this date into a timestamp.
 #Scrape all new data and add to the database.
-db_cols = ["date","open","high","low","close","change","volume","ticker_id"]
 wp_errors = []
 run_time = process_time()
-for _,row in db_tick_df.iterrows():
+for _,row in tqdm(db_tick_df.iterrows(), total=db_tick_df.shape[0]):
     try:
         print(f'\n{len(run_time.lap_li)} RUNNING FOR -> {row.ticker}')
         #Get the latest date
-        latest_record = latest_dates_df[latest_dates_df.ticker_id == row['index']]
+        latest_record = latest_dates_df[latest_dates_df.ticker_id == row['id']]
         st_date = latest_record.date.values[0]
 
         #Get new price data if neccesary
@@ -297,7 +301,7 @@ for _,row in db_tick_df.iterrows():
                 SELECT * 
                 FROM daily_price
                 WHERE 
-                    ticker_id = {row['index']}
+                    ticker_id = {row['id']}
                     AND week_start_date >= '{st_date}'
             """
             dp_df = pd.read_sql(sql, con=conn)
@@ -310,14 +314,14 @@ for _,row in db_tick_df.iterrows():
             else:
                 #Raise error
                 raise resp[1]
-            new_prices_df['ticker_id'] = row['index']
+            new_prices_df['ticker_id'] = row['id']
 
             #Grab the existing data from the table
             sql = f"""
                 SELECT *
                 FROM weekly_price
                 WHERE 
-                    ticker_id = {row['index']}
+                    ticker_id = {row['id']}
                     AND date >= '{st_date}'
             """
             wp_df = pd.read_sql(sql, con=conn)
@@ -336,24 +340,24 @@ for _,row in db_tick_df.iterrows():
 
             #Add new prices to the sql database
             append_df = comp_df[append_mask]
-            append_df[db_cols].to_sql('daily_price', con=conn, if_exists='append')
-            print(f"ADDED {append_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")
+            append_df[db_cols['weekly_price']].to_sql('weekly_price', con=conn, index=False, if_exists='append')
+            print(f"\nADDED {append_df.shape[0]} NEW RECORDS TO weekly_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")
 
             #Update changed prices on the sql database
             update_df = comp_df[update_mask]
             sql = f"""
                 DELETE FROM weekly_price
-                WHERE ticker_id = {row['index']}
+                WHERE ticker_id = {row['id']}
                 AND date IN ({','.join(f"'{str(x)[:10]}'" for x in update_df.date.to_list())})
             """
             cur.execute(sql)
-            update_df[db_cols].to_sql('daily_price', con=conn, if_exists='append')
-            print(f"DELETED AND ADDED {update_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
+            update_df[db_cols['weekly_price']].to_sql('weekly_price', con=conn, index=False, if_exists='append')
+            print(f"\nDELETED AND ADDED {update_df.shape[0]} NEW RECORDS TO weekly_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
         else:
             print('No new records to collect')
             continue
     except Exception as e:
-        print('ERROR -> {e}')
+        print(f'ERROR -> {e}')
         wp_errors.append({'ticker':row.ticker,"error":e})
     #Lap
     run_time.lap()
@@ -371,6 +375,7 @@ if len(wp_errors) > 0:
 #######################################
 ### UPDATE ALL TICKERS LAST SEEN ON ###
 #######################################
+print("\nUPDAE ALL TICKER LAST SEEN DATES")
 
 sql = f"""
     UPDATE ticker
@@ -378,13 +383,13 @@ sql = f"""
         SELECT
             MAX(date)
         FROM daily_price
-        WHERE daily_price.ticker_id = ticker.'index'
+        WHERE daily_price.ticker_id = ticker.id
     )
     WHERE
         EXISTS (
             SELECT *
             FROM daily_price
-            WHERE daily_price.ticker_id = ticker.'index'
+            WHERE daily_price.ticker_id = ticker.id
         )
 """
 cur.execute(sql)

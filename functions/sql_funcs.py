@@ -27,7 +27,7 @@ Base = declarative_base()
 
 class Ticker(Base):
     __tablename__ = 'ticker'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, Sequence("t_id_seq"), primary_key=True)
     ticker = Column(String, nullable=False)
     company = Column(String, nullable=False)
     last_seen_date = Column(Date, nullable=False, default=dt.today)
@@ -36,7 +36,7 @@ class Ticker(Base):
 
 class TickerMarket(Base):
     __tablename__ = 'ticker_market'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, Sequence("tm_id_seq"), primary_key=True)
     market = Column(String, nullable=False)
     first_seen_date = Column(Date, nullable=False, default=dt.today)
     
@@ -45,7 +45,7 @@ class TickerMarket(Base):
 
 class DailyPrice(Base):
     __tablename__ = 'daily_price'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, Sequence("dp_id_seq"), primary_key=True)
     date = Column(Date, nullable=False)
     open = Column(Float, nullable=False)
     high = Column(Float, nullable=False)
@@ -60,7 +60,7 @@ class DailyPrice(Base):
 
 class WeeklyPrice(Base):
     __tablename__ = 'weekly_price'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, Sequence("wp_id_seq"), primary_key=True)
     date = Column(Date, nullable=False)
     open = Column(Float, nullable=False)
     high = Column(Float, nullable=False)

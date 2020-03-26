@@ -106,7 +106,7 @@ tick_ftse['ticker'] = [re.sub('[^0-9A-Z\-]','',tick) for tick in tick_ftse['tick
 #Put into sql table ticker
 tick_ftse['last_seen_date'] = dt.date.today()
 db_cols = ['ticker','company','last_seen_date']
-tick_ftse[db_cols].reset_index(drop=True).to_sql('ticker', con=conn, if_exists='replace')
+tick_ftse[db_cols].reset_index(drop=True).to_sql('ticker', con=conn, index=False, if_exists='append')
 
 #Get tickers from db for index values
 #Join in the ticker ids
@@ -121,9 +121,9 @@ tick_df = tick_df[tick_df.last_seen_date == tick_df.max_date]
 
 #Put into sql table ticker_market
 tick_ftse['first_seen_date'] = dt.date.today()
-tick_market = pd.merge(tick_ftse, tick_df[['index','ticker']].rename(columns={'index':'ticker_id'}), on='ticker')
+tick_market = pd.merge(tick_ftse, tick_df[['id','ticker']].rename(columns={'id':'ticker_id'}), on='ticker')
 db_cols = ['market','first_seen_date','ticker_id']
-tick_market[db_cols].reset_index(drop=True).to_sql('ticker_market', con=conn, if_exists='replace')
+tick_market[db_cols].reset_index(drop=True).to_sql('ticker_market', con=conn, index=False, if_exists='append')
 
 
 ####################
@@ -139,10 +139,10 @@ def conv_date(_str_in):
     else:
         return _str_in
 hist_prices_df.date = [conv_date(x) for x in hist_prices_df.date]
-hist_prices_df = pd.merge(hist_prices_df, tick_df[['ticker','index']].rename(columns={'index':'ticker_id'}), on='ticker')
+hist_prices_df = pd.merge(hist_prices_df, tick_df[['ticker','id']].rename(columns={'id':'ticker_id'}), on='ticker')
 #Put into db
 db_cols = ['date','open','high','low','close','change','volume','week_start_date','ticker_id']
-hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True).to_sql('daily_price', con=conn, if_exists='replace')
+hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True).to_sql('daily_price', con=conn, index=False, if_exists='append')
 
 
 #####################
@@ -153,10 +153,10 @@ hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True)
 hist_prices_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'])
 #Convert date
 hist_prices_df.date = [conv_date(x) for x in hist_prices_df.date]
-hist_prices_df = pd.merge(hist_prices_df, tick_df[['ticker','index']].rename(columns={'index':'ticker_id'}), on='ticker')
+hist_prices_df = pd.merge(hist_prices_df, tick_df[['ticker','id']].rename(columns={'id':'ticker_id'}), on='ticker')
 #Put into db
 db_cols = ['date','open','high','low','close','change','volume','ticker_id']
-hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True).to_sql('weekly_price', con=conn, if_exists='replace')
+hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True).to_sql('weekly_price', con=conn, index=False, if_exists='append')
 
 
 #############################
