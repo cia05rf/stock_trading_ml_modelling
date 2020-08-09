@@ -13,7 +13,7 @@ import tables
 
 from rf_modules import *
 from config import CONFIG
-from functions.ft_eng_funcs import *
+from libs.ft_eng_funcs import *
 
 #variables
 buy_signal = CONFIG['lgbm_training']['buy_signal']

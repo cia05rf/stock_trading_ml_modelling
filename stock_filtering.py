@@ -5,9 +5,28 @@ from plotly.subplots import make_subplots
 from tqdm import tqdm
 
 from config import CONFIG
-from functions.ft_eng_funcs import calc_ema_macd, flag_mins, flag_maxs, prev_max_min, mk_prev_move_float
+from libs.sql_funcs import start_engine
+from libs.ft_eng_funcs import calc_ema_macd, flag_mins, flag_maxs, prev_max_min, mk_prev_move_float
 
-prices_w_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'])
+# prices_w_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'])
+
+db_file = CONFIG['files']['store_path'] + CONFIG['files']['prices_db']
+
+engine, session = start_engine(db_file)
+
+sql = """
+    SELECT
+        t.ticker,
+        dp.date,
+        dp.open,
+        dp.high,
+        dp.low,
+        dp.close
+    FROM daily_price AS dp
+    LEFT JOIN ticker AS t
+        ON t.id = dp.ticker_id;
+"""
+prices_w_df = pd.read_sql(sql, engine)
 
 #Keep only relevant columns
 prices_w_df = prices_w_df[['ticker','date','open','high','low','close']]
@@ -47,6 +66,8 @@ sell_mask = (prices_w_df.date == prices_w_df.date.max()) & (prices_w_df.prev_min
 sell_df = prices_w_df[sell_mask]
 sell_df['signal'] = 'SELL'
 
+print(f"COUNT BUY -> {buy_df.shape[0]}")
+print(f"COUNT SELL -> {sell_df.shape[0]}")
 display(buy_df)
 display(sell_df)
 

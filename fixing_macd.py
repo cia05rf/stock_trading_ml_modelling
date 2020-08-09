@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 from config import CONFIG
-from functions.ft_eng_funcs import calc_ema_macd, calc_ema
+from libs.ft_eng_funcs import calc_ema_macd, calc_ema
 
 prices_w_df = pd.read_hdf(CONFIG['files']['store_path']+CONFIG['files']['hist_prices_w'])
 prices_d_df = pd.read_hdf(CONFIG['files']['store_path']+CONFIG['files']['hist_prices_d'])

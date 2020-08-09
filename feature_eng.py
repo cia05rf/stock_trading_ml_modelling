@@ -10,7 +10,7 @@ import datetime as dt
 
 from rf_modules import *
 
-from functions.ft_eng_funcs import *
+from libs.ft_eng_funcs import *
 from config import CONFIG
 
 #Programming note

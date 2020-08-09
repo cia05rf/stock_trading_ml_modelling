@@ -12,7 +12,7 @@ import os
 import tables
 from rf_modules import *
 from config import CONFIG
-from functions.run_fund_funcs import *
+from libs.run_fund_funcs import *
 
 #Establish trading variables
 #All figures in pence

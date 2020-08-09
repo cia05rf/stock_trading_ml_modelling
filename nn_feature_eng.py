@@ -12,7 +12,7 @@ import pandas as pd
 import numpy as np
 
 from config import CONFIG
-from functions.ft_eng_funcs import *
+from libs.ft_eng_funcs import *
 from rf_modules import *
 
 #import the price data

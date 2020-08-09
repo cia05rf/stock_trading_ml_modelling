@@ -1,34 +1,41 @@
 """Config file for running scripts"""
 
 import datetime as dt
-import numpy as np
-import skopt
+from numpy import linspace
+from skopt import space
 
 CONFIG = {
+    "web_addr":{
+        "ftse100":r'https://www.londonstockexchange.com/indices/ftse-100/constituents/table?page={}',
+        "ftse250":r'https://www.londonstockexchange.com/indices/ftse-250/constituents/table?page={}',
+        "share_price":r'https://finance.yahoo.com/quote/{}/history?period1={}&period2={}&interval={}&filter=history&frequency={}',
+        "holidays":r'http://www.calendar-uk.co.uk/holidays/{}/',
+    },
+    "scrape":{
+        "max_days":140,
+    },
     'files':{
-        # 'store_path':r"C:\Users\Robert.Franklin\Documents\historical_prices"
-        'store_path':r"C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices"
-        # ,'log_path':r"C:\Users\Robert.Franklin\Documents\historical_prices\logs"
-        ,'log_path':r"C:\Users\Robert\Documents\python_scripts\stock_trading_ml_modelling\historical_prices\logs"
-        ,'tick_ftse':r"\tick_ftse.csv"
-        ,'hist_prices_d':r"\all_hist_prices_d.h5"
-        ,'hist_prices_d_tmp':r"\all_hist_prices_d_TMP.h5"
-        ,'hist_prices_w':r"\all_hist_prices_w.h5"
-        ,'hist_prices_w_tmp':r"\all_hist_prices_w_TMP.h5"
-        ,'prices_db':r'\prices.db'
-        ,'ft_eng_w_tmp':r'\all_hist_prices_w_ft_eng2_TMP.h5'
-        ,'ft_eng_w':r'\all_hist_prices_w_ft_eng2.h5'
-        ,'ft_eng_col_list':r'\feature_engineering_feature_list.txt'
-        ,'lgb_model':r'\lgb_model.joblib'
-        ,'lgb_model_feature_list':r'\lgb_model_feature_list.txt'
-        ,'signals':r'\historic_lgb_bsh_signals.h5'
-        ,'signals_tmp':r'\historic_lgb_bsh_signals_TMP.h5'
-        ,'fund_ledger':r'\fund_ledger_lgb.csv'
-        ,'ws_update_prices_log':r'\update_db_historic_prices_LOG.log'
-        ,'ws_update_tickers_log':r'\update_db_tickers_LOG.log'
-        ,'ws_update_signals_log':r'\update_db_historic_bsh_LOG.log'
-        ,'nn_ft_numpy':r'\nn_ft'
-        ,'nn_tar_numpy':r'\nn_tar'
+        "store_path":r"data"
+        ,"log_path":r"logs"
+        ,"tick_ftse":r"tick_ftse.csv"
+        ,"hist_prices_d":r"all_hist_prices_d.h5"
+        ,"hist_prices_d_tmp":r"all_hist_prices_d_TMP.h5"
+        ,"hist_prices_w":r"all_hist_prices_w.h5"
+        ,"hist_prices_w_tmp":r"all_hist_prices_w_TMP.h5"
+        ,"prices_db":r"prices.db"
+        ,"ft_eng_w_tmp":r"all_hist_prices_w_ft_eng2_TMP.h5"
+        ,"ft_eng_w":r"all_hist_prices_w_ft_eng2.h5"
+        ,"ft_eng_col_list":r"feature_engineering_feature_list.txt"
+        ,"lgb_model":r"lgb_model.joblib"
+        ,"lgb_model_feature_list":r"lgb_model_feature_list.txt"
+        ,"signals":r"historic_lgb_bsh_signals.h5"
+        ,"signals_tmp":r"historic_lgb_bsh_signals_TMP.h5"
+        ,"fund_ledger":r"fund_ledger_lgb.csv"
+        ,"ws_update_prices_log":r"update_db_historic_prices_LOG.log"
+        ,"ws_update_tickers_log":r"update_db_tickers_LOG.log"
+        ,"ws_update_signals_log":r"update_db_historic_bsh_LOG.log"
+        ,"nn_ft_numpy":r"nn_ft"
+        ,"nn_tar_numpy":r"nn_tar"
     }
     ,'web_scrape':{
         'mode':'update' #Set to 'update' or 'full'
@@ -81,18 +88,18 @@ CONFIG = {
             }
             ,'variable':{
                 'learning_rate':[0.1,0.01,0.005]
-                ,'num_leaves':np.linspace(10,1010,100,dtype=int)
-                ,'max_depth':np.linspace(2,8,6,dtype=int)
-                ,'min_samples_split':np.linspace(200,2200,10,dtype=int)
-                ,'min_samples_leaf':np.linspace(50,550,10,dtype=int)
+                ,'num_leaves':linspace(10,1010,100,dtype=int)
+                ,'max_depth':linspace(2,8,6,dtype=int)
+                ,'min_samples_split':linspace(200,2200,10,dtype=int)
+                ,'min_samples_leaf':linspace(50,550,10,dtype=int)
             }
         }
         ,'skopt_params':[
-            skopt.space.Real(0.01,0.5,name='learning_rate',prior='log-uniform')
-            ,skopt.space.Integer(1,30,name='max_depth')
-            ,skopt.space.Integer(2,100,name='num_leaves')
-            ,skopt.space.Integer(200,2000,name='min_samples_split')
-            ,skopt.space.Integer(50,500,name='min_samples_leaf')
+            space.Real(0.01,0.5,name='learning_rate',prior='log-uniform')
+            ,space.Integer(1,30,name='max_depth')
+            ,space.Integer(2,100,name='num_leaves')
+            ,space.Integer(200,2000,name='min_samples_split')
+            ,space.Integer(50,500,name='min_samples_leaf')
             ,
         ]
         ,'fit_params':{
@@ -109,5 +116,15 @@ CONFIG = {
     ,'db_update':{
         'prices':'full'#'update' or 'full'
         ,'signals':'full'#'update' or 'full'
-    }
+    },
+    "public_holidays":[
+        "New Year's Day",
+        "Good Friday",
+        "Easter Monday",
+        "May Day Bank Holiday",
+        "Spring Bank Holiday",
+        "Summer Bank Holiday",
+        "Christmas day",
+        "Boxing Day",
+    ]
 }

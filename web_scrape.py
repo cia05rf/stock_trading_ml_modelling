@@ -42,8 +42,8 @@ import sys
 
 from rf_modules import *
 from config import CONFIG
-from functions.web_scrape_funcs import *
-from functions.ft_eng_funcs import calc_ema,calc_macd,calc_ema_macd,get_col_len_df
+from libs.web_scrape_funcs import *
+from libs.ft_eng_funcs import calc_ema,calc_macd,calc_ema_macd,get_col_len_df
 
 ######################################################
 ### DELETE THE OLD TEMPORARY FILES (IF THEY EXIST) ###

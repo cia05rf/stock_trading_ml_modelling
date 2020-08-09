@@ -11,7 +11,7 @@ import datetime as dt
 import sqlite3
 import os
 
-from functions.sql_funcs import create_db
+from libs.sql_funcs import create_db
 from config import CONFIG
 
 db_file = CONFIG['files']['store_path'] + CONFIG['files']['prices_db']
