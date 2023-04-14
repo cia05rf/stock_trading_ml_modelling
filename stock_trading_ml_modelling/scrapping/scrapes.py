@@ -7,16 +7,16 @@ import nest_asyncio
 import aiohttp
 from bs4 import BeautifulSoup as bs
 
-from stock_trading_ml_modelling.config import CONFIG
+from stock_trading_ml_modelling.config import WEB_ADDRS
 from stock_trading_ml_modelling.utils.date import create_sec_ref_li
 from stock_trading_ml_modelling.utils.data import flatten_one
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.utils.scrape import get_soup, refine_soup
 from stock_trading_ml_modelling.utils.str_formatting import clean_col_name
 
-def scrape_num_pages(ref:str="ftse100"):
+def scrape_num_pages(parent:dict=WEB_ADDRS, ref:str="ftse100"):
     #Fetch the data for ftse 100
-    soup = get_soup(CONFIG["web_addr"][ref].format(1000))
+    soup = get_soup(parent.get(ref, None).format(1000))
     par_elem = refine_soup(soup, filter_li=[{"attrs":{"class":"paginator"}}])[0]
     last_page = refine_soup(par_elem, filter_li=[{"attrs":{"class":"page-number"}}])[-2] #-2 as last item is "go to last page"
     num_pages = int(re.sub('[^0-9]','', last_page.text))
@@ -109,7 +109,7 @@ class ScrapeTickers:
     def scrape(self):
         num_pages = scrape_num_pages(self.ref)
         #Prep urls
-        urls = [CONFIG["web_addr"][self.ref].format(page) for page in range(1, num_pages+1)]
+        urls = [WEB_ADDRS[self.ref].format(page) for page in range(1, num_pages+1)]
         #Scrape asyncronously
         async_scrape = AsyncScrape(self.process_soup, urls)
         row_li = flatten_one(async_scrape.get_resps())
@@ -140,7 +140,7 @@ class ScrapePrices:
 
     def process_soup(self, soup):
         if soup == "":
-            log.info('no results returned')
+            logger.info('no results returned')
             #return to say that there has been an error
             return []
         #Grab the header rows
@@ -158,7 +158,7 @@ class ScrapePrices:
             ])
         #If there are no dates there's no point going back further
         if len(rows) == 0:
-            log.info('No more records to collect')
+            logger.info('No more records to collect')
             return []
         #Put the rows into the dataframe
         data = []
@@ -170,9 +170,9 @@ class ScrapePrices:
 
     def scrape(self):
         #clean ticker
-        sec_ref_li = create_sec_ref_li(self.st_date, self.en_date, days=CONFIG["scrape"]["max_days"])
+        sec_ref_li = create_sec_ref_li(self.st_date, self.en_date, days=WEB_ADDRS["max_days"])
         #Prep urls
-        urls = [CONFIG["web_addr"]["share_price"].format(self.ticker, secs[0], secs[1], self.interval, self.interval) for secs in sec_ref_li]
+        urls = [WEB_ADDRS["share_price"].format(self.ticker, secs[0], secs[1], self.interval, self.interval) for secs in sec_ref_li]
         #Scrape asyncronously
         async_scrape = AsyncScrape(self.process_soup, urls)
         data = flatten_one(async_scrape.get_resps())
@@ -185,7 +185,7 @@ class ScrapeBankHolidays:
 
     def process_soup(self, soup):
         if soup == "":
-            log.info('no results returned')
+            logger.info('no results returned')
             #return to say that there has been an error
             return []
         #Get the data rows
@@ -203,7 +203,7 @@ class ScrapeBankHolidays:
         return list(zip(dates,labels))
 
     def scrape(self):
-        urls = [CONFIG["web_addr"]["holidays"].format(self.year)]
+        urls = [WEB_ADDRS["holidays"].format(self.year)]
         #Scrape asyncronously
         async_scrape = AsyncScrape(self.process_soup, urls)
         data = flatten_one(async_scrape.get_resps())

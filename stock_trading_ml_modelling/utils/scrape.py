@@ -8,7 +8,7 @@ def get_soup(url):
     soup = bs(req.content,'html.parser')
     return soup
 
-def refine_soup(soup, filter_li=[{}], obj_limit=[], log=None):
+def refine_soup(soup, filter_li=[{}], obj_limit=[], logger=None):
     #Descend through the filters to get to the final layer we're interested in
     try:
         soup_pack = soup.find_all(**filter_li[0])
@@ -24,8 +24,8 @@ def refine_soup(soup, filter_li=[{}], obj_limit=[], log=None):
                 new_soup = new_soup + refine_soup(pack, filter_li[1:])
             soup_pack = new_soup
     except Exception as e:
-        if log:
-            log.error(e)
+        if logger:
+            logger.error(e)
         else:
             raise Exception(e)
     return soup_pack

@@ -3,7 +3,7 @@ from pathlib import Path
 from sqlalchemy.orm import sessionmaker, scoped_session
 from tqdm import tqdm
 
-from stock_trading_ml_modelling.config import CONFIG
+from stock_trading_ml_modelling.config import STORE_PATH
 from sqlalchemy import create_engine
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
 from stock_trading_ml_modelling.database import ticker, ticker_market, daily_price, weekly_price
@@ -12,7 +12,7 @@ from stock_trading_ml_modelling.database.models import engine, Session as sessio
 from stock_trading_ml_modelling.database.models.prices import create_db, Ticker, TickerMarket, DailyPrice, WeeklyPrice
 
 eng_old = create_engine(
-    f'sqlite:///{str(CONFIG["files"]["store_path"] / "prices_old.db")}'
+    f'sqlite:///{str(STORE_PATH / "prices_old.db")}'
 )
 old_session = scoped_session(sessionmaker(bind=eng_old, expire_on_commit=False))
 

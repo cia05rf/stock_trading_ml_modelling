@@ -26,7 +26,7 @@ class Trade:
             raise ValueError('spread should be between 0 and 1, the value expressed was -> {}'.format(spread))
         if price < 0:
             raise ValueError('price cannot be a negative, the value expressed was -> {}'.format(price))
-        if value is None and volume is None:
+        if value is None and share_vol is None:
             raise ValueError('value or share_vol must be supplied for a trade')
         #Define trade type - can be BUY or SELL
         self.trade_type = trade_type.upper()

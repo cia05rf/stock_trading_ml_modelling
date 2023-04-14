@@ -1,0 +1,138 @@
+{
+  "web_addrs": {
+    "ftse100": "https://www.londonstockexchange.com/indices/ftse-100/constituents/table?page={}",
+    "ftse250": "https://www.londonstockexchange.com/indices/ftse-250/constituents/table?page={}",
+    "share_price": "https://finance.yahoo.com/quote/{}/history?period1={}&period2={}&interval={}&filter=history&frequency={}",
+    "holidays": "http://www.calendar-uk.co.uk/holidays/{}/"
+  },
+  "files": {
+    "store_path": "C:\\Users\\cia05\\OneDrive\\repos\\stock_trading_ml_modelling\\data",
+    "out_path": "C:\\Users\\cia05\\OneDrive\\repos\\stock_trading_ml_modelling\\out",
+    "tick_ftse": "tick_ftse.csv",
+    "hist_prices_d": "all_hist_prices_d.h5",
+    "hist_prices_d_tmp": "all_hist_prices_d_TMP.h5",
+    "hist_prices_w": "all_hist_prices_w.h5",
+    "hist_prices_w_tmp": "all_hist_prices_w_TMP.h5",
+    "prices_db": "prices.db",
+    "ft_eng_w_tmp": "all_hist_prices_w_ft_eng2_TMP.h5",
+    "ft_eng_w": "all_hist_prices_w_ft_eng2.h5",
+    "ft_eng_col_list": "feature_engineering_feature_list.txt",
+    "lgb_model": "lgb_model.joblib",
+    "lgb_model_feature_list": "lgb_model_feature_list.txt",
+    "signals": "historic_lgb_bsh_signals.h5",
+    "signals_tmp": "historic_lgb_bsh_signals_TMP.h5",
+    "fund_ledge": "fund_ledger_lgb.csv",
+    "ws_update_prices_log": "update_db_historic_prices_LOG.logger",
+    "ws_update_tickers_log": "update_db_tickers_LOG.logger",
+    "ws_update_signals_log": "update_db_historic_bsh_LOG.logger",
+    "nn_ft_numpy": "nn_ft.npy",
+    "nn_tar_numpy": "nn_ta.npy"
+  },
+  "web_scrape": {
+    "mode": "update",
+    "max_days": 140
+  },
+  "nn_ft_eng": {
+    "ft_periods": 6,
+    "target_periods": 6
+  },
+  "feature_eng": {
+    "min_records": 30,
+    "period_li": [
+      4,
+      13,
+      26
+    ],
+    "look_back_price_period": 8,
+    "norm_window": 106,
+    "target_price_period": 6,
+    "min_gain": 0.1,
+    "max_drop": -0.05,
+    "period_high_volatility": 5,
+    "period_low_volatility": 1,
+    "gap_high_volatility": 3,
+    "gap_low_volatility": 1
+  },
+  "training_params": {
+    "date_lim": "2014-01-01",
+    "rand_seed": 0,
+    "target_cols": "signal",
+    "custom_metric": "ppv",
+    "buy_signal": "buy",
+    "sell_signal": "sell"
+  },
+  "lgbm_training": {
+    "rem_inf": false,
+    "use_custom_loss_function": true,
+    "use_custom_eval_set": true,
+    "fixed_params": {
+      "boosting_type": "gbdt",
+      "random_state": 0,
+      "silent": false,
+      "objective": "binary",
+      "min_samples_split": 2000,
+      "min_samples_leaf": 500,
+      "n_estimators": 20,
+      "subsample": 0.8
+    },
+    "search_params": {
+      "fixed": {
+        "cv": 3,
+        "n_ite": 80,
+        "verbose": true,
+        "random_state": 0
+      },
+      "variable": {
+        "learning_rate": [
+          0.1,
+          0.01,
+          0.005
+        ],
+        "num_leaves": [
+          10,
+          1010,
+          100
+        ],
+        "max_depth": [
+          2,
+          8,
+          6
+        ],
+        "min_samples_split": [
+          200,
+          2200,
+          10
+        ],
+        "min_samples_leaf": [
+          50,
+          550,
+          10
+        ]
+      }
+    },
+    "fit_params": {
+      "verbose": true
+    }
+  },
+  "fund_vars": {
+    "fund_value_st": 1000000,
+    "trade_cost": 250,
+    "limit_min_val": 100000,
+    "limit_max_pe": 0.1,
+    "spread": 0.01
+  },
+  "db_update": {
+    "prices": "full",
+    "signals": "full"
+  },
+  "public_holidays": [
+    "New Yea's Day",
+    "Good Friday",
+    "Easter Monday",
+    "May Day Bank Holiday",
+    "Spring Bank Holiday",
+    "Summer Bank Holiday",
+    "Christmas day",
+    "Boxing Day"
+  ]
+}

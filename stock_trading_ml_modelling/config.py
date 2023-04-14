@@ -1,131 +1,90 @@
 """Config file for running scripts"""
-from pathlib import Path
-import datetime as dt
-from numpy import linspace
-from skopt import space
+import json
+import os
+import re
 
-CONFIG = {
-    "web_addr":{
-        "ftse100":r'https://www.londonstockexchange.com/indices/ftse-100/constituents/table?page={}',
-        "ftse250":r'https://www.londonstockexchange.com/indices/ftse-250/constituents/table?page={}',
-        "share_price":r'https://finance.yahoo.com/quote/{}/history?period1={}&period2={}&interval={}&filter=history&frequency={}',
-        "holidays":r'http://www.calendar-uk.co.uk/holidays/{}/',
-    },
-    "scrape":{
-        "max_days":140,
-    },
-    'files':{
-        "store_path":Path(__file__).parent.parent / r"data"
-        ,"log_path":Path(__file__).parent.parent / r"logs"
-        ,"out_path":Path(__file__).parent.parent / r"out"
-        ,"tick_ftse":r"tick_ftse.csv"
-        ,"hist_prices_d":r"all_hist_prices_d.h5"
-        ,"hist_prices_d_tmp":r"all_hist_prices_d_TMP.h5"
-        ,"hist_prices_w":r"all_hist_prices_w.h5"
-        ,"hist_prices_w_tmp":r"all_hist_prices_w_TMP.h5"
-        ,"prices_db":r"prices.db"
-        ,"ft_eng_w_tmp":r"all_hist_prices_w_ft_eng2_TMP.h5"
-        ,"ft_eng_w":r"all_hist_prices_w_ft_eng2.h5"
-        ,"ft_eng_col_list":r"feature_engineering_feature_list.txt"
-        ,"lgb_model":r"lgb_model.joblib"
-        ,"lgb_model_feature_list":r"lgb_model_feature_list.txt"
-        ,"signals":r"historic_lgb_bsh_signals.h5"
-        ,"signals_tmp":r"historic_lgb_bsh_signals_TMP.h5"
-        ,"fund_ledger":r"fund_ledger_lgb.csv"
-        ,"ws_update_prices_log":r"update_db_historic_prices_LOG.log"
-        ,"ws_update_tickers_log":r"update_db_tickers_LOG.log"
-        ,"ws_update_signals_log":r"update_db_historic_bsh_LOG.log"
-        ,"nn_ft_numpy":r"nn_ft"
-        ,"nn_tar_numpy":r"nn_tar"
-    }
-    ,'web_scrape':{
-        'mode':'update' #Set to 'update' or 'full'
-    }
-    ,'nn_ft_eng':{
-        'ft_periods':6 #TEMP - change to 52 eventually
-        ,'target_periods':6
-    }
-    ,'feature_eng':{
-        'min_records':30
-        ,'period_li':[4,13,26]
-        ,'look_back_price_period':8
-        ,'norm_window':3*52
-        ,'target_price_period':6
-        ,'min_gain':0.1
-        ,'max_drop':-0.05
-        ,'period_high_volatility':5
-        ,'period_low_volatility':1
-        ,'gap_high_volatility':3
-        ,'gap_low_volatility':1
-    }
-    ,'lgbm_training':{
-        'target_cols':'signal'
-        ,'rem_inf':False
-        ,'date_lim':dt.datetime(2014,1,1)
-        ,'rand_seed':0
-        ,'use_custom_loss_function':True #Set tot True if using a custom loss function
-        ,'use_custom_eval_set':True #Set to True if using a custom evaluation set
-        ,'custom_metric':'ppv'
-        ,'buy_signal':'buy'
-        ,'sell_signal':'sell'
-        ,'mod_fixed_params':{
-            'boosting_type':'gbdt'
-            ,'random_state':0
-            ,'silent':False
-            ,'objective':'binary'
-            # ,'min_samples_split':2000 #Should be between 0.5-1% of samples
-            # ,'min_samples_leaf':500
-            ,'n_estimators':20
-            ,'subsample':0.8
-        }
-        ,'search_params':{
-            'fixed':{
-                'cv':3
-                ,'n_iter':80
-                # 'cv':2
-                # ,'n_iter':1
-                ,'verbose':True
-                ,'random_state':0
-            }
-            ,'variable':{
-                'learning_rate':[0.1,0.01,0.005]
-                ,'num_leaves':linspace(10,1010,100,dtype=int)
-                ,'max_depth':linspace(2,8,6,dtype=int)
-                ,'min_samples_split':linspace(200,2200,10,dtype=int)
-                ,'min_samples_leaf':linspace(50,550,10,dtype=int)
-            }
-        }
-        ,'skopt_params':[
-            space.Real(0.01,0.5,name='learning_rate',prior='log-uniform')
-            ,space.Integer(1,30,name='max_depth')
-            ,space.Integer(2,100,name='num_leaves')
-            ,space.Integer(200,2000,name='min_samples_split')
-            ,space.Integer(50,500,name='min_samples_leaf')
-            ,
-        ]
-        ,'fit_params':{
-            'verbose':True
-        }
-    }
-    ,'fund_vars':{
-        '_fund_value_st':1000000 #£10,000
-        ,'_trade_cost':250 #£2.50
-        ,'_investment_limit_min_val':100000 #£1,000
-        ,'_investment_limit_max_per':0.1 #10%
-        ,'_spread':0.01 #1%
-    }
-    ,'db_update':{
-        'prices':'full'#'update' or 'full'
-        ,'signals':'full'#'update' or 'full'
-    },
-    "public_holidays":[
-        "New Year's Day",
-        "Good Friday",
-        "Easter Monday",
-        "May Day Bank Holiday",
-        "Spring Bank Holiday",
-        "Summer Bank Holiday",
-        "Christmas day",
-        "Boxing Day",
-    ]
-}
+CONFIG = []
+
+with open("config.json", "r") as f:
+    CONFIG = json.loads(f.read())
+
+# Overwrite with local config if present
+if os.path.isfile("local.config.json"):
+    with open("local.config.json", "r") as f:
+        local_config = json.loads(f.read())
+        for k, v in local_config.items():
+            # Replace the first part APPSETTING_
+            if k in CONFIG:
+                CONFIG[k] = v
+
+# Overwrite with env vars if duplicated
+for k, v in os.environ.items():
+    # Replace the first part APPSETTING_
+    k = re.sub(r"^APPSETTING_", "", k)
+    if k in CONFIG:
+        CONFIG[k] = v
+
+# Assign to variables
+# Scraping
+WEB_SCRAPE_MODE = CONFIG.get("web_scrape", {}).get("mode", "update")
+WEB_SCRAPE_MAX_DAYS = CONFIG.get("web_scrape", {}).get("max_days", 140)
+WEB_ADDRS = CONFIG.get("web_addrs", {})
+# Files
+STORE_PATH = CONFIG.get("files", {}).get("store_path", "./data")
+HIST_PRICES_D = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("hist_prices_d", "hist_prices_d.h5"))
+HIST_PRICES_W = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("hist_prices_w", "hist_prices_w.h5"))
+TICK_FTSE = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("tick_ftse", "tick_ftse.csv"))
+HF_STORE = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ft_eng_w_tmp", "ft_eng_w.h5"))
+FT_ENG_W = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ft_eng_w", "ft_eng_w.txt"))
+FT_ENG_COL_LIST = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ft_eng_w", "ft_eng_col_list.txt"))
+LGB_MODEL = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("lgb_model", "lgb_model.joblib"))
+LGB_MODEL_FEATURE_LIST = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("lgb_model_feature_list", "lgb_model_feature_list.txt"))
+SIGNALS = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("signals", "signals.h5"))
+NN_FT_NUMPY = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("nn_ft_numpy", "nn_ft.npy"))
+NN_TAR_NUMPY = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("nn_tar_numpy", "nn_ta.npy"))
+FUND_LEDGE = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("nn_tar_numpy", "nn_ta.npy"))
+WS_UPDATE_PRICES_LOG = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ws_update_prices_log", "update_db_historic_prices_LOG.logger"))
+WS_UPDATE_TICKERS_LOG = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ws_update_tickers_log", "update_db_tickers_LOG.logger"))
+WS_UPDATE_SIGNALS_LOG = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("ws_update_signals_log", "update_db_historic_bsh_LOG.logger"))
+# Database
+DB_PATH = os.path.join(STORE_PATH, CONFIG.get("files", {}).get("prices_db", "prices.db"))
+DB_UPDATE_PRICES = CONFIG.get("db_update", {}).get("prices", "full")
+DB_UPDATE_SIGNALS = CONFIG.get("db_update", {}).get("signals", "full")
+# nn ft eng
+NN_FT_PERIODS = CONFIG.get("nn_ft_eng", {}).get("ft_periods", 6)
+NN_TARGET_PERIODS = CONFIG.get("nn_ft_eng", {}).get("target_periods", 6)
+# ft eng
+TARGET_PRICE_PERIOD = CONFIG.get("feature_eng", {}).get("target_price_period", 5)
+MIN_GAIN = CONFIG.get("feature_eng", {}).get("min_gain", 5)
+MAX_DROP = CONFIG.get("feature_eng", {}).get("max_drop", 5)
+PERIOD_LI = CONFIG.get("feature_eng", {}).get("period_li", 5)
+LOOK_BACK_PRICE_PERIOD = CONFIG.get("feature_eng", {}).get("look_back_price_period", 5)
+PERIOD_HIGH_VOLATILITY = CONFIG.get("feature_eng", {}).get("period_high_volatility", 5)
+PERIOD_LOW_VOLATILITY = CONFIG.get("feature_eng", {}).get("period_low_volatility", 5)
+GAP_HIGH_VOLATILITY = CONFIG.get("feature_eng", {}).get("gap_high_volatility", 5)
+GAP_LOW_VOLATILITY = CONFIG.get("feature_eng", {}).get("gap_low_volatility", 5)
+NORM_WINDOW = CONFIG.get("feature_eng", {}).get("norm_window", 52)
+# lgbm
+LGBM_REM_INF = CONFIG.get("lgbm_training", {}).get("rem_inf", True)
+LGBM_USE_CUST_LOSS_FUNC = CONFIG.get("lgbm_training", {}).get("use_custom_loss_function", True)
+LGBM_USE_CUST_EVAL_SET = CONFIG.get("lgbm_training", {}).get("use_custom_eval_set", True)
+LGBM_FIXED_PARAMS = CONFIG.get("lgbm_training", {}).get("fixed_params", {})
+LGBM_SEARCH_PARAMS = CONFIG.get("lgbm_training", {}).get("search_params", {})
+LGBM_FIT_PARAMS = CONFIG.get("lgbm_training", {}).get("fit_params", {})
+# training
+BUY_SIGNAL = CONFIG.get("lgbm", {}).get("buy_signal", "buy")
+SELL_SIGNAL = CONFIG.get("lgbm", {}).get("sell_signal", "sell")
+DATE_LIM = CONFIG.get("training_params", {}).get("date_lim", "2014-01-01")
+RAND_SEED = CONFIG.get("training_params", {}).get("rand_seed", 42)
+TARGET_COL = CONFIG.get("training_params", {}).get("target_col", "signal")
+CUSTOM_METRIC = CONFIG.get("training_params", {}).get("custom_metric", "ppv")
+BUY_SIGNAL = CONFIG.get("training_params", {}).get("buy_signal", "buy")
+SELL_SIGNAL = CONFIG.get("training_params", {}).get("sell_signal", "sell")
+# Fund
+FUND_FUND_VALUE_ST = CONFIG.get("fund", {}).get("fund_value_st", 1000000)
+FUND_TRADE_COST = CONFIG.get("fund", {}).get("trade_cost", 250)
+FUND_LIMIT_MIN_VAL = CONFIG.get("fund", {}).get("limit_min_val", 100000)
+FUND_LIMIT_MAX_PE = CONFIG.get("fund", {}).get("limit_max_pe", 0.1)
+FUND_SPREAD = CONFIG.get("fund", {}).get("spread", 0.01)
+# Misc
+PUBLIC_HOLS = CONFIG.get("public_holidays", [])

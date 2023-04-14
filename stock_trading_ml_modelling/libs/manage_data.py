@@ -3,7 +3,7 @@ import datetime as dt
 import pandas as pd
 
 from stock_trading_ml_modelling.utils.date import create_full_year_days, calc_wk_st_date
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.scrapping.scrape_data import get_public_holidays
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
 from stock_trading_ml_modelling.database import daily_price, weekly_price
@@ -65,7 +65,7 @@ def daily_to_weekly_price_conversion(dp_df):
     ------
     pandas dataframe
     """
-    log.info('Converting daily prices to weekly prices')
+    logger.info('Converting daily prices to weekly prices')
     #Mark the week identifier
     dp_df['isocalendar'] = [x.isocalendar()[:2] for x in dp_df['date']]
     #Get highs and lows

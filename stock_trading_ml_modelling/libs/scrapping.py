@@ -4,7 +4,7 @@ import numpy as np
 import datetime as dt
 
 from stock_trading_ml_modelling.config import CONFIG
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.utils.date import create_sec_ref_li, conv_dt
 from stock_trading_ml_modelling.utils.str_formatting import str_to_float_format
 from stock_trading_ml_modelling.database import daily_price, weekly_price
@@ -26,12 +26,12 @@ def get_day_prices(ticker:str, st_date:None, en_date:None):
     pandas dataframe - contains all required prices
 
     """
-    log.info(f'Getting DAILY prices for -> {ticker} from {str(st_date)} to {str(en_date)}')
+    logger.info(f'Getting DAILY prices for -> {ticker} from {str(st_date)} to {str(en_date)}')
     #Perform async scrapes
     tick_df = ScrapePrices(ticker, st_date, en_date).scrape()
     #Check for rows - if none then return
     if not tick_df.shape[0]:
-        log.warning("Early exit due to no new records being found")
+        logger.warning("Early exit due to no new records being found")
         return False, None
     #Reformat strings to floats
     tick_df['open'] = [str_to_float_format(v) for v in tick_df.open]
@@ -87,7 +87,7 @@ def process_daily_prices(
     en_date - datetime - the date to end the scrape
     split_from_date - datetime - the date to start the split
     split_to_date - datetime - the date to end the split
-    log - logger
+    logger - logger
     """
     #Get new price data if neccesary
     if not st_date  or st_date < en_date:
@@ -102,14 +102,14 @@ def process_daily_prices(
             )
             #Update existing prices in the sql database
             daily_price.update_df(update_df)
-            log.info(f"\nUPDATED {update_df.shape[0]} RECORDS IN daily_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
+            logger.info(f"\nUPDATED {update_df.shape[0]} RECORDS IN daily_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
             #Add new prices to the sql database
             daily_price.add_df(append_df)
-            log.info(f"\nADDED {append_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")
+            logger.info(f"\nADDED {append_df.shape[0]} NEW RECORDS TO daily_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")
         else:
-            log.info('No new records found')
+            logger.info('No new records found')
     else:
-        log.info('No new records to collect')
+        logger.info('No new records to collect')
     
 def process_weekly_prices(
     ticker_id,
@@ -125,7 +125,7 @@ def process_weekly_prices(
     ticker_id - int - the ticker id in the db
     split_from_date - datetime - the date to start the split
     split_to_date - datetime - the date to end the split
-    log - logger
+    logger - logger
     """
     #Get new price data if neccesary
     update_df, append_df = split_week_prices(
@@ -137,8 +137,8 @@ def process_weekly_prices(
 
     #Update existing records
     weekly_price.update_df(update_df)
-    log.info(f"\nUPDATED {update_df.shape[0]} RECORDS IN weekly_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
+    logger.info(f"\nUPDATED {update_df.shape[0]} RECORDS IN weekly_price: \n\tFROM {update_df.date.min()} \n\tTO {update_df.date.max()}")
 
     #Add new prices to the sql database
     weekly_price.add_df(append_df)
-    log.info(f"\nADDED {append_df.shape[0]} NEW RECORDS TO weekly_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")
+    logger.info(f"\nADDED {append_df.shape[0]} NEW RECORDS TO weekly_price: \n\tFROM {append_df.date.min()} \n\tTO {append_df.date.max()}")

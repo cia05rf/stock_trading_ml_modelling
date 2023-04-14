@@ -205,7 +205,7 @@ class FunnyResNet(tf.keras.Model):
     self.flat_lay = tf.keras.layers.Flatten()
     self.dense_softmax = tf.keras.layers.Dense(num_classes, activation='softmax')
 
-  def call(self, x_input, training=False):
+  def call(self, x_input, training=False, transfer=False):
     x = self.conv_lay1(x_input)
     x = self.batchnorm_lay1(x, training=training)
     x = self.act_lay1(x)
@@ -229,5 +229,7 @@ class FunnyResNet(tf.keras.Model):
     x = self.resnet_b3_lay5(x, training=training)
 
     x = self.flat_lay(x)
-    x = self.dense_softmax(x)
+    #Softmax
+    training = training or transfer
+    x = self.dense_softmax(x, training=retrain)
     return x

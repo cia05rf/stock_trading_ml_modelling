@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime
 
 LOGGER_CONFIG = {
     "version": 1,
@@ -31,7 +32,7 @@ LOGGER_CONFIG = {
             "class": "logging.FileHandler",
             "level": "INFO",
             "formatter": "file",
-            "filename": Path("logs") / "default.log"
+            "filename": Path("logs") / f"{datetime.now().strftime('%Y%m%d')}_default.logger"
         }
     },
     "root": {

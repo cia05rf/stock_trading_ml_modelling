@@ -1,7 +1,7 @@
 import pandas as pd
 from tqdm import tqdm
 
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
 from stock_trading_ml_modelling.database import ticker, ticker_market, daily_price, weekly_price
 from stock_trading_ml_modelling.data_eng.data import DataSet
@@ -51,5 +51,5 @@ buy_df = pd.DataFrame(buy) \
     .sort_values(["cons_loses"], ascending=[False])
 
 
-log.info(f"{buy_df.shape[0]} opportunities found")
+logger.info(f"{buy_df.shape[0]} opportunities found")
 

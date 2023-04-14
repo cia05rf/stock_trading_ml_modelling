@@ -3,8 +3,8 @@ from tqdm import tqdm
 import datetime as dt
 import pandas as pd
 
-from stock_trading_ml_modelling.config import CONFIG
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.config import WEB_SCRAPE_MAX_DAYS
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.utils.date import calc_date_window
 from stock_trading_ml_modelling.utils.timing import ProcessTime
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
@@ -53,9 +53,9 @@ def remove_duplicate_daily_prices():
         dp_del = _find_duplicates(dp)
         #Delete the others
         if daily_price.remove(dp_del.id.to_list()):
-            log.info(f"Delted {dp_del.shape[0]} records from daily_price, ticker_id -> {id}")
+            logger.info(f"Delted {dp_del.shape[0]} records from daily_price, ticker_id -> {id}")
         else:
-            log.error(f"Unable to delete {dp_del.shape[0]} records from daily_price, ticker_id -> {id}")
+            logger.error(f"Unable to delete {dp_del.shape[0]} records from daily_price, ticker_id -> {id}")
 
 def remove_duplicate_weekly_prices():
     """Function for removing any duplicated prices in the database
@@ -71,9 +71,9 @@ def remove_duplicate_weekly_prices():
         wp_del = _find_duplicates(wp)
         #Delete the others
         if weekly_price.remove(wp_del.id.to_list()):
-            log.info(f"Delted {wp_del.shape[0]} records from weekly_price, ticker_id -> {id}")
+            logger.info(f"Delted {wp_del.shape[0]} records from weekly_price, ticker_id -> {id}")
         else:
-            log.error(f"Unable to delete {wp_del.shape[0]} records from weekly_price, ticker_id -> {id}")
+            logger.error(f"Unable to delete {wp_del.shape[0]} records from weekly_price, ticker_id -> {id}")
 
 def fill_price_gaps(
     from_date=dt.datetime(1970,1,1),
@@ -107,7 +107,7 @@ def fill_price_gaps(
     errors = []
     run_time = ProcessTime()
     for _,r in tqdm(tickers[["id","ticker"]].iterrows(), total=tickers.shape[0], desc="Filling in gaps"):
-        log.info(f"Filling gaps in {r.id} -> {r.ticker}")
+        logger.info(f"Filling gaps in {r.id} -> {r.ticker}")
         try:
             #Fetch all prices
             dp = sqlaq_to_df(daily_price.fetch(ticker_ids=[r.id]))
@@ -131,18 +131,18 @@ def fill_price_gaps(
                         st_d = d
                     else:
                         #Append when group gets too big
-                        if (d - st_d).days > CONFIG["scrape"]["max_days"]:
+                        if (d - st_d).days > WEB_SCRAPE_MAX_DAYS:
                             date_groups.append([st_d, missing_dates[i-1]])
                             #Update the start date
                             st_d = d
                 #Append the last item
                 date_groups.append([st_d, d])
                 #Scrape the missing prices
-                log.info('Number of webscrapes to perform -> {}'.format(len(date_groups)))
+                logger.info('Number of webscrapes to perform -> {}'.format(len(date_groups)))
                 #For each time frame perform a scrape
                 try: #Try loop so as not to miss all following date groups
                     for i,dates in enumerate(date_groups):
-                        log.info(f"Running dates {i} -> {dt.datetime.strptime(str(dates[0])[:10], '%Y-%m-%d')} - {dt.datetime.strptime(str(dates[1])[:10], '%Y-%m-%d')}")
+                        logger.info(f"Running dates {i} -> {dt.datetime.strptime(str(dates[0])[:10], '%Y-%m-%d')} - {dt.datetime.strptime(str(dates[1])[:10], '%Y-%m-%d')}")
                         process_daily_prices(
                             r.ticker,
                             r.id,
@@ -151,7 +151,7 @@ def fill_price_gaps(
                             
                             )
                 except Exception as e:
-                    log.error(e)
+                    logger.error(e)
                     errors.append({'ticker_id':r.id, 'ticker':r.ticker, "error":e, "st_date":dates[0], "en_dates":dates[1]})
                 #Run an update on th weekly prices
                 process_weekly_prices(
@@ -159,15 +159,15 @@ def fill_price_gaps(
                     
                     )
         except Exception as e:
-            log.error(e)
+            logger.error(e)
             errors.append({'ticker_id':r.id, 'ticker':r.ticker, "error":e})
         #Lap
-        log.info(run_time.lap())
-        log.info(run_time.show_latest_lap_time(show_time=True))
-    log.info(f"GAP FILL RUN TIME - {run_time.end()}")
+        logger.info(run_time.lap())
+        logger.info(run_time.show_latest_lap_time(show_time=True))
+    logger.info(f"GAP FILL RUN TIME - {run_time.end()}")
 
-    log.info(f'\nGAP FILL ERROR COUNT -> {len(errors)}')
+    logger.info(f'\nGAP FILL ERROR COUNT -> {len(errors)}')
     if len(errors) > 0:
-        log.info('GAP FILL ERRORS ->')
+        logger.info('GAP FILL ERRORS ->')
         for e in errors:
-            log.error(e)
+            logger.error(e)

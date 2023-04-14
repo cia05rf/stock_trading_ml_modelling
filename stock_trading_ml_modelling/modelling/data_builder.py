@@ -5,18 +5,18 @@ from tqdm import tqdm
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 import json
-
+import gc
 from stock_trading_ml_modelling.libs.data import Data
 
 from stock_trading_ml_modelling.modelling.price_data import PriceData
 
 
-class TrainingData:
+class DataBuilder:
     def __init__(self,
         period=10,
         macd_sht=[12, 26, 9],
         macd_lng=[60, 130, 45],
-        limit_id=None,
+        ticker_ids=[],
         folder:str="default",
         window:int=256
         ):
@@ -28,15 +28,18 @@ class TrainingData:
         self.macd_lng = macd_lng
         self.X = None
         self.y = None
+        self.prices_id = None
         self.labels = {}
         self.signals = None
         self.X_train = None
-        self.X_test = None
         self.y_train = None
+        self.prices_id_train = None
+        self.X_test = None
         self.y_test = None
+        self.prices_id_test = None
         self.folder = folder
         self.window = window
-        self.ticker_ids = range(limit_id) if limit_id is not None else []
+        self.ticker_ids = ticker_ids
 
     def get_price_data(self, weeks=52*10, force:bool=False):
         if self.prices is None or force:
@@ -53,25 +56,39 @@ class TrainingData:
         for tick_id in tqdm(ticker_ids, total=ticker_ids.shape[0], desc="Create data for tickers"):
             #Get all the values from df
             tick_prices = self.prices[self.prices.ticker_id == tick_id]
-            encoded_signal, close, _open, tail, head, macd_sht_pos, macd_sht_neg, macd_lng_pos, macd_lng_neg, rsi = \
-                self.create_ticker_data(tick_prices)
-            tick_X = self.zip_data([_open, close, tail, head, macd_sht_pos, macd_sht_neg, macd_lng_pos, macd_lng_neg, rsi])
+            prices_id, encoded_signal, tick_data = self.create_ticker_data(tick_prices)
+            tick_X = self.zip_data(tick_data)
             #Append data
             self.X = tick_X if self.X is None else np.concatenate((self.X, tick_X), axis=0)
             self.y = encoded_signal if self.y is None else np.concatenate((self.y, encoded_signal), axis=None)
-        self.X_train, self.X_test, self.y_train, self.y_test = self.test_train_split(self.X, self.y)
+            self.prices_id = prices_id if self.prices_id is None else np.concatenate((self.prices_id, prices_id), axis=None)
+        #Split data
+        self.test_train_split()
         self.signals, _ = self.decode_labels(self.y)
 
     def create_ticker_data(self, tick_prices):
         _, close = self.create_data_max_min_norm(tick_prices.close, name="close")
         _, _open = self.create_data_max_min_norm(tick_prices.open, name="_open")
+        pos_change, neg_change = self.split_pos_neg(tick_prices.change, fillna=0)
+        _, pos_change = self.create_data_max_min_norm(pos_change, name="change")
+        _, neg_change = self.create_data_max_min_norm(neg_change, name="change")
         _, tail = self.create_data_intraday(tick_prices, head_tail="tail")
         _, head = self.create_data_intraday(tick_prices, head_tail="head")
         _, encoded_signal = self.fetch_last_from_moving_window(tick_prices.encoded_signal)
+        _, prices_id = self.fetch_last_from_moving_window(tick_prices.id)
         macd_sht_pos, macd_sht_neg = self.create_macd(tick_prices, *self.macd_sht)
         macd_lng_pos, macd_lng_neg = self.create_macd(tick_prices, *self.macd_lng)
         rsi = self.create_rsi(tick_prices)
-        return encoded_signal, close, _open, tail, head, macd_sht_pos, macd_sht_neg, macd_lng_pos, macd_lng_neg, rsi
+        return prices_id, encoded_signal, [close, _open, tail, head, macd_sht_pos, macd_sht_neg, macd_lng_pos, macd_lng_neg, rsi, pos_change, neg_change]
+
+    def split_pos_neg(self, s, fillna=np.nan):
+        """Will take in a series and return a series where values are positive
+        and a series where vales are negative"""
+        pos_s = s.copy()
+        pos_s.loc[pos_s < 0] = fillna
+        neg_s = s.copy()
+        neg_s.loc[neg_s > 0] = fillna
+        return pos_s, neg_s
 
     def identify_signals_gain_loss(self, s, gain:float=0.05, period1:int=5, period2:int=10):
         """Identify signals based on future performance
@@ -206,31 +223,106 @@ class TrainingData:
         encoded_s = np.vectorize(labels.get)(s.values)
         return encoded_s, labels
 
-    def decode_labels(self, np_array):
+    def decode_labels(self, np_array=None, key=None):
+        if key is not None:
+            np_array = getattr(self, key)
+        elif np_array is None:
+            raise "key and np_array cannot both be None"
         rev_labels = {v:k for k,v in self.labels.items()}
         decoded_s = np.vectorize(rev_labels.get)(np_array)
         return decoded_s, rev_labels
 
-    def test_train_split(self, X, y):
-        return train_test_split(
-            X, y,
-            test_size=0.8, random_state=42
+    def test_train_split(self):
+        self.X_train, self.X_test, self.y_train, self.y_test, self.prices_id_train, self.prices_id_test = train_test_split(
+            self.X, self.y, self.prices_id,
+            test_size=0.25, random_state=42
             )
 
-    def save_data(self):
+    def save_preds(self, preds):
         path = Path("data", self.folder)
         path.mkdir(parents=True, exist_ok=True)
-        np.save(path / "X.npy", self.X)
-        np.save(path / "y.npy", self.y)
-        np.save(path / "signals.npy", self.signals, allow_pickle=True)
-        with open(path / "labels.txt", "w+") as f:
-            f.write(json.dumps(self.labels))
+        np.save(path / "preds.npy", preds)
 
-    def load_data(self):
+    def load_preds(self, decode=True):
         path = Path("data", self.folder)
-        self.X = np.load(path / "X.npy")
-        self.y = np.load(path / "y.npy")
-        self.signals = np.load(path / "signals.npy", allow_pickle=True)
-        with open(path / "labels.txt", "r") as f:
-            self.labels = json.loads(f.read())
-        self.X_train, self.X_test, self.y_train, self.y_test = self.test_train_split(self.X, self.y)
+        path.mkdir(parents=True, exist_ok=True)
+        preds = np.load(path / "preds.npy")
+        if decode:
+            with open(path / "labels.txt", "r") as f:
+                self.labels = json.loads(f.read())
+            preds = self.decode_labels(preds)
+        return preds
+
+    def save_data(self, keys=[]):
+        path = Path("data", self.folder)
+        path.mkdir(parents=True, exist_ok=True)
+        if not len(keys):
+            keys = ["X", "y", "signals", "prices_id", "prices_id_test", "prices_id_train", "labels"]
+        k2 = [k for k in keys if k in ["X", "y"]]
+        for k in k2:
+            np.save(path / f"{k}.npy", getattr(self, k))
+        k2 = [k for k in keys if k in ["signals", "prices_id", "prices_id_test", "prices_id_train"]]
+        for k in k2:
+            np.save(path / f"{k}.npy", getattr(self, k), allow_pickle=True)
+        k2 = [k for k in keys if k in ["labels"]]
+        for k in k2:
+            with open(path / f"{k}.txt", "w+") as f:
+                f.write(json.dumps(getattr(self, k)))
+
+    def load_data(self, keys=[], split_data=True):
+        path = Path("data", self.folder)
+        if not len(keys):
+            keys = ["X", "y", "signals", "prices_id", "prices_id_test", "prices_id_train", "labels"]
+        k2 = [k for k in keys if k in ["X", "y"]]
+        for k in k2:
+            setattr(self, k, np.load(path / f"{k}.npy"))
+        k2 = [k for k in keys if k in ["signals", "prices_id", "prices_id_test", "prices_id_train"]]
+        for k in k2:
+            setattr(self, k, np.load(path / f"{k}.npy", allow_pickle=True))
+        k2 = [k for k in keys if k in ["labels"]]
+        for k in k2:
+            with open(path / f"{k}.txt", "r") as f:
+                setattr(self, k, json.loads(f.read()))
+        if split_data and "X" in keys and "y" in keys:
+            self.test_train_split()
+
+    def gc(self,
+        prices:bool=True,
+        X:bool=True,
+        y:bool=True,
+        prices_id:bool=True,
+        signals:bool=True,
+        X_train:bool=True,
+        y_train:bool=True,
+        prices_id_train:bool=True,
+        X_test:bool=True,
+        y_test:bool=True,
+        prices_id_test:bool=True,
+        ):
+        """garbage collect to free memory
+        
+        Specify the datasets to keep by changing to false
+        """
+        if prices:
+            self.prices = None
+        if X:
+            self.X = None
+        if y:
+            self.y = None
+        if prices_id:
+            self.prices_id = None
+        if signals:
+            self.signals = None
+        if X_train:
+            self.X_train = None
+        if y_train:
+            self.y_train = None
+        if prices_id_train:
+            self.prices_id_train = None
+        if X_test:
+            self.X_test = None
+        if y_test:
+            self.y_test = None
+        if prices_id_test:
+            self.prices_id_test = None
+        gc.collect()

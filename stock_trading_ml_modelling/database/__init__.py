@@ -234,7 +234,7 @@ class DailyPriceCl:
         try:
             #Preform check to prevent del_all
             if not del_all and not len(ids) and not len(ticker_ids) and not from_date and not to_date:
-                log.warning("Delete not performed as no attributes given and del_all is False")
+                logger.warning("Delete not performed as no attributes given and del_all is False")
                 return False
             query = session.query(DailyPrice)
             if len(ids):
@@ -369,7 +369,7 @@ class WeeklyPriceCl:
         try:
             #Preform check to prevent del_all
             if not del_all and not len(ids) and not len(ticker_ids) and not from_date and not to_date:
-                log.warning("Delete not performed as no attributes given and del_all is False")
+                logger.warning("Delete not performed as no attributes given and del_all is False")
                 return False
             query = session.query(WeeklyPrice)
             if len(ids):

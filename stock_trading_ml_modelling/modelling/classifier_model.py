@@ -22,7 +22,7 @@ class ClassifierModel:
         batch_size:int=32
         ):
         self.learning_rate = learning_rate
-        self.model = FunnyResNet(num_classes)
+        self.base_model = FunnyResNet(num_classes)
         self.loss = loss
         self.compiled = False
         self.path = Path("data", "models", folder)
@@ -39,7 +39,7 @@ class ClassifierModel:
         self.fit(X, y, labels=labels)
 
     def compile(self):
-        self.model.compile(
+        self.base_model.compile(
             optimizer=Adam(learning_rate=self.learning_rate),
             loss="sparse_categorical_crossentropy",
             metrics=[
@@ -67,7 +67,7 @@ class ClassifierModel:
         class_weight = self.create_class_weighting(y, labels)
         print(f"class_weight -> {class_weight}")
         #Fit the model
-        self.model.fit(
+        self.base_model.fit(
             X,
             y,
             epochs=self.epochs,
@@ -78,18 +78,18 @@ class ClassifierModel:
             )
 
     def save_model(self):
-        self.model.save(self.path)
+        self.base_model.save(self.path)
 
     def load_model(self):
-        self.model = load_model(self.path)
+        self.base_model = load_model(self.path)
         self.compiled = True
 
     def eval_model(self, X, y, labels:dict):
         #Evaluate the model
-        val_loss, val_acc = self.model.evaluate(X, y)
+        val_loss, val_acc = self.base_model.evaluate(X, y)
         print(f"val_loss:{val_loss} - val_acc:{val_acc}")
 
-        preds = self.model.predict(X)
+        preds = self.base_model.predict(X)
         preds = np.argmax(preds, axis=1)
 
         act_val_counts = np_count_values(y)
@@ -107,8 +107,11 @@ class ClassifierModel:
             ppv = tp / (tp + fp)
             print(f"ppv of {k} - {ppv:.4f} - tp {tp} - fp {fp} - tp + fn {(y == v).sum()}")
 
-    def predict(*args, **kwargs):
-        self.model.predict(*args, **kwargs)
+    def predict_sml(self, X, *args, **kwargs):
+        return self.base_model(X, training=False, *args, **kwargs)
 
-    def evaluate(*args, **kwargs):
-        self.model.evaluate(*args, **kwargs)
+    def predict(self, X, *args, **kwargs):
+        return self.base_model.predict(X, *args, **kwargs)
+
+    def evaluate(self, X, y, *args, **kwargs):
+        return self.base_model.evaluate(X, y, *args, **kwargs)

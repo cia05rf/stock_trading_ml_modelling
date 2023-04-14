@@ -19,7 +19,7 @@
 
 #SETUP LOGGING FILE
 import logging
-log_file = r'C:\xampp\htdocs\freshandeasyfood\trading\python_parsers\update_db_historic_trades_LOG.log'    
+log_file = r'C:\xampp\htdocs\freshandeasyfood\trading\python_parsers\update_db_historic_trades_LOG.logger'    
 logging.basicConfig(filename=log_file, filemode="w", level=logging.DEBUG)   
 console = logging.StreamHandler()
 console.setLevel(logging.DEBUG)

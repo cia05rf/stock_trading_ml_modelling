@@ -12,9 +12,10 @@ import sqlite3
 import os
 
 from stock_trading_ml_modelling.libs.sql_funcs import create_db
-from stock_trading_ml_modelling.config import CONFIG
+from stock_trading_ml_modelling.config import DB_PATH, HIST_PRICES_D, \
+    HIST_PRICES_W
 
-db_file = CONFIG['files']['store_path'] + CONFIG['files']['prices_db']
+db_file = DB_PATH
 
 #Delete the old files
 try:
@@ -131,7 +132,7 @@ tick_market[db_cols].reset_index(drop=True).to_sql('ticker_market', con=conn, in
 ####################
 
 #Read in all the existing data for daily prices
-hist_prices_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_d'])
+hist_prices_df = pd.read_hdf(HIST_PRICES_D)
 #Convert date
 def conv_date(_str_in):
     if type(_str_in) == str:
@@ -150,7 +151,7 @@ hist_prices_df[db_cols].sort_values(['ticker_id','date']).reset_index(drop=True)
 #####################
 
 #Read in all the existing data for daily prices
-hist_prices_df = pd.read_hdf(CONFIG['files']['store_path'] + CONFIG['files']['hist_prices_w'])
+hist_prices_df = pd.read_hdf(HIST_PRICES_W)
 #Convert date
 hist_prices_df.date = [conv_date(x) for x in hist_prices_df.date]
 hist_prices_df = pd.merge(hist_prices_df, tick_df[['ticker','id']].rename(columns={'id':'ticker_id'}), on='ticker')

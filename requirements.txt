@@ -1,9 +1,9 @@
+scipy
 beautifulsoup4
 joblib
 lightgbm
 numpy
-sklearn
-scipy
+scikit-learn
 matplotlib
 numexpr
 pandas
@@ -11,8 +11,6 @@ pillow
 tqdm
 pyaml
 requests
-scikit-optimize
-sklearn
 sqlalchemy
 tables
 urllib3

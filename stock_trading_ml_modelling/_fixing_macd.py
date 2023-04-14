@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 
-from stock_trading_ml_modelling.config import CONFIG
+from stock_trading_ml_modelling.config import HIST_PRICES_D, HIST_PRICES_W
 from stock_trading_ml_modelling.utils.ft_eng import calc_ema_macd, calc_ema
 
-prices_w_df = pd.read_hdf(CONFIG['files']['store_path']+CONFIG['files']['hist_prices_w'])
-prices_d_df = pd.read_hdf(CONFIG['files']['store_path']+CONFIG['files']['hist_prices_d'])
+prices_w_df = pd.read_hdf(HIST_PRICES_D)
+prices_d_df = pd.read_hdf(HIST_PRICES_W)
 
 tmp_w_df = prices_w_df[prices_w_df.ticker == 'BARC'][['date','close']].sort_values(['date'])
 tmp_d_df = prices_d_df[prices_d_df.ticker == 'BARC'][['date','close']].sort_values(['date'])

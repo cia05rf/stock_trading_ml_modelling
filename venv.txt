@@ -1,1 +1,0 @@
-.  c:\\users\\cia05\\appdata\\local\\pypoetry\\cache\\virtualenvs\\stock-trading-ml-modelling-3tl31fnl-py3.9\\scripts\\activate

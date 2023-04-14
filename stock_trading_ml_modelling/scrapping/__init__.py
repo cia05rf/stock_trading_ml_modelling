@@ -27,15 +27,11 @@ The inputs required for scrapping are:
      - 1mo = 1 eveery month
 """
 import pandas as pd
-import numpy as np
-from pathlib import Path
-import re
 import datetime as dt
-import os
 from tqdm import tqdm
 
-from stock_trading_ml_modelling.config import CONFIG
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.config import WEB_SCRAPE_MODE
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.utils.timing import ProcessTime
 from stock_trading_ml_modelling.utils.date import calc_en_date, calc_st_date
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
@@ -67,14 +63,14 @@ def full_scrape():
     ####################
     ### DAILY PRICES ###
     ####################
-    log.info("\nSCRAPPING DAILY PRICES")
+    logger.info("\nSCRAPPING DAILY PRICES")
 
     #Make a call for all the latest dates
     latest_dates_df = sqlaq_to_df(daily_price.fetch_latest(session, ticker_ids=ticker_ids))
     latest_dates_df["max_date"] = latest_dates_df.max_date.astype("datetime64")
     #Calc the en_date for today
     en_date = calc_en_date()
-    if str(CONFIG['web_scrape']['mode']).lower() == 'update':
+    if str(WEB_SCRAPE_MODE).lower() == 'update':
         latest_dates_df["st_date"] = [calc_st_date(v) for v in latest_dates_df.max_date]
     else:
         latest_dates_df["st_date"] = dt.datetime(1970,1,1)
@@ -87,8 +83,8 @@ def full_scrape():
     dp_errors = []
     run_time = ProcessTime()
     for _,r in tqdm(latest_dates_df.iterrows(), total=latest_dates_df.shape[0], desc="Scrape daily prices"):
-        log.info(f'\n{len(run_time.lap_li)} RUNNING FOR -> {r.id}, {r.ticker}')
-        log.info(f'Latst date - {r.max_date}')
+        logger.info(f'\n{len(run_time.lap_li)} RUNNING FOR -> {r.id}, {r.ticker}')
+        logger.info(f'Latst date - {r.max_date}')
         try:
             #Get new price data if neccesary and add/update the database
             process_daily_prices(
@@ -100,17 +96,17 @@ def full_scrape():
                 split_to_date=None
                 )
         except Exception as e:
-            log.error(e)
+            logger.error(e)
             dp_errors.append({'ticker':r.ticker, "error":e})
         #Lap
-        log.info(run_time.lap())
-        log.info(run_time.show_latest_lap_time(show_time=True))
-    log.info(f"DAILY SCRAPE RUN TIME - {run_time.end()}")
+        logger.info(run_time.lap())
+        logger.info(run_time.show_latest_lap_time(show_time=True))
+    logger.info(f"DAILY SCRAPE RUN TIME - {run_time.end()}")
 
     #####################
     ### WEEKLY PRICES ###
     #####################
-    log.info("\nSCRAPPING WEEKLY PRICES")
+    logger.info("\nSCRAPPING WEEKLY PRICES")
 
     #Make a call for all the latest dates
     latest_dates_df = sqlaq_to_df(weekly_price.fetch_latest(session, ticker_ids=ticker_ids))
@@ -122,7 +118,7 @@ def full_scrape():
     wp_errors = []
     run_time = ProcessTime()
     for _,r in tqdm(latest_dates_df.iterrows(), total=latest_dates_df.shape[0], desc="Process weekly prices"):
-        log.info(f'\n{len(run_time.lap_li)} RUNNING FOR -> {r.id}, {r.ticker}')
+        logger.info(f'\n{len(run_time.lap_li)} RUNNING FOR -> {r.id}, {r.ticker}')
         try:
             #Get new price data if neccesary
             if r.max_date < en_date:
@@ -132,29 +128,29 @@ def full_scrape():
                     
                     )
             else:
-                log.info('No new records to collect')
+                logger.info('No new records to collect')
                 continue
         except Exception as e:
-            log.error(e)
+            logger.error(e)
             wp_errors.append({'ticker':r.ticker,"error":e})
         #Lap
-        log.info(run_time.lap())
-        log.info(run_time.show_latest_lap_time(show_time=True))
-    log.info('\n\n')
-    log.info(f"WEEKLY SCRAPE RUN TIME - {run_time.end()}")
+        logger.info(run_time.lap())
+        logger.info(run_time.show_latest_lap_time(show_time=True))
+    logger.info('\n\n')
+    logger.info(f"WEEKLY SCRAPE RUN TIME - {run_time.end()}")
 
     ####################
     ### PRINT ERRORS ###
     ####################
 
-    log.info(f'\nDAILY ERROR COUNT -> {len(dp_errors)}')
+    logger.info(f'\nDAILY ERROR COUNT -> {len(dp_errors)}')
     if len(dp_errors) > 0:
-        log.info('DALIY ERRORS ->')
+        logger.info('DALIY ERRORS ->')
         for e in dp_errors:
-            log.error(e)
+            logger.error(e)
 
-    log.info(f'\nWEEKLY ERROR COUNT -> {len(wp_errors)}')
+    logger.info(f'\nWEEKLY ERROR COUNT -> {len(wp_errors)}')
     if len(wp_errors) > 0:
-        log.info('WEEKLY ERRORS ->')
+        logger.info('WEEKLY ERRORS ->')
         for e in wp_errors:
-            log.error(e)
+            logger.error(e)

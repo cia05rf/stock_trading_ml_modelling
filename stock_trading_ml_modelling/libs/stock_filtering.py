@@ -1,7 +1,7 @@
 import pandas as pd
 from tqdm import tqdm
 
-from stock_trading_ml_modelling.libs.logs import log
+from stock_trading_ml_modelling.utils.log import logger
 from stock_trading_ml_modelling.database.get_data import sqlaq_to_df
 from stock_trading_ml_modelling.database import ticker, ticker_market, daily_price, weekly_price
 from stock_trading_ml_modelling.libs.data import DataSet
@@ -42,40 +42,43 @@ def filter_stocks(from_date=None, to_date=None):
         tick_prices = prices_df[prices_df.ticker_id == r.ticker_id]
         dataset = DataSet()
         dataset.add_dataset(tick_prices.close, "close")
-        #Calculate the short macd
-        _, _, _, _, macd_short = dataset.close.calc_macd(ema_lng=26, ema_sht=12, sig_period=9)
-        dataset.add_dataset(macd_short, "macd_short")
-        #Normalise it
-        macd_short = dataset.macd_short.norm_data(dataset.close.data)
-        dataset.add_dataset(macd_short, "macd_short")
+        # #Calculate the short macd
+        # macd_short = dataset.close.calc_macd(ema_lng=26, ema_sht=12, sig_period=9)
+        # dataset.add_dataset(macd_short["MACDh_12_26_9"], "macd_short")
+        # #Normalise it
+        # macd_short = dataset.macd_short.norm_data(dataset.close.data)
+        # dataset.add_dataset(macd_short, "macd_short")
         #Calculate the long macd
-        _, _, _, _, macd_long = dataset.close.calc_macd(ema_lng=26*5, ema_sht=12*5, sig_period=9*5)
-        dataset.add_dataset(macd_long, "macd_long")
+        macd_long = dataset.close.calc_macd(ema_lng=26*5, ema_sht=12*5, sig_period=9*5)
+        dataset.add_dataset(macd_long["MACDh_60_130_45"], "macd_long")
         #Normalise it
-        macd_short = dataset.macd_long.norm_data(dataset.close.data)
+        macd_long = dataset.macd_long.norm_data(dataset.close.data)
         dataset.add_dataset(macd_long, "macd_long")
         #Find the previous major macd high
         #Find the short gradient since this high to the current position
         #Find the previous major macd low
         #Find the short gradient since this low to the current position
         #Calc gradients of macds
-        grad_macd_short = dataset.macd_short.calc_grad()
-        dataset.add_dataset(grad_macd_short, "grad_macd_short")
+        # grad_macd_short = dataset.macd_short.calc_grad()
+        # dataset.add_dataset(grad_macd_short, "grad_macd_short")
         grad_macd_long = dataset.macd_long.calc_grad()
         dataset.add_dataset(grad_macd_long, "grad_macd_long")
+        #RSI
+        rsi = dataset.close.calc_rsi(length=14)
+        dataset.add_dataset(rsi, "rsi")
+
         #Identify if it is a buy signal
-        check1 = (dataset.grad_macd_short.data.iloc[-1] > 0 \
-            and dataset.grad_macd_short.data.iloc[-2] < 0
-            and dataset.grad_macd_long.data.iloc[-1] > 0)
+        check1 = (dataset.rsi.data.iloc[-1] < 30)
         if check1:
             buy.append({
                 "ticker":r.ticker,
                 "ticker_id":r.ticker_id,
-                "short_grad_pre":dataset.grad_macd_short.data.iloc[-2],
-                "short_grad_post":dataset.grad_macd_short.data.iloc[-1],
-                "short_grad_change":abs(dataset.grad_macd_short.data.iloc[-2]) + abs(dataset.grad_macd_short.data.iloc[-1]),
+                # "short_grad_pre":dataset.grad_macd_short.data.iloc[-2],
+                # "short_grad_post":dataset.grad_macd_short.data.iloc[-1],
+                # "short_grad_change":abs(dataset.grad_macd_short.data.iloc[-2]) + abs(dataset.grad_macd_short.data.iloc[-1]),
                 "long_grad":dataset.grad_macd_long.data.iloc[-1],
-                "macd_long":dataset.macd_long.data.iloc[-1]
+                "macd_long":dataset.macd_long.data.iloc[-1],
+                "rsi":dataset.rsi.data.iloc[-5].min()
             })
      
     #Put into a dataframe
@@ -83,7 +86,7 @@ def filter_stocks(from_date=None, to_date=None):
     if buy_df.shape[0]:
         buy_df = buy_df.sort_values(["long_grad"], ascending=[False])
 
-    log.info(f"{buy_df.shape[0]} opportunities found")
+    logger.info(f"{buy_df.shape[0]} opportunities found")
 
     return buy_df
 
