@@ -5,11 +5,11 @@ import re
 
 CONFIG = []
 
-with open("config.json", "r") as f:
+with open("./stock_trading_ml_modelling/config.json", "r") as f:
     CONFIG = json.loads(f.read())
 
 # Overwrite with local config if present
-if os.path.isfile("local.config.json"):
+if os.path.isfile("./stock_trading_ml_modelling/local.config.json"):
     with open("local.config.json", "r") as f:
         local_config = json.loads(f.read())
         for k, v in local_config.items():
